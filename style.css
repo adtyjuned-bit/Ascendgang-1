@@ -176,9 +176,11 @@ max-width:900px;
 
 }
 
+<!-- baru edit -->
 .hero-logo{
-
+position: relative;
 width:220px;
+z-index: 1;
 
 margin:auto;
 
@@ -187,6 +189,32 @@ margin-bottom:25px;
 filter:drop-shadow(0 0 30px #7c3aed);
 
 }
+
+/* =======================================================
+   🟢 LOGO BACKGROUND HERO
+   Ganti assets/logo.png dengan logo kamu
+   ======================================================= */
+
+.hero-content::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 450px;
+    height: 450px;
+
+    transform: translate(-50%, -50%);
+
+    background: url("ascend.png") center/contain no-repeat;
+
+    opacity: 0.08; /* Atur 0.05 - 0.15 sesuai selera */
+
+    z-index: -1;
+
+    filter: drop-shadow(0 0 40px #7c3aed);
+}
+
+<!-- diatas baru edit-->
 
 .hero h1{
 
