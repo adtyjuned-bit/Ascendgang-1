@@ -1,0 +1,244 @@
+/* ========================================== */
+/* 1. STYLE DASAR & PENGATURAN UMUM           */
+/* ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #0b0c10;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+.section-title span {
+  color: #ff0055;
+}
+
+/* ========================================== */
+/* 2. NAVBAR / MENU ATAS                      */
+/* ========================================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  background: #15181e;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #222;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.logo span {
+  color: #ff0055;
+}
+
+nav a {
+  color: #ccc;
+  text-decoration: none;
+  margin-left: 15px;
+  font-size: 0.9rem;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+.btn-nav {
+  background: #ff0055;
+  padding: 6px 15px;
+  border-radius: 4px;
+  color: #fff !important;
+}
+
+/* ========================================== */
+/* 3. HERO SECTION / TAMPILAN UTAMA           */
+/* ========================================== */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: radial-gradient(circle, #1a0814 0%, #0b0c10 100%);
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.hero h1 span {
+  color: #ff0055;
+}
+
+.hero p {
+  color: #aaa;
+  max-width: 600px;
+  margin: 0 auto 25px;
+}
+
+.hero-buttons .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin: 5px;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background: #ff0055;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #ff0055;
+}
+
+/* ========================================== */
+/* 4. SPONSORS                                */
+/* ========================================== */
+.sponsor-slider {
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sponsor-track {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.sponsor-card {
+  background: #15181e;
+  padding: 20px 40px;
+  border-radius: 5px;
+  border: 1px solid #222;
+  color: #777;
+}
+
+/* ========================================== */
+/* 5. BRACKET TURNAMEN                        */
+/* ========================================== */
+.bracket-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.bracket-column {
+  background: #15181e;
+  padding: 15px;
+  border-radius: 8px;
+  width: 250px;
+  border: 1px solid #222;
+}
+
+.bracket-column h3 {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #aaa;
+}
+
+.match {
+  background: #0d0f12;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.team {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.team.winner {
+  color: #ff0055;
+  font-weight: bold;
+}
+
+/* ========================================== */
+/* 6. FORMULIR PENDAFTARAN                    */
+/* ========================================== */
+.form-register {
+  max-width: 450px;
+  width: 100%;
+  margin: 0 auto;
+  background: #15181e;
+  padding: 30px 20px;
+  border-radius: 8px;
+  border: 1px solid #222;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  background: #0d0f12;
+  border: 1px solid #333;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #ff0055;
+}
+
+.full-width {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+/* ========================================== */
+/* 7. FOOTER                                  */
+/* ========================================== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #08090b;
+  color: #555;
+  font-size: 0.85rem;
+  border-top: 1px solid #15181e;
+}
+
