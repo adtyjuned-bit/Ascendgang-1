@@ -1,129 +1,433 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ascend Championship</title>
-  <link rel="stylesheet" href="style.css">
+
+<!-- ================================================= -->
+<!-- 🔴 JANGAN DIUBAH                                  -->
+<!-- ================================================= -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ================================================= -->
+<!-- 🟢 EDIT DI SINI - JUDUL WEBSITE                   -->
+<!-- ================================================= -->
+
+<title>ASCEND CHAMPIONSHIP</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
 
-  <!-- ========================================== -->
-  <!-- 1. NAVBAR / MENU ATAS                      -->
-  <!-- ========================================== -->
-  <header class="navbar">
-    <div class="logo">ASCEND <span>CHAMPIONSHIP</span>
-    <img src="ascend.png" alt="logo ascend">
-    </div>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#sponsors">Sponsor</a>
-      <a href="#bracket">Bracket</a>
-      <a href="#pendaftaran" class="btn-nav">Daftar</a>
-    </nav>
-  </header>
+<!-- ================================================= -->
+<!-- 🔴 LOADING SCREEN                                 -->
+<!-- ================================================= -->
 
-  <!-- ========================================== -->
-  <!-- 2. HERO SECTION / HALAMAN UTAMA           -->
-  <!-- ========================================== -->
-  <section id="home" class="hero">
-    <h1>ASCEND <span>CHAMPIONSHIP</span></h1>
-    <p>Buktikan kemampuan tim kamu dan raih gelar juara di turnamen paling bergengsi!</p>
-    <div class="hero-buttons">
-      <a href="#pendaftaran" class="btn btn-primary">Daftar Sekarang</a>
-      <a href="#bracket" class="btn btn-secondary">Lihat Bracket</a>
-    </div>
-  </section>
+<div id="loader">
+    <h1>ASCEND</h1>
+</div>
 
-  <!-- ========================================== -->
-  <!-- 3. SPONSORS / LOGO SPONSOR                 -->
-  <!-- ========================================== -->
-  <section id="sponsors" class="section">
-    <h2 class="section-title">OUR <span>SPONSORS</span></h2>
-    <div class="sponsor-slider">
-      <div class="sponsor-track">
-        <div class="sponsor-card"><img src="ascend.png" alt="Sponsor 1"></div>
-        <div class="sponsor-card">Sponsor 2</div>
-        <div class="sponsor-card">Sponsor 3</div>
-      </div>
-    </div>
-  </section>
+<!-- ================================================= -->
+<!-- 🔴 BACKGROUND ANIMATION                           -->
+<!-- ================================================= -->
 
-  <!-- ========================================== -->
-  <!-- 4. BRACKET / BAGAN TURNAMEN                -->
-  <!-- ========================================== -->
-  <section id="bracket" class="section">
-    <h2 class="section-title">TOURNAMENT <span>BRACKET</span></h2>
-    <div class="bracket-container">
-      
-      <!-- QUARTER FINALS -->
-      <div class="bracket-column">
-        <h3>Quarter Finals</h3>
-        <div class="match">
-          <div class="team winner">nama team <span>0</span></div>
-          <div class="team">nama team <span>0</span></div>
-        </div>
-        <div class="match">
-          <div class="team winner">nama team <span>0</span></div>
-          <div class="team">nama team <span>0</span></div>
-        </div>
-      </div>
+<div class="bg"></div>
 
-      <!-- SEMI FINALS -->
-      <div class="bracket-column">
-        <h3>Semi Finals</h3>
-        <div class="match">
-          <div class="team winner">nama team <span>0</span></div>
-          <div class="team">nama team <span>0</span></div>
-        </div>
-      </div>
+<!-- ================================================= -->
+<!-- NAVBAR                                            -->
+<!-- ================================================= -->
 
-      <!-- GRAND FINAL -->
-      <div class="bracket-column">
-        <h3>Grand Final</h3>
-        <div class="match final-match">
-          <div class="team winner">nama team <span>🏆</span></div>
-          <div class="team">nama team <span>-</span></div>
-        </div>
-      </div>
+<header>
 
-    </div>
-  </section>
+<div class="logo">
 
-  <!-- ========================================== -->
-  <!-- 5. FORM PENDAFTARAN (DISCORD)             -->
-  <!-- ========================================== -->
-  <section id="pendaftaran" class="section">
-    <h2 class="section-title">FORM <span>PENDAFTARAN</span></h2>
-    
-    <form class="form-register" id="registrationForm">
-      <div class="form-group">
-        <label for="teamName">Nama Tim</label>
-        <input type="text" id="teamName" placeholder="Masukkan nama tim kamu" required>
-      </div>
+<!-- 🟢 EDIT DI SINI -->
 
-      <div class="form-group">
-        <label for="captainName">Nama Kapten</label>
-        <input type="text" id="captainName" placeholder="Masukkan nama kapten" required>
-      </div>
+ASCEND
 
-      <div class="form-group">
-        <label for="discord">Username Discord Kapten</label>
-        <input type="text" id="discord" placeholder="Contoh: user_discord" required>
-      </div>
+</div>
 
-      <button type="submit" class="btn btn-primary full-width">Kirim Pendaftaran via Discord</button>
-    </form>
-  </section>
+<nav>
 
-  <!-- ========================================== -->
-  <!-- 6. FOOTER / BAGIAN BAWAH                   -->
-  <!-- ========================================== -->
-  <footer>
-    <p>&copy; Ascend Championship. All Rights Reserved.</p>
-  </footer>
+<a href="#home">Home</a>
 
-  <script src="script.js"></script>
+<a href="#about">About</a>
+
+<a href="#bracket">Bracket</a>
+
+<a href="#sponsor">Sponsor</a>
+
+<a href="#faq">FAQ</a>
+
+<a href="#register" class="nav-btn">
+
+Register
+
+</a>
+
+</nav>
+
+</header>
+
+<!-- ================================================= -->
+<!-- HERO                                              -->
+<!-- ================================================= -->
+
+<section id="home" class="hero">
+
+<div class="hero-content">
+
+<!-- ================================================= -->
+<!-- 🟢 EDIT DI SINI - LOGO                            -->
+<!-- ================================================= -->
+
+<img src="assets/logo.png" class="hero-logo">
+
+<!-- ================================================= -->
+<!-- 🟢 EDIT DI SINI - NAMA EVENT                      -->
+<!-- ================================================= -->
+
+<h1>
+
+ASCEND CHAMPIONSHIP
+
+</h1>
+
+<!-- ================================================= -->
+<!-- 🟢 EDIT DI SINI - DESKRIPSI                       -->
+<!-- ================================================= -->
+
+<p>
+
+The Biggest Roblox Violence District Tournament
+
+</p>
+
+<!-- ================================================= -->
+<!-- 🔴 COUNTDOWN                                      -->
+<!-- ================================================= -->
+
+<div id="countdown">
+
+<div>
+
+<h2 id="days">00</h2>
+
+<span>Days</span>
+
+</div>
+
+<div>
+
+<h2 id="hours">00</h2>
+
+<span>Hours</span>
+
+</div>
+
+<div>
+
+<h2 id="minutes">00</h2>
+
+<span>Minutes</span>
+
+</div>
+
+<div>
+
+<h2 id="seconds">00</h2>
+
+<span>Seconds</span>
+
+</div>
+
+</div>
+
+<div class="hero-buttons">
+
+<a href="#register" class="btn">
+
+REGISTER NOW
+
+</a>
+
+<a href="#bracket" class="btn-outline">
+
+VIEW BRACKET
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================================================= -->
+<!-- ABOUT                                             -->
+<!-- ================================================= -->
+
+<section id="about">
+
+<h2 class="title">
+
+ABOUT EVENT
+
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>MODE</h3>
+
+<!-- 🟢 EDIT -->
+
+<p>
+
+Squad 5v5
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>GAME</h3>
+
+<!-- 🟢 EDIT -->
+
+<p>
+
+Violence District
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>PRIZEPOOL</h3>
+
+<!-- 🟢 EDIT -->
+
+<p>
+
+Coming Soon
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================================================= -->
+<!-- REGISTRATION                                      -->
+<!-- ================================================= -->
+
+<section id="register">
+
+<h2 class="title">
+
+REGISTER
+
+</h2>
+
+<div class="register-box">
+
+<h3>
+
+Join Now
+
+</h3>
+
+<p>
+
+Registration via Discord.
+
+</p>
+
+<!-- ================================================= -->
+<!-- 🟢 EDIT DI SINI - LINK DISCORD                    -->
+<!-- ================================================= -->
+
+<a href="https://discord.com/users/IDDISCORD">
+
+CHAT ADMIN
+
+</a>
+
+</div>
+
+</section>
+
+<!-- ================================================= -->
+<!-- BRACKET                                           -->
+<!-- ================================================= -->
+
+<section id="bracket">
+
+<h2 class="title">
+
+TOURNAMENT BRACKET
+
+</h2>
+
+<div class="bracket">
+
+<div class="round">
+
+<h3>Quarter Final</h3>
+
+<!-- 🟢 EDIT NAMA TIM -->
+
+<div class="match">
+
+Team A vs Team B
+
+</div>
+
+<div class="match">
+
+Team C vs Team D
+
+</div>
+
+</div>
+
+<div class="round">
+
+<h3>Semi Final</h3>
+
+<div class="match">
+
+Winner
+
+</div>
+
+</div>
+
+<div class="round">
+
+<h3>Grand Final</h3>
+
+<div class="match champion">
+
+Champion
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================================================= -->
+<!-- SPONSOR                                           -->
+<!-- ================================================= -->
+
+<section id="sponsor">
+
+<h2 class="title">
+
+OUR SPONSORS
+
+</h2>
+
+<div class="sponsor-slider">
+
+<!-- 🟢 EDIT GAMBAR SPONSOR -->
+
+<img src="assets/sponsor1.png">
+
+<img src="assets/sponsor2.png">
+
+<img src="assets/sponsor3.png">
+
+<img src="assets/sponsor4.png">
+
+</div>
+
+</section>
+
+<!-- ================================================= -->
+<!-- FAQ                                               -->
+<!-- ================================================= -->
+
+<section id="faq">
+
+<h2 class="title">
+
+FAQ
+
+</h2>
+
+<div class="faq-item">
+
+<h3>
+
+How do I register?
+
+</h3>
+
+<p>
+
+Contact Admin through Discord.
+
+</p>
+
+</div>
+
+<div class="faq-item">
+
+<h3>
+
+Can everyone join?
+
+</h3>
+
+<p>
+
+Yes.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ================================================= -->
+<!-- FOOTER                                            -->
+<!-- ================================================= -->
+
+<footer>
+
+<h2>
+
+ASCEND CHAMPIONSHIP
+
+</h2>
+
+<p>
+
+© 2026 All Rights Reserved.
+
+</p>
+
+</footer>
+
+<!-- ================================================= -->
+<!-- 🔴 JANGAN DIUBAH                                  -->
+<!-- ================================================= -->
+
+<script src="script.js"></script>
+
 </body>
   </html>
-
