@@ -1,81 +1,148 @@
-// ===================================================
-// PENTING: ISI URL WEBHOOK DISCORD KAMU DI BAWAH INI
-// ===================================================
-const DISCORD_WEBHOOK_URL = "PASTE_WEBHOOK_DISCORD_KAMU_DI_SINI";
+/* =======================================================
+   ASCEND CHAMPIONSHIP
+   script.js
+   ======================================================= */
 
 
-// ===================================================
-// LOGIK KIRIM FORM KE DISCORD (JANGAN DIUBAH KECUALI PERLU)
-// ===================================================
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('registrationForm');
+/* =======================================================
+   🟢 EDIT DI SINI - TANGGAL EVENT
+   Format:
+   Tahun, Bulan-1, Tanggal, Jam, Menit, Detik
+   Contoh:
+   2026,10,15 = 15 November 2026
+   ======================================================= */
 
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+const eventDate = new Date(2026,10,15,19,0,0).getTime();
 
-      const teamName = document.getElementById('teamName').value.trim();
-      const captainName = document.getElementById('captainName').value.trim();
-      const discordUser = document.getElementById('discord').value.trim();
 
-      const submitBtn = form.querySelector('button[type="submit"]');
-      submitBtn.disabled = true;
-      submitBtn.innerText = "Mengirim...";
+/* =======================================================
+   🔴 COUNTDOWN
+   ======================================================= */
 
-      const payload = {
-        username: "Ascend Bot",
-        embeds: [
-          {
-            title: "🏆 Pendaftaran Tim Baru!",
-            color: 16711765, // Warna Pink (HEX: #FF0055)
-            fields: [
-              { name: "Nama Tim", value: teamName, inline: true },
-              { name: "Nama Kapten", value: captainName, inline: true },
-              { name: "Username Discord", value: discordUser, inline: false }
-            ],
-            footer: { text: "Ascend Championship" },
-            timestamp: new Date().toISOString()
-          }
-        ]
-      };
+const countdown = setInterval(()=>{
 
-      fetch(DISCORD_WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      })
-      .then(response => {
-        if (response.ok) {
-          alert('Pendaftaran berhasil dikirim ke Discord!');
-          form.reset();
-        } else {
-          alert('Gagal mengirim. Cek apakah Webhook Discord di script.js sudah diisi dengan benar.');
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('Terjadi kesalahan jaringan.');
-      })
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerText = "Kirim Pendaftaran via Discord";
-      });
-    });
-  }
+const now = new Date().getTime();
 
-  // Smooth scroll saat navigasi diklik
-  const navLinks = document.querySelectorAll('a[href^="#"]');
-  navLinks.forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId !== '#') {
-        e.preventDefault();
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-    });
-  });
+const distance = eventDate - now;
+
+const days = Math.floor(distance/(1000*60*60*24));
+
+const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+
+const seconds = Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("days").innerHTML = days;
+
+document.getElementById("hours").innerHTML = hours;
+
+document.getElementById("minutes").innerHTML = minutes;
+
+document.getElementById("seconds").innerHTML = seconds;
+
+if(distance<0){
+
+clearInterval(countdown);
+
+document.getElementById("countdown").innerHTML="<h2>EVENT STARTED</h2>";
+
+}
+
+},1000);
+
+
+
+/* =======================================================
+   🔴 LOADING SCREEN
+   ======================================================= */
+
+window.addEventListener("load",()=>{
+
+setTimeout(()=>{
+
+const loader=document.getElementById("loader");
+
+loader.style.opacity="0";
+
+loader.style.pointerEvents="none";
+
+setTimeout(()=>{
+
+loader.style.display="none";
+
+},600);
+
+},1200);
+
 });
 
+
+
+/* =======================================================
+   🔴 NAVBAR SCROLL EFFECT
+   ======================================================= */
+
+window.addEventListener("scroll",()=>{
+
+const header=document.querySelector("header");
+
+if(window.scrollY>50){
+
+header.style.background="rgba(0,0,0,.75)";
+
+header.style.backdropFilter="blur(18px)";
+
+}else{
+
+header.style.background="rgba(0,0,0,.35)";
+
+}
+
+});
+
+
+
+/* =======================================================
+   🔴 HERO PARALLAX
+   ======================================================= */
+
+window.addEventListener("scroll",()=>{
+
+const hero=document.querySelector(".hero-content");
+
+if(hero){
+
+hero.style.transform=`translateY(${window.scrollY*-0.18}px)`;
+
+}
+
+});
+
+
+
+/* =======================================================
+   🔴 SCROLL ANIMATION
+   ======================================================= */
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+});
+
+document.querySelectorAll(".card,.register-box,.match,.faq-item,.hero-content").forEach(el=>{
+
+el.classList.add("fade-up");
+
+observer.observe(el);
+
+});
