@@ -1,3 +1,6 @@
+/* ========================================== */
+/* 1. STYLE DASAR & PENGATURAN UMUM           */
+/* ========================================== */
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +14,23 @@ body {
   line-height: 1.6;
 }
 
-/* NAVBAR */
+.section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+.section-title span {
+  color: #ff0055;
+}
+
+/* ========================================== */
+/* 2. NAVBAR / MENU ATAS                      */
+/* ========================================== */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -51,7 +70,9 @@ nav a:hover {
   color: #fff !important;
 }
 
-/* HERO */
+/* ========================================== */
+/* 3. HERO SECTION / TAMPILAN UTAMA           */
+/* ========================================== */
 .hero {
   text-align: center;
   padding: 80px 20px;
@@ -95,22 +116,9 @@ nav a:hover {
   border: 1px solid #ff0055;
 }
 
-/* SECTION GENERAL */
-.section {
-  padding: 50px 20px;
-  text-align: center;
-}
-
-.section-title {
-  font-size: 1.8rem;
-  margin-bottom: 30px;
-}
-
-.section-title span {
-  color: #ff0055;
-}
-
-/* SPONSORS */
+/* ========================================== */
+/* 4. SPONSORS                                */
+/* ========================================== */
 .sponsor-slider {
   overflow: hidden;
   max-width: 800px;
@@ -131,7 +139,9 @@ nav a:hover {
   color: #777;
 }
 
-/* BRACKET */
+/* ========================================== */
+/* 5. BRACKET TURNAMEN                        */
+/* ========================================== */
 .bracket-container {
   display: flex;
   justify-content: center;
@@ -173,7 +183,9 @@ nav a:hover {
   font-weight: bold;
 }
 
-/* FORM PENDAFTARAN */
+/* ========================================== */
+/* 6. FORMULIR PENDAFTARAN                    */
+/* ========================================== */
 .form-register {
   max-width: 450px;
   width: 100%;
@@ -218,7 +230,9 @@ nav a:hover {
   margin-top: 10px;
 }
 
-/* FOOTER */
+/* ========================================== */
+/* 7. FOOTER                                  */
+/* ========================================== */
 footer {
   text-align: center;
   padding: 20px;
