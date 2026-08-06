@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ascend Championship</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========================================== -->
+  <!-- 1. NAVBAR / MENU ATAS                      -->
+  <!-- ========================================== -->
+  <header class="navbar">
+    <div class="logo">ASCEND <span>CHAMPIONSHIP</span></div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#sponsors">Sponsor</a>
+      <a href="#bracket">Bracket</a>
+      <a href="#pendaftaran" class="btn-nav">Daftar</a>
+    </nav>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- 2. HERO SECTION / HALAMAN UTAMA           -->
+  <!-- ========================================== -->
+  <section id="home" class="hero">
+    <h1>ASCEND <span>CHAMPIONSHIP</span></h1>
+    <p>Buktikan kemampuan tim kamu dan raih gelar juara di turnamen paling bergengsi!</p>
+    <div class="hero-buttons">
+      <a href="#pendaftaran" class="btn btn-primary">Daftar Sekarang</a>
+      <a href="#bracket" class="btn btn-secondary">Lihat Bracket</a>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 3. SPONSORS / LOGO SPONSOR                 -->
+  <!-- ========================================== -->
+  <section id="sponsors" class="section">
+    <h2 class="section-title">OUR <span>SPONSORS</span></h2>
+    <div class="sponsor-slider">
+      <div class="sponsor-track">
+        <div class="sponsor-card">Sponsor 1</div>
+        <div class="sponsor-card">Sponsor 2</div>
+        <div class="sponsor-card">Sponsor 3</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. BRACKET / BAGAN TURNAMEN                -->
+  <!-- ========================================== -->
+  <section id="bracket" class="section">
+    <h2 class="section-title">TOURNAMENT <span>BRACKET</span></h2>
+    <div class="bracket-container">
+      
+      <!-- QUARTER FINALS -->
+      <div class="bracket-column">
+        <h3>Quarter Finals</h3>
+        <div class="match">
+          <div class="team winner">nama team <span>0</span></div>
+          <div class="team">nama team <span>0</span></div>
+        </div>
+        <div class="match">
+          <div class="team winner">nama team <span>0</span></div>
+          <div class="team">nama team <span>0</span></div>
+        </div>
+      </div>
+
+      <!-- SEMI FINALS -->
+      <div class="bracket-column">
+        <h3>Semi Finals</h3>
+        <div class="match">
+          <div class="team winner">nama team <span>0</span></div>
+          <div class="team">nama team <span>0</span></div>
+        </div>
+      </div>
+
+      <!-- GRAND FINAL -->
+      <div class="bracket-column">
+        <h3>Grand Final</h3>
+        <div class="match final-match">
+          <div class="team winner">nama team <span>🏆</span></div>
+          <div class="team">nama team <span>-</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 5. FORM PENDAFTARAN (DISCORD)             -->
+  <!-- ========================================== -->
+  <section id="pendaftaran" class="section">
+    <h2 class="section-title">FORM <span>PENDAFTARAN</span></h2>
+    
+    <form class="form-register" id="registrationForm">
+      <div class="form-group">
+        <label for="teamName">Nama Tim</label>
+        <input type="text" id="teamName" placeholder="Masukkan nama tim kamu" required>
+      </div>
+
+      <div class="form-group">
+        <label for="captainName">Nama Kapten</label>
+        <input type="text" id="captainName" placeholder="Masukkan nama kapten" required>
+      </div>
+
+      <div class="form-group">
+        <label for="discord">Username Discord Kapten</label>
+        <input type="text" id="discord" placeholder="Contoh: user_discord" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary full-width">Kirim Pendaftaran via Discord</button>
+    </form>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 6. FOOTER / BAGIAN BAWAH                   -->
+  <!-- ========================================== -->
+  <footer>
+    <p>&copy; Ascend Championship. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+  </html>
+
