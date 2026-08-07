@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ascend Hero Parallax</title>
+  <title>Ascend Hero Parallax Corrected</title>
+  
+  <!-- PETUNJUK 1: Font Google yang dipakai untuk tema Esports/Gaming -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
@@ -22,11 +24,11 @@
       overflow-x: hidden;
     }
 
-    /* SECTION HERO SLIDE ATAS */
+    /* PETUNJUK 2: Area Layar Utama (Hero Section) */
     .hero-section {
       position: relative;
       width: 100%;
-      height: 100vh; /* Memenuhi 1 layar penuh */
+      height: 100vh; /* Memenuhi 1 layar penuh hp/desktop */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -34,10 +36,9 @@
       background: radial-gradient(circle at 50% 50%, #1a082e 0%, #05020a 80%);
     }
 
-    /* EFEK PARALLAX LAYER */
     .parallax-layer {
       position: absolute;
-      will-change: transform; /* Optimalisasi performa animasi */
+      will-change: transform; /* Membuat animasi scroll halus & tidak patah-patah */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -45,25 +46,37 @@
       text-align: center;
     }
 
-    /* LAYER 1: LOGO BESAR (PALING BELAKANG) */
+    /* PETUNJUK 3: Style Image 1 (Logo Besar - Paling Belakang) */
     .layer-bg-logo {
       z-index: 1;
       width: 320px;
       height: 320px;
-      opacity: 0.15; /* Dibuat agak transparan sebagai background */
-      filter: blur(2px) drop-shadow(0 0 30px #a800ff);
+      opacity: 0.2; /* Transparan agar jadi background */
+      filter: drop-shadow(0 0 30px #a800ff);
+    }
+    
+    .layer-bg-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
-    /* LAYER 2: LOGO SEDANG (DI TENGAH) */
+    /* PETUNJUK 4: Style Image 2 (Logo Sedang - Di Tengah) */
     .layer-mid-logo {
       z-index: 2;
       width: 140px;
       height: 140px;
-      margin-bottom: 160px; /* Jarak agar berada di belakang/atas teks */
+      margin-bottom: 120px; /* Posisi agak di atas teks */
       filter: drop-shadow(0 0 20px #00e5ff);
     }
 
-    /* LAYER 3: TEKS (PALING DEPAN) */
+    .layer-mid-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* PETUNJUK 5: Style Teks (Depan Image 2) */
     .layer-text {
       z-index: 3;
       margin-top: 80px;
@@ -71,9 +84,9 @@
 
     .title-ascend {
       font-family: 'Orbitron', sans-serif;
-      font-size: 3.5rem;
+      font-size: 3.2rem;
       font-weight: 900;
-      letter-spacing: 6px;
+      letter-spacing: 4px;
       background: linear-gradient(180deg, #ffffff 30%, #a855f7 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -83,15 +96,15 @@
 
     .slogan-turevent {
       font-family: 'Orbitron', sans-serif;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 800;
       color: #00e5ff;
-      letter-spacing: 8px;
-      margin-top: 10px;
+      letter-spacing: 6px;
+      margin-top: 8px;
       text-shadow: 0 0 12px #00e5ff;
     }
 
-    /* DUMMY CONTENT (UNTUK MEMUNGKINKAN SCROLL KE BAWAH) */
+    /* PETUNJUK 6: Konten Halaman Bawah (Agar Halaman BISA DI-SCROLL) */
     .content-section {
       position: relative;
       z-index: 10;
@@ -99,31 +112,26 @@
       padding: 80px 20px;
       min-height: 100vh;
       border-top: 2px solid #a800ff;
-      box-shadow: 0 -20px 50px rgba(168, 0, 255, 0.3);
+      box-shadow: 0 -20px 50px rgba(168, 0, 255, 0.4);
       text-align: center;
-    }
-
-    .content-section h2 {
-      font-family: 'Orbitron', sans-serif;
-      color: #00e5ff;
-      font-size: 2rem;
-      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
 
-  <!-- HERO SLIDE PARALLAX -->
+  <!-- ==================== HERO SLIDE UTAMA ==================== -->
   <section class="hero-section">
     
-    <!-- IMAGE 1: Logo Besar (Paling Belakang) -->
+    <!-- 1. IMAGE 1 (Logo Besar Paling Bawah/Belakang) -->
+    <!-- Ganti SVG di bawah dengan: <img src="URL_GAMBAR_LOGO_BESAR.png" alt="Logo Besar"> -->
     <div class="parallax-layer layer-bg-logo" id="layer-bg">
       <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M50 5 L85 85 L50 68 L15 85 Z" fill="#a800ff" stroke="#ffffff" stroke-width="2"/>
       </svg>
     </div>
 
-    <!-- IMAGE 2: Logo Sedang (Di Tengah) -->
+    <!-- 2. IMAGE 2 (Logo Sedang Di Tengah) -->
+    <!-- Ganti SVG di bawah dengan: <img src="URL_GAMBAR_LOGO_SEDANG.png" alt="Logo Sedang"> -->
     <div class="parallax-layer layer-mid-logo" id="layer-mid">
       <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M50 5 L85 85 L50 68 L15 85 Z" fill="url(#grad)" stroke="#00e5ff" stroke-width="2"/>
@@ -136,7 +144,7 @@
       </svg>
     </div>
 
-    <!-- TEXT: ASCEND & TUREVENT (Paling Depan) -->
+    <!-- 3. TEKS DI DEPAN LOGO SEDANG -->
     <div class="parallax-layer layer-text" id="layer-text">
       <h1 class="title-ascend">ASCEND</h1>
       <div class="slogan-turevent">TUREVENT</div>
@@ -144,13 +152,13 @@
 
   </section>
 
-  <!-- KONTEN BAWAH -->
+  <!-- ==================== KONTEN BAWAH ==================== -->
   <section class="content-section">
-    <h2>NEXT CONTENT SECTION</h2>
-    <p style="color: #a0aec0;">Gulir kembali ke atas untuk melihat efek parallax-nya.</p>
+    <h2 style="font-family:'Orbitron'; color:#00e5ff;">SECTION BAWAH</h2>
+    <p style="color: #a0aec0; margin-top:10px;">Coba scroll ke atas & bawah untuk merasakan perbedaan kecepatan geraknya.</p>
   </section>
 
-  <!-- JAVASCRIPT UNTUK CONTROL PARALLAX SCROLL -->
+  <!-- ==================== SCRIPT LOGIKA GERAKAN ==================== -->
   <script>
     const layerBg = document.getElementById('layer-bg');
     const layerMid = document.getElementById('layer-mid');
@@ -159,13 +167,19 @@
     window.addEventListener('scroll', () => {
       let value = window.scrollY;
 
-      // Pengaturan Kecepatan (Multipliers):
-      // 0.15 = Sangat Pelan (Logo Besar)
-      // 0.40 = Sedang (Logo Sedang)
-      // 0.85 = Sangat Cepat (Teks ASCEND & TUREVENT)
-      layerBg.style.transform = `translateY(${value * 0.15}px)`;
-      layerMid.style.transform = `translateY(${value * 0.40}px)`;
-      layerText.style.transform = `translateY(${value * 0.85}px)`;
+      /* 
+        PETUNJUK PENGATURAN ARAH & KECEPATAN:
+        ------------------------------------------------------------------
+        Nilai MINUS (-) artinya elemen bergerak NAIK LEBIH CEPAT berlawanan arah scroll.
+        
+        1. Image 1 (Logo Besar)  : (-value * 0.1) -> Sangat Pelan
+        2. Image 2 (Logo Sedang) : (-value * 0.4) -> Kecepatan Medium
+        3. Text (ASCEND)         : (-value * 0.9) -> Sangat Cepat naik keluar layar
+        ------------------------------------------------------------------
+      */
+      layerBg.style.transform   = `translateY(${-value * 0.1}px)`;
+      layerMid.style.transform  = `translateY(${-value * 0.4}px)`;
+      layerText.style.transform = `translateY(${-value * 0.9}px)`;
     });
   </script>
 </body>
