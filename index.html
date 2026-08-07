@@ -104,15 +104,13 @@
       text-shadow: 0 0 12px #00e5ff;
     }
 
-    /* PETUNJUK 6: Konten Halaman Bawah (Agar Halaman BISA DI-SCROLL) */
+    /* PETUNJUK 6: Konten Halaman Bawah (Garis & shadow ungu dibuang) */
     .content-section {
       position: relative;
       z-index: 10;
-      background-color: #090514;
+      background-color: #05020a; /* Disamakan dengan background dasar */
       padding: 80px 20px;
       min-height: 100vh;
-      border-top: 2px solid #a800ff;
-      box-shadow: 0 -20px 50px rgba(168, 0, 255, 0.4);
       text-align: center;
     }
   </style>
@@ -123,7 +121,6 @@
   <section class="hero-section">
     
     <!-- 1. IMAGE 1 (Logo Besar Paling Bawah/Belakang) -->
-    <!-- Ganti SVG di bawah dengan: <img src="URL_GAMBAR_LOGO_BESAR.png" alt="Logo Besar"> -->
     <div class="parallax-layer layer-bg-logo" id="layer-bg">
       <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M50 5 L85 85 L50 68 L15 85 Z" fill="#a800ff" stroke="#ffffff" stroke-width="2"/>
@@ -131,7 +128,6 @@
     </div>
 
     <!-- 2. IMAGE 2 (Logo Sedang Di Tengah) -->
-    <!-- Ganti SVG di bawah dengan: <img src="URL_GAMBAR_LOGO_SEDANG.png" alt="Logo Sedang"> -->
     <div class="parallax-layer layer-mid-logo" id="layer-mid">
       <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M50 5 L85 85 L50 68 L15 85 Z" fill="url(#grad)" stroke="#00e5ff" stroke-width="2"/>
@@ -154,8 +150,7 @@
 
   <!-- ==================== KONTEN BAWAH ==================== -->
   <section class="content-section">
-    <h2 style="font-family:'Orbitron'; color:#00e5ff;">SECTION BAWAH</h2>
-    <p style="color: #a0aec0; margin-top:10px;">Coba scroll ke atas & bawah untuk merasakan perbedaan kecepatan geraknya.</p>
+    <!-- Isi konten bawah kamu ditaruh di sini -->
   </section>
 
   <!-- ==================== SCRIPT LOGIKA GERAKAN ==================== -->
@@ -167,16 +162,6 @@
     window.addEventListener('scroll', () => {
       let value = window.scrollY;
 
-      /* 
-        PETUNJUK PENGATURAN ARAH & KECEPATAN:
-        ------------------------------------------------------------------
-        Nilai MINUS (-) artinya elemen bergerak NAIK LEBIH CEPAT berlawanan arah scroll.
-        
-        1. Image 1 (Logo Besar)  : (-value * 0.1) -> Sangat Pelan
-        2. Image 2 (Logo Sedang) : (-value * 0.4) -> Kecepatan Medium
-        3. Text (ASCEND)         : (-value * 0.9) -> Sangat Cepat naik keluar layar
-        ------------------------------------------------------------------
-      */
       layerBg.style.transform   = `translateY(${-value * 0.1}px)`;
       layerMid.style.transform  = `translateY(${-value * 0.4}px)`;
       layerText.style.transform = `translateY(${-value * 0.9}px)`;
