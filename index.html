@@ -1,433 +1,499 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASCEND CHAMPIONSHIP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<!-- ================================================= -->
-<!-- 🔴 JANGAN DIUBAH                                  -->
-<!-- ================================================= -->
+  <style>
+    :root {
+      --bg-dark: #05020a;
+      --cyan: #00e5ff;
+      --blue-glow: #0066ff;
+      --purple-glow: #a800ff;
+      --pink-glow: #d946ef;
+      --card-bg: rgba(13, 10, 25, 0.75);
+      --border-cyan: rgba(0, 229, 255, 0.4);
+      --border-purple: rgba(168, 0, 255, 0.4);
+    }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<!-- ================================================= -->
-<!-- 🟢 EDIT DI SINI - JUDUL WEBSITE                   -->
-<!-- ================================================= -->
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 50% 10%, rgba(168, 0, 255, 0.25), transparent 40%),
+        radial-gradient(circle at 50% 60%, rgba(0, 229, 255, 0.15), transparent 50%),
+        radial-gradient(circle at 50% 90%, rgba(168, 0, 255, 0.2), transparent 40%);
+      background-attachment: fixed;
+      color: #ffffff;
+      font-family: 'Rajdhani', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-<title>ASCEND CHAMPIONSHIP</title>
+    /* NAV BAR */
+    nav {
+      width: 100%;
+      max-width: 600px;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-<link rel="stylesheet" href="style.css">
+    .nav-logo {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--cyan);
+      text-shadow: 0 0 12px rgba(0, 229, 255, 0.8);
+      letter-spacing: 2px;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    .menu-icon {
+      color: var(--cyan);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
 
+    /* MAIN CONTAINER */
+    .container {
+      width: 100%;
+      max-width: 480px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      text-align: center;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .logo-mark {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 10px;
+      position: relative;
+      filter: drop-shadow(0 0 15px var(--purple-glow));
+    }
+
+    .brand-sub {
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 12px;
+      font-size: 0.9rem;
+      color: #d1c4e9;
+      margin-left: 12px;
+      margin-bottom: 25px;
+    }
+
+    .main-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1.1;
+      text-transform: uppercase;
+      background: linear-gradient(180deg, #ffffff 30%, #a855f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 10px rgba(168, 0, 255, 0.5));
+      margin-bottom: 15px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #a0aec0;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .coming-soon {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--cyan);
+      letter-spacing: 4px;
+      text-shadow: 0 0 15px var(--cyan);
+      margin-bottom: 30px;
+    }
+
+    /* BUTTONS */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+    }
+
+    .btn-gradient {
+      width: 100%;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(90deg, #8b5cf6 0%, #06b6d4 100%);
+      color: white;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .btn-gradient:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(6, 182, 212, 0.8);
+    }
+
+    .btn-outline {
+      width: 100%;
+      padding: 12px 20px;
+      border-radius: 30px;
+      background: rgba(5, 2, 10, 0.8);
+      border: 2px solid var(--cyan);
+      color: white;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .btn-outline:hover {
+      background: rgba(0, 229, 255, 0.1);
+      box-shadow: 0 0 25px rgba(0, 229, 255, 0.6);
+    }
+
+    /* CARDS SECTION */
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      background: linear-gradient(180deg, #ffffff 40%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+
+    .card {
+      width: 100%;
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 25px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      position: relative;
+    }
+
+    .card-purple {
+      border: 1px solid var(--border-purple);
+      box-shadow: 0 0 20px rgba(168, 0, 255, 0.15), inset 0 0 15px rgba(168, 0, 255, 0.1);
+    }
+
+    .card-cyan {
+      border: 1px solid var(--border-cyan);
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.15), inset 0 0 15px rgba(0, 229, 255, 0.1);
+    }
+
+    .card-icon {
+      font-size: 3rem;
+      margin-bottom: 5px;
+    }
+
+    .card-purple .card-icon {
+      color: #c084fc;
+      filter: drop-shadow(0 0 10px var(--purple-glow));
+    }
+
+    .card-cyan .card-icon {
+      color: var(--cyan);
+      filter: drop-shadow(0 0 10px var(--cyan));
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .card p {
+      color: #a0aec0;
+      font-size: 0.95rem;
+    }
+
+    /* FAQ ITEM */
+    .faq-item {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      text-align: left;
+      gap: 20px;
+    }
+
+    .faq-icon-box {
+      width: 60px;
+      height: 60px;
+      min-width: 60px;
+      background: rgba(168, 0, 255, 0.1);
+      border: 1px solid var(--border-purple);
+      clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      color: #c084fc;
+    }
+
+    .faq-cyan .faq-icon-box {
+      background: rgba(0, 229, 255, 0.1);
+      border: 1px solid var(--border-cyan);
+      color: var(--cyan);
+    }
+
+    .faq-content h4 {
+      color: var(--cyan);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .faq-content p {
+      color: #cbd5e1;
+    }
+
+    /* FOOTER */
+    footer {
+      width: 100%;
+      margin-top: 40px;
+      padding-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 30px;
+    }
+
+    .footer-tagline {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: #a0aec0;
+    }
+
+    .socials {
+      display: flex;
+      gap: 30px;
+      margin: 10px 0;
+    }
+
+    .social-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #a0aec0;
+      font-size: 0.75rem;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .social-icon-box {
+      width: 45px;
+      height: 45px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    .social-btn:hover .social-icon-box {
+      border-color: var(--cyan);
+      box-shadow: 0 0 15px var(--cyan);
+      color: var(--cyan);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 15px;
+      font-size: 0.75rem;
+      color: #718096;
+    }
+
+    .footer-links a {
+      color: #718096;
+      text-decoration: none;
+    }
+
+    .copyright {
+      font-size: 0.75rem;
+      color: #4a5568;
+    }
+
+    /* DIVIDER LINE */
+    .glow-line {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--purple-glow), transparent);
+      margin: 10px 0;
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- ================================================= -->
-<!-- 🔴 LOADING SCREEN                                 -->
-<!-- ================================================= -->
-
-<div id="loader">
-    <h1>ASCEND</h1>
-</div>
-
-<!-- ================================================= -->
-<!-- 🔴 BACKGROUND ANIMATION                           -->
-<!-- ================================================= -->
-
-<div class="bg"></div>
-
-<!-- ================================================= -->
-<!-- NAVBAR                                            -->
-<!-- ================================================= -->
-
-<header>
-
-<div class="logo">
-
-<!-- 🟢 EDIT DI SINI -->
-
-ASCEND
-
-</div>
-
-<nav>
-
-<a href="#home">Home</a>
-
-<a href="#about">About</a>
-
-<a href="#bracket">Bracket</a>
-
-<a href="#sponsor">Sponsor</a>
-
-<a href="#faq">FAQ</a>
-
-<a href="#register" class="nav-btn">
-
-Register
-
-</a>
-
-</nav>
-
-</header>
-
-<!-- ================================================= -->
-<!-- HERO                                              -->
-<!-- ================================================= -->
-
-<section id="home" class="hero">
-
-<div class="hero-content">
-
-<!-- ================================================= -->
-<!-- 🟢 EDIT DI SINI - LOGO                            -->
-<!-- ================================================= -->
-
-<img src="ascend.png" class="hero-logo">
-
-<!-- ================================================= -->
-<!-- 🟢 EDIT DI SINI - NAMA EVENT                      -->
-<!-- ================================================= -->
-
-<h1>
-
-ASCEND CHAMPIONSHIP
-
-</h1>
-
-<!-- ================================================= -->
-<!-- 🟢 EDIT DI SINI - DESKRIPSI                       -->
-<!-- ================================================= -->
-
-<p>
-
-The Biggest Roblox Violence District Tournament
-
-</p>
-
-<!-- ================================================= -->
-<!-- 🔴 COUNTDOWN                                      -->
-<!-- ================================================= -->
-
-<div id="countdown">
-
-<div>
-
-<h2 id="days">00</h2>
-
-<span>Days</span>
-
-</div>
-
-<div>
-
-<h2 id="hours">00</h2>
-
-<span>Hours</span>
-
-</div>
-
-<div>
-
-<h2 id="minutes">00</h2>
-
-<span>Minutes</span>
-
-</div>
-
-<div>
-
-<h2 id="seconds">00</h2>
-
-<span>Seconds</span>
-
-</div>
-
-</div>
-
-<div class="hero-buttons">
-
-<a href="#register" class="btn">
-
-REGISTER NOW
-
-</a>
-
-<a href="#bracket" class="btn-outline">
-
-VIEW BRACKET
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================================================= -->
-<!-- ABOUT                                             -->
-<!-- ================================================= -->
-
-<section id="about">
-
-<h2 class="title">
-
-ABOUT EVENT
-
-</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<h3>MODE</h3>
-
-<!-- 🟢 EDIT -->
-
-<p>
-
-Squad 4v4
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>GAME</h3>
-
-<!-- 🟢 EDIT -->
-
-<p>
-
-Violence District
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>PRIZEPOOL</h3>
-
-<!-- 🟢 EDIT -->
-
-<p>
-
-Coming Soon
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================================================= -->
-<!-- REGISTRATION                                      -->
-<!-- ================================================= -->
-
-<section id="register">
-
-<h2 class="title">
-
-REGISTER
-
-</h2>
-
-<div class="register-box">
-
-<h3>
-
-Join Now
-
-</h3>
-
-<p>
-
-Registration via Discord.
-
-</p>
-
-<!-- ================================================= -->
-<!-- 🟢 EDIT DI SINI - LINK DISCORD                    -->
-<!-- ================================================= -->
-
-<a href="https://discord.com/users/IDDISCORD">
-
-CHAT ADMIN
-
-</a>
-
-</div>
-
-</section>
-
-<!-- ================================================= -->
-<!-- BRACKET                                           -->
-<!-- ================================================= -->
-
-<section id="bracket">
-
-<h2 class="title">
-
-TOURNAMENT BRACKET
-
-</h2>
-
-<div class="bracket">
-
-<div class="round">
-
-<h3>Quarter Final</h3>
-
-<!-- 🟢 EDIT NAMA TIM -->
-
-<div class="match">
-
-Team A vs Team B
-
-</div>
-
-<div class="match">
-
-Team C vs Team D
-
-</div>
-
-</div>
-
-<div class="round">
-
-<h3>Semi Final</h3>
-
-<div class="match">
-
-Winner
-
-</div>
-
-</div>
-
-<div class="round">
-
-<h3>Grand Final</h3>
-
-<div class="match champion">
-
-Champion
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================================================= -->
-<!-- SPONSOR                                           -->
-<!-- ================================================= -->
-
-<section id="sponsor">
-
-<h2 class="title">
-
-OUR SPONSORS
-
-</h2>
-
-<div class="sponsor-slider">
-
-<!-- 🟢 EDIT GAMBAR SPONSOR -->
-
-<img src="ascend.png">
-
-<img src="assets/sponsor2.png">
-
-<img src="assets/sponsor3.png">
-
-<img src="assets/sponsor4.png">
-
-</div>
-
-</section>
-
-<!-- ================================================= -->
-<!-- FAQ                                               -->
-<!-- ================================================= -->
-
-<section id="faq">
-
-<h2 class="title">
-
-FAQ
-
-</h2>
-
-<div class="faq-item">
-
-<h3>
-
-How do I register?
-
-</h3>
-
-<p>
-
-Contact Admin through Discord.
-
-</p>
-
-</div>
-
-<div class="faq-item">
-
-<h3>
-
-Can everyone join?
-
-</h3>
-
-<p>
-
-Yes.
-
-</p>
-
-</div>
-
-</section>
-
-<!-- ================================================= -->
-<!-- FOOTER                                            -->
-<!-- ================================================= -->
-
-<footer>
-
-<h2>
-
-ASCEND CHAMPIONSHIP
-
-</h2>
-
-<p>
-
-© 2026 All Rights Reserved.
-
-</p>
-
-</footer>
-
-<!-- ================================================= -->
-<!-- 🔴 JANGAN DIUBAH                                  -->
-<!-- ================================================= -->
-
-<script src="script.js"></script>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-logo">ASCEND</div>
+    <div class="menu-icon"><i class="fa-solid fa-bars"></i></div>
+  </nav>
+
+  <div class="container">
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <!-- SVG Emblem / Logo Placeholder -->
+      <svg class="logo-mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 5 L85 85 L50 68 L15 85 Z" fill="url(#logo-grad)" stroke="#ffffff" stroke-width="2"/>
+        <path d="M50 20 L70 75 L50 62 L30 75 Z" fill="#05020a"/>
+        <defs>
+          <linearGradient id="logo-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="100%" stop-color="#a800ff"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="brand-sub">ASCEND</div>
+
+      <h1 class="main-title">ASCEND<br>CHAMPIONSHIP</h1>
+      <p class="subtitle">The Biggest Roblox Violence District Tournament</p>
+      
+      <div class="coming-soon">COMING SOON</div>
+
+      <div class="btn-group">
+        <a href="#" class="btn-gradient">REGISTER NOW &raquo;</a>
+        <a href="#" class="btn-outline">VIEW BRACKET &raquo;</a>
+      </div>
+    </section>
+
+    <div class="glow-line"></div>
+
+    <!-- REGISTRATION SECTION -->
+    <section class="card card-purple">
+      <i class="fa-brands fa-discord card-icon"></i>
+      <h3>Join Now</h3>
+      <p>Registration via Discord.</p>
+      <a href="#" class="btn-gradient" style="margin-top: 10px;">
+        <i class="fa-brands fa-discord"></i> CHAT ADMIN
+      </a>
+    </section>
+
+    <!-- BRACKET SECTION -->
+    <section style="width: 100%;">
+      <h2 class="section-title">TOURNAMENT BRACKET</h2>
+      <div class="card card-cyan">
+        <i class="fa-solid fa-trophy card-icon"></i>
+        <a href="#" class="btn-gradient" style="background: linear-gradient(90deg, #0284c7 0%, #06b6d4 100%); margin-top: 10px;">
+          🏆 LIHAT BRACKET & LINEUP
+        </a>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section style="width: 100%;">
+      <h2 class="section-title">FAQ</h2>
+      <div style="display: flex; flex-direction: column; gap: 15px;">
+        
+        <div class="card card-purple faq-item">
+          <div class="faq-icon-box"><i class="fa-solid fa-circle-question"></i></div>
+          <div class="faq-content">
+            <h4>How do I register?</h4>
+            <p>Contact Admin through Discord.</p>
+          </div>
+        </div>
+
+        <div class="card card-cyan faq-item faq-cyan">
+          <div class="faq-icon-box"><i class="fa-solid fa-users"></i></div>
+          <div class="faq-content">
+            <h4>Can everyone join?</h4>
+            <p>Yes.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="brand-sub" style="margin:0;">ASCEND</div>
+      <div class="main-title" style="font-size: 1.2rem; margin:0;">CHAMPIONSHIP</div>
+      <div class="footer-tagline">&mdash; ONLY THE STRONGEST ASCEND. &mdash;</div>
+
+      <div class="socials">
+        <a href="#" class="social-btn">
+          <div class="social-icon-box"><i class="fa-brands fa-discord"></i></div>
+          DISCORD
+        </a>
+        <a href="#" class="social-btn">
+          <div class="social-icon-box"><i class="fa-brands fa-tiktok"></i></div>
+          TIKTOK
+        </a>
+        <a href="#" class="social-btn">
+          <div class="social-icon-box"><i class="fa-brands fa-youtube"></i></div>
+          YOUTUBE
+        </a>
+      </div>
+
+      <div class="footer-links">
+        <a href="#">PRIVACY POLICY</a> • 
+        <a href="#">TERMS OF SERVICE</a> • 
+        <a href="#">CONTACT US</a>
+      </div>
+
+      <div class="copyright">
+        © 2026 Ascend Championship. All Rights Reserved.
+      </div>
+    </footer>
+
+  </div>
 
 </body>
-  </html>
+</html>
