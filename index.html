@@ -3,13 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cyberpunk Animated Navbar</title>
-  
-  <!-- Fonts & Icons -->
+  <title>Ascend Hero Parallax</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -20,281 +17,156 @@
 
     body {
       background-color: #05020a;
-      color: white;
+      color: #ffffff;
       font-family: 'Rajdhani', sans-serif;
-      min-height: 200vh; /* Agar bisa dites scroll */
+      overflow-x: hidden;
     }
 
-    /* ================= NAVBAR CONTAINER ================= */
-    .cyber-nav-wrapper {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      max-width: 1000px;
-      z-index: 999;
-    }
-
-    .cyber-nav {
+    /* SECTION HERO SLIDE ATAS */
+    .hero-section {
       position: relative;
-      background: rgba(13, 8, 28, 0.65);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(0, 229, 255, 0.3);
-      padding: 12px 28px;
+      width: 100%;
+      height: 100vh; /* Memenuhi 1 layar penuh */
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      
-      /* Pemotongan Sudut Khas Game HUD (Cyber Cut Corners) */
-      clip-path: polygon(
-        0 0, 
-        calc(100% - 18px) 0, 
-        100% 18px, 
-        100% 100%, 
-        18px 100%, 
-        0 calc(100% - 18px)
-      );
-      
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5),
-                  inset 0 0 15px rgba(0, 229, 255, 0.15);
-      transition: all 0.3s ease;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 50%, #1a082e 0%, #05020a 80%);
     }
 
-    /* Efek Glow Line di Atas Navbar */
-    .cyber-nav::before {
-      content: '';
+    /* EFEK PARALLAX LAYER */
+    .parallax-layer {
       position: absolute;
-      top: 0;
-      left: 10%;
-      width: 80%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #00e5ff, #a800ff, transparent);
-    }
-
-    /* ================= LOGO AREA ================= */
-    .nav-brand {
+      will-change: transform; /* Optimalisasi performa animasi */
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 10px;
-      text-decoration: none;
+      justify-content: center;
+      text-align: center;
     }
 
-    .nav-logo-icon {
-      width: 32px;
-      height: 32px;
-      filter: drop-shadow(0 0 8px #00e5ff);
-      animation: pulseGlow 2s infinite alternate;
+    /* LAYER 1: LOGO BESAR (PALING BELAKANG) */
+    .layer-bg-logo {
+      z-index: 1;
+      width: 320px;
+      height: 320px;
+      opacity: 0.15; /* Dibuat agak transparan sebagai background */
+      filter: blur(2px) drop-shadow(0 0 30px #a800ff);
     }
 
-    @keyframes pulseGlow {
-      0% { filter: drop-shadow(0 0 4px #00e5ff); }
-      100% { filter: drop-shadow(0 0 12px #a800ff); }
+    /* LAYER 2: LOGO SEDANG (DI TENGAH) */
+    .layer-mid-logo {
+      z-index: 2;
+      width: 140px;
+      height: 140px;
+      margin-bottom: 160px; /* Jarak agar berada di belakang/atas teks */
+      filter: drop-shadow(0 0 20px #00e5ff);
     }
 
-    .nav-title {
+    /* LAYER 3: TEKS (PALING DEPAN) */
+    .layer-text {
+      z-index: 3;
+      margin-top: 80px;
+    }
+
+    .title-ascend {
       font-family: 'Orbitron', sans-serif;
+      font-size: 3.5rem;
       font-weight: 900;
-      font-size: 1.3rem;
-      letter-spacing: 2px;
-      background: linear-gradient(90deg, #ffffff, #00e5ff);
+      letter-spacing: 6px;
+      background: linear-gradient(180deg, #ffffff 30%, #a855f7 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(168, 0, 255, 0.6);
+      line-height: 1;
     }
 
-    /* ================= MENU LINKS ================= */
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      list-style: none;
-    }
-
-    .nav-item {
-      position: relative;
-    }
-
-    .nav-link {
+    .slogan-turevent {
       font-family: 'Orbitron', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #a0aec0;
-      text-decoration: none;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 6px 0;
-      transition: color 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .nav-link i {
-      font-size: 0.8rem;
-      opacity: 0.6;
-      transition: opacity 0.3s ease;
-    }
-
-    /* Hover State Links */
-    .nav-link:hover {
+      font-size: 1.2rem;
+      font-weight: 800;
       color: #00e5ff;
-      text-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
+      letter-spacing: 8px;
+      margin-top: 10px;
+      text-shadow: 0 0 12px #00e5ff;
     }
 
-    .nav-link:hover i {
-      opacity: 1;
-      color: #00e5ff;
-    }
-
-    /* Animasi Garis Bawah saat Hover */
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background: var(--cyan, #00e5ff);
-      box-shadow: 0 0 8px #00e5ff;
-      transition: width 0.3s ease;
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    /* ================= ACTION BUTTON (CYBER CTA) ================= */
-    .nav-cta {
+    /* DUMMY CONTENT (UNTUK MEMUNGKINKAN SCROLL KE BAWAH) */
+    .content-section {
       position: relative;
-      padding: 8px 20px;
+      z-index: 10;
+      background-color: #090514;
+      padding: 80px 20px;
+      min-height: 100vh;
+      border-top: 2px solid #a800ff;
+      box-shadow: 0 -20px 50px rgba(168, 0, 255, 0.3);
+      text-align: center;
+    }
+
+    .content-section h2 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 900;
-      letter-spacing: 1.5px;
-      color: #05020a;
-      background: #00e5ff;
-      border: none;
-      cursor: pointer;
-      clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
-      box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .nav-cta:hover {
-      background: #a800ff;
-      color: #ffffff;
-      box-shadow: 0 0 25px rgba(168, 0, 255, 0.8);
-      transform: translateY(-2px);
-    }
-
-    /* ================= MOBILE HAMBURGER TOGGLE ================= */
-    .mobile-toggle {
-      display: none;
-      background: transparent;
-      border: none;
       color: #00e5ff;
-      font-size: 1.5rem;
-      cursor: pointer;
-      filter: drop-shadow(0 0 5px #00e5ff);
-    }
-
-    /* ================= RESPONSIVE (MOBILE VIEW) ================= */
-    @media (max-width: 768px) {
-      .cyber-nav-wrapper {
-        top: 10px;
-        width: 95%;
-      }
-
-      .mobile-toggle {
-        display: block;
-      }
-
-      .nav-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        margin-top: 10px;
-        background: rgba(13, 8, 28, 0.95);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(0, 229, 255, 0.3);
-        flex-direction: column;
-        padding: 20px;
-        gap: 20px;
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        opacity: 0;
-        pointer-events: none;
-        transform: translateY(-10px);
-        transition: all 0.3s ease;
-      }
-
-      .nav-menu.active {
-        opacity: 1;
-        pointer-events: all;
-        transform: translateY(0);
-      }
+      font-size: 2rem;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR HUD UTAMA -->
-  <div class="cyber-nav-wrapper">
-    <nav class="cyber-nav">
-      
-      <!-- LOGO / BRAND -->
-      <a href="#" class="nav-brand">
-        <svg class="nav-logo-icon" viewBox="0 0 100 100" fill="none">
-          <path d="M50 5 L85 85 L50 68 L15 85 Z" fill="url(#nav-grad)" stroke="#00e5ff" stroke-width="3"/>
-          <defs>
-            <linearGradient id="nav-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#ffffff"/>
-              <stop offset="100%" stop-color="#a800ff"/>
-            </linearGradient>
-          </defs>
-        </svg>
-        <span class="nav-title">ASCEND</span>
-      </a>
+  <!-- HERO SLIDE PARALLAX -->
+  <section class="hero-section">
+    
+    <!-- IMAGE 1: Logo Besar (Paling Belakang) -->
+    <div class="parallax-layer layer-bg-logo" id="layer-bg">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 5 L85 85 L50 68 L15 85 Z" fill="#a800ff" stroke="#ffffff" stroke-width="2"/>
+      </svg>
+    </div>
 
-      <!-- LINK NAVIGASI -->
-      <ul class="nav-menu" id="navMenu">
-        <li class="nav-item">
-          <a href="#" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link"><i class="fa-solid fa-trophy"></i> Bracket</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link"><i class="fa-solid fa-newspaper"></i> Rules</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link"><i class="fa-solid fa-circle-question"></i> FAQ</a>
-        </li>
-      </ul>
+    <!-- IMAGE 2: Logo Sedang (Di Tengah) -->
+    <div class="parallax-layer layer-mid-logo" id="layer-mid">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 5 L85 85 L50 68 L15 85 Z" fill="url(#grad)" stroke="#00e5ff" stroke-width="2"/>
+        <defs>
+          <linearGradient id="grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="100%" stop-color="#a800ff"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
 
-      <!-- BUTTON ACTION & MOBILE TOGGLE -->
-      <div style="display: flex; align-items: center; gap: 15px;">
-        <a href="#" class="nav-cta">DISCORD</a>
-        <button class="mobile-toggle" id="mobileToggle">
-          <i class="fa-solid fa-bars-staggered"></i>
-        </button>
-      </div>
+    <!-- TEXT: ASCEND & TUREVENT (Paling Depan) -->
+    <div class="parallax-layer layer-text" id="layer-text">
+      <h1 class="title-ascend">ASCEND</h1>
+      <div class="slogan-turevent">TUREVENT</div>
+    </div>
 
-    </nav>
-  </div>
+  </section>
 
+  <!-- KONTEN BAWAH -->
+  <section class="content-section">
+    <h2>NEXT CONTENT SECTION</h2>
+    <p style="color: #a0aec0;">Gulir kembali ke atas untuk melihat efek parallax-nya.</p>
+  </section>
+
+  <!-- JAVASCRIPT UNTUK CONTROL PARALLAX SCROLL -->
   <script>
-    // Toggle Menu Mobile
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navMenu = document.getElementById('navMenu');
+    const layerBg = document.getElementById('layer-bg');
+    const layerMid = document.getElementById('layer-mid');
+    const layerText = document.getElementById('layer-text');
 
-    mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
+    window.addEventListener('scroll', () => {
+      let value = window.scrollY;
+
+      // Pengaturan Kecepatan (Multipliers):
+      // 0.15 = Sangat Pelan (Logo Besar)
+      // 0.40 = Sedang (Logo Sedang)
+      // 0.85 = Sangat Cepat (Teks ASCEND & TUREVENT)
+      layerBg.style.transform = `translateY(${value * 0.15}px)`;
+      layerMid.style.transform = `translateY(${value * 0.40}px)`;
+      layerText.style.transform = `translateY(${value * 0.85}px)`;
     });
   </script>
-
 </body>
 </html>
