@@ -1239,9 +1239,15 @@ body {
 
 /* =========================================
    MOBILE
+   FINAL RESPONSIVE VERSION
 ========================================= */
 
-@media(max-width: 800px) {
+@media (max-width: 800px) {
+
+
+    /* =====================================
+       TOP BAR
+    ====================================== */
 
     .top-bar {
 
@@ -1250,8 +1256,40 @@ body {
         left: 6vw;
 
         right: 6vw;
+
     }
 
+
+    .world-name span {
+
+        font-size: 6px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    .world-name strong {
+
+        font-size: 9px;
+
+        letter-spacing: 2.5px;
+
+    }
+
+
+    .world-status {
+
+        font-size: 6px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    /* =====================================
+       INTRO
+    ====================================== */
 
     .intro {
 
@@ -1260,14 +1298,44 @@ body {
         left: 6vw;
 
         width: 280px;
+
+    }
+
+
+    .intro-small {
+
+        font-size: 7px;
+
+        letter-spacing: 4px;
+
+        margin-bottom: 12px;
+
     }
 
 
     .intro h1 {
 
         font-size: 48px;
+
+        line-height: .9;
+
     }
 
+
+    .intro p {
+
+        margin-top: 15px;
+
+        font-size: 9px;
+
+        line-height: 1.7;
+
+    }
+
+
+    /* =====================================
+       CHARACTER
+    ====================================== */
 
     .character-area {
 
@@ -1276,32 +1344,263 @@ body {
         height: 70vh;
 
         bottom: 5%;
+
     }
 
+
+    .character {
+
+        width: 100%;
+
+        height: 100%;
+
+    }
+
+
+    /* =====================================
+       WORLD MENU
+       COMBINATION LOCK
+    ====================================== */
 
     .world-menu {
 
-        right: 6vw;
+        position: absolute;
+
+        z-index: 12;
+
+        left: 5vw;
+
+        right: 5vw;
 
         top: auto;
 
-        bottom: 9vh;
+        bottom: 8vh;
 
-        width: 230px;
+        width: auto;
+
+        height: 330px;
+
+        overflow: hidden;
+
     }
 
 
-    .world-menu button {
+    /* =====================================
+       LOCK WINDOW
+    ====================================== */
+
+    .lock-window {
+
+        width: 100%;
+
+        height: 100%;
+
+        overflow: hidden;
+
+        touch-action: pan-y;
+
+    }
+
+
+    /* =====================================
+       LOCK LIST
+    ====================================== */
+
+    .lock-list {
+
+        padding-top: 127px;
+
+    }
+
+
+    /* =====================================
+       LOCK ITEM
+    ====================================== */
+
+    .lock-item {
+
+        width: 92%;
+
+        height: 65px;
+
+        gap: 18px;
 
         padding: 10px 12px;
+
     }
 
+
+    /* =====================================
+       NUMBER
+    ====================================== */
+
+    .lock-item .number {
+
+        width: 28px;
+
+        font-size: 7px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    /* =====================================
+       MENU NAME
+    ====================================== */
+
+    .lock-item .menu-name {
+
+        font-size: 9px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    /* =====================================
+       MENU DESCRIPTION
+    ====================================== */
+
+    .lock-item .menu-description {
+
+        font-size: 6px;
+
+        letter-spacing: 1px;
+
+    }
+
+
+    /* =====================================
+       MENU INFO
+    ====================================== */
+
+    .menu-info {
+
+        gap: 5px;
+
+    }
+
+
+    /* =====================================
+       ACTIVE ITEM
+    ====================================== */
+
+    .lock-item.active {
+
+        transform: scale(1);
+
+    }
+
+
+    /* =====================================
+       ACTIVE LINE
+    ====================================== */
+
+    .lock-item.active::before {
+
+        width: 2px;
+
+        height: 28px;
+
+    }
+
+
+    /* =====================================
+       FADE
+    ====================================== */
+
+    .lock-window::before,
+    .lock-window::after {
+
+        height: 85px;
+
+    }
+
+
+    /* =====================================
+       INDICATOR
+    ====================================== */
+
+    .lock-indicator {
+
+        right: 2px;
+
+        gap: 6px;
+
+    }
+
+
+    .lock-indicator span {
+
+        width: 3px;
+
+        height: 3px;
+
+    }
+
+
+    .lock-indicator span.current {
+
+        width: 3px;
+
+        height: 16px;
+
+    }
+
+
+    /* =====================================
+       BACK BUTTON
+    ====================================== */
 
     .back-button {
 
         left: 6vw;
 
         bottom: 25px;
+
+        font-size: 6px;
+
+        letter-spacing: 2.5px;
+
     }
 
-  }
+
+    /* =====================================
+       SECTION OVERLAY
+    ====================================== */
+
+    .section-content {
+
+        width: 82vw;
+
+    }
+
+
+    .section-content h2 {
+
+        font-size: 55px;
+
+    }
+
+
+    .section-content p {
+
+        font-size: 8px;
+
+        letter-spacing: 1.5px;
+
+    }
+
+
+    .close-section {
+
+        top: 22px;
+
+        right: 6vw;
+
+        font-size: 28px;
+
+    }
+
+}
