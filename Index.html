@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Supaya website menyesuaikan layar HP/PC -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nainsan — World 00</title>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =====================================
+         LOADING / OPENING SCENE
+    ====================================== -->
+
+    <main class="scene" id="scene">
+
+        <!-- Background -->
+        <div class="room"></div>
+        <div class="window"></div>
+        <div class="haze"></div>
+
+        <!-- Cahaya di belakang karakter -->
+        <div class="character-light"></div>
+
+        <!-- =================================
+             CHARACTER
+        ================================== -->
+
+        <img
+            src="assets/nainsan.jpg"
+            alt="Nainsan"
+            class="character"
+        >
+
+        <!-- Partikel -->
+        <div class="dust" id="dust"></div>
+
+
+        <!-- =================================
+             TOP INFORMATION
+        ================================== -->
+
+        <div class="brand">
+            NAINSAN
+        </div>
+
+        <div class="chapter">
+            WORLD 00 — PROLOGUE
+        </div>
+
+
+        <!-- =================================
+             CHARACTER / STORY TEXT
+        ================================== -->
+
+        <section class="copy">
+
+            <div class="eyebrow">
+                SOMEWHERE BETWEEN WORLDS
+            </div>
+
+            <h1 class="title">
+                Nainsan
+            </h1>
+
+            <div class="line"></div>
+
+            <div class="dialogue">
+                The world is quiet tonight.
+                <br>
+                But something has already found you.
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             LOADING
+        ================================== -->
+
+        <section class="loading">
+
+            <div class="loading-top">
+
+                <span>
+                    ENTERING WORLD
+                </span>
+
+                <span id="pct">
+                    00
+                </span>
+
+            </div>
+
+
+            <div class="bar">
+
+                <div
+                    class="fill"
+                    id="fill">
+                </div>
+
+            </div>
+
+
+            <div
+                class="loading-status"
+                id="status">
+
+                opening the door...
+
+            </div>
+
+        </section>
+
+
+        <!-- Efek layar -->
+        <div class="vignette"></div>
+        <div class="grain"></div>
+
+
+        <!-- =================================
+             WELCOME SCREEN
+        ================================== -->
+
+        <section
+            class="next"
+            id="next">
+
+            <div class="words">
+
+                <h2>
+                    Welcome to our world
+                </h2>
+
+                <p>
+                    SELAMAT DATANG DI DUNIA LAINNYA
+                </p>
+
+            </div>
+
+        </section>
+        
+<!-- =================================
+     MAIN MENU
+================================== -->
+
+<section class="main-menu" id="mainMenu">
+    
+    <div class="menu-background"></div>
+    
+    <div class="menu-content">
+        
+        <div class="menu-small">
+            WELCOME TO
+        </div>
+        
+        <h1>
+            NAINSAN
+        </h1>
+        
+        <div class="menu-line"></div>
+        
+        <p>
+            ENTER MY WORLD
+        </p>
+        
+        <nav class="menu-buttons">
+            
+            <button data-menu="world">
+                ENTER WORLD
+            </button>
+            
+            <button data-menu="about">
+                ABOUT ME
+            </button>
+            
+            
+            <button data-menu="server">
+                PRIVATE SERVER
+            </button>
+            
+            <button data-menu="donate">
+                SUPPORT / DONATE
+            </button>
+            
+        </nav>
+        
+    </div>
+    
+</section>
+
+
+<!-- =================================
+     LIGHTNING TRANSITION
+================================== -->
+
+<div class="lightning" id="lightning">
+    
+    <div class="flash flash-1"></div>
+    <div class="flash flash-2"></div>
+    <div class="flash flash-3"></div>
+    
+</div>
+
+
+    </main>
+
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+
+</body>
+
+  </html>
