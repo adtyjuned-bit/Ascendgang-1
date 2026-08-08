@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Nainsan — World</title>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS khusus World -->
+    <link
+        rel="stylesheet"
+        href="css/world.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     WORLD HUB
+========================================= -->
+
+<main class="world" id="world">
+
+
+    <!-- =====================================
+         BACKGROUND
+    ====================================== -->
+
+    <div class="background"></div>
+
+    <div class="fog fog-one"></div>
+
+    <div class="fog fog-two"></div>
+
+
+    <!-- =====================================
+         STARS / PARTICLES
+    ====================================== -->
+
+    <div
+        class="particles"
+        id="particles">
+    </div>
+
+
+    <!-- =====================================
+         TOP UI
+    ====================================== -->
+
+    <header class="top-bar">
+
+        <div class="world-name">
+
+            <span>
+                WORLD 01
+            </span>
+
+            <strong>
+                NAINSAN'S WORLD
+            </strong>
+
+        </div>
+
+
+        <div class="world-status">
+
+            ONLINE
+
+            <span class="status-dot"></span>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================
+         CHARACTER
+    ====================================== -->
+
+    <section class="character-area">
+
+        <!--
+            Ganti gambar ini dengan
+            gambar karakter lu.
+        -->
+
+        <img
+            src="../assets/character/nainsan.png"
+            alt="Nainsan"
+            class="character"
+        >
+
+        <div class="character-glow"></div>
+
+    </section>
+
+
+    <!-- =====================================
+         INTRO TEXT
+    ====================================== -->
+
+    <section class="intro">
+
+        <div class="intro-small">
+            YOU HAVE ENTERED
+        </div>
+
+        <h1>
+            Nainsan's World
+        </h1>
+
+        <p>
+            Somewhere between reality and imagination.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================
+         WORLD MENU
+    ====================================== -->
+
+    <nav class="world-menu">
+
+
+        <button data-section="profile">
+
+            <span class="number">
+                01
+            </span>
+
+            <span class="menu-name">
+                PROFILE
+            </span>
+
+            <span class="menu-description">
+                Discover who I am.
+            </span>
+
+        </button>
+
+
+        <button data-section="lore">
+
+            <span class="number">
+                02
+            </span>
+
+            <span class="menu-name">
+                LORE
+            </span>
+
+            <span class="menu-description">
+                Enter the story.
+            </span>
+
+        </button>
+
+
+        <button data-section="activities">
+
+            <span class="number">
+                03
+            </span>
+
+            <span class="menu-name">
+                ACTIVITIES
+            </span>
+
+            <span class="menu-description">
+                What is happening?
+            </span>
+
+        </button>
+
+
+        <button data-section="gallery">
+
+            <span class="number">
+                04
+            </span>
+
+            <span class="menu-name">
+                GALLERY
+            </span>
+
+            <span class="menu-description">
+                Memories from the world.
+            </span>
+
+        </button>
+
+
+        <button data-section="archive">
+
+            <span class="number">
+                05
+            </span>
+
+            <span class="menu-name">
+                ARCHIVE
+            </span>
+
+            <span class="menu-description">
+                Lost memories.
+            </span>
+
+        </button>
+
+
+        <button
+            data-section="secret"
+            class="secret"
+        >
+
+            <span class="number">
+                ??
+            </span>
+
+            <span class="menu-name">
+                UNKNOWN
+            </span>
+
+            <span class="menu-description">
+                Something is waiting.
+            </span>
+
+        </button>
+
+
+    </nav>
+
+
+    <!-- =====================================
+         BACK TO MAIN MENU
+    ====================================== -->
+
+    <a
+        href="../index.html"
+        class="back-button"
+    >
+
+        ← MAIN MENU
+
+    </a>
+
+
+    <!-- =====================================
+         SECTION OVERLAY
+    ====================================== -->
+
+    <div
+        class="section-overlay"
+        id="sectionOverlay"
+    >
+
+        <button
+            class="close-section"
+            id="closeSection"
+        >
+            ×
+        </button>
+
+
+        <div class="section-content">
+
+            <span
+                class="section-number"
+                id="sectionNumber"
+            >
+                01
+            </span>
+
+            <h2 id="sectionTitle">
+                PROFILE
+            </h2>
+
+            <p id="sectionText">
+                Discover who I am.
+            </p>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script src="js/world.js"></script>
+
+</body>
+
+              </html>
