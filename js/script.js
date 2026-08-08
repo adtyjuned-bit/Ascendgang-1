@@ -453,68 +453,57 @@ function showMainMenu() {
 
 
 /* =========================================
-   9. BUTTON MAIN MENU
+   9. MAIN MENU NAVIGATION
 ========================================= */
 
 
 /*
-   Mengambil semua tombol
-   di dalam .menu-buttons
+   Mengambil semua tombol Main Menu
+   yang mempunyai atribut data-page.
 */
 
 const menuButtons =
     document.querySelectorAll(
-        ".menu-buttons button"
+        ".menu-buttons button[data-page]"
     );
 
 
 /*
-   Loop setiap tombol.
+   Memberikan fungsi klik
+   kepada setiap tombol.
 */
 
 menuButtons.forEach((button) => {
-
-
-    /*
-       Ketika tombol diklik...
-    */
 
     button.addEventListener("click", () => {
 
 
         /*
-           Ambil data dari:
+           Mengambil alamat halaman
+           dari data-page.
 
-           data-menu="world"
+           Contoh:
 
-           data-menu="about"
+           data-page="world/world.html"
 
-           dll.
+           akan menghasilkan:
+
+           world/world.html
         */
 
-        const menuName =
-            button.dataset.menu;
+        const page =
+            button.dataset.page;
 
 
         /*
-           Untuk sementara kita
-           tampilkan di console.
-
-           Nanti bagian ini akan
-           kita sambungkan ke halaman
-           masing-masing.
+           Pindah ke halaman tersebut.
         */
 
-        console.log(
-            "Menu dipilih:",
-            menuName
-        );
-
+        window.location.href = page;
 
     });
 
 });
-
 
 /* =========================================
    MAIN MENU NAVIGATION
