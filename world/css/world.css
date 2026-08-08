@@ -539,9 +539,9 @@ body {
 
     position: relative;
 
-    width: 88%;
+    width: 92%;
 
-    height: 75px;
+    height: 68px;
 
     flex-shrink: 0;
 
@@ -549,9 +549,9 @@ body {
 
     align-items: center;
 
-    gap: 25px;
+    gap: 22px;
 
-    padding: 12px 18px;
+    padding: 10px 16px;
 
     border: 1px solid transparent;
 
@@ -1365,26 +1365,27 @@ body {
 
     .world-menu {
 
-        position: absolute;
+    position: absolute;
 
-        z-index: 12;
+    z-index: 12;
 
-        left: 5vw;
+    left: 50%;
 
-        right: 5vw;
+    right: auto;
 
-        top: auto;
+    top: auto;
 
-        bottom: 8vh;
+    bottom: 6vh;
 
-        width: auto;
+    transform: translateX(-50%);
 
-        height: 330px;
+    width: min(88vw, 380px);
 
-        overflow: hidden;
+    height: 270px;
+
+    overflow: hidden;
 
     }
-
 
     /* =====================================
        LOCK WINDOW
@@ -1409,7 +1410,7 @@ body {
 
     .lock-list {
 
-        padding-top: 127px;
+        padding-top: 0px;
 
     }
 
@@ -1422,11 +1423,11 @@ body {
 
         width: 92%;
 
-        height: 65px;
+        height: 58px;
 
-        gap: 18px;
+        gap: 16px;
 
-        padding: 10px 12px;
+        padding: 8px 12px;
 
     }
 
