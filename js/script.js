@@ -514,3 +514,26 @@ menuButtons.forEach((button) => {
     });
 
 });
+
+
+/* =========================================
+   MAIN MENU NAVIGATION
+========================================= */
+
+const menuButtons =
+    document.querySelectorAll(
+        ".menu-buttons button[data-page]"
+    );
+
+menuButtons.forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+        const page =
+            button.dataset.page;
+
+        window.location.href = page;
+
+    });
+
+});
