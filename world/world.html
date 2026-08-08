@@ -135,119 +135,194 @@
 
 
     <!-- =====================================
-         WORLD MENU
-    ====================================== -->
+     WORLD MENU — COMBINATION LOCK
+====================================== -->
 
-    <nav class="world-menu">
+<nav class="world-menu">
 
+    <div class="lock-window">
 
-        <button data-section="profile">
-
-            <span class="number">
-                01
-            </span>
-
-            <span class="menu-name">
-                PROFILE
-            </span>
-
-            <span class="menu-description">
-                Discover who I am.
-            </span>
-
-        </button>
+        <div class="lock-list" id="lockList">
 
 
-        <button data-section="lore">
+            <!-- 01 -->
 
-            <span class="number">
-                02
-            </span>
+            <button
+                class="lock-item active"
+                data-section="profile"
+            >
 
-            <span class="menu-name">
-                LORE
-            </span>
+                <span class="number">
+                    01
+                </span>
 
-            <span class="menu-description">
-                Enter the story.
-            </span>
+                <span class="menu-info">
 
-        </button>
+                    <span class="menu-name">
+                        PROFILE
+                    </span>
 
+                    <span class="menu-description">
+                        Discover who I am.
+                    </span>
 
-        <button data-section="activities">
+                </span>
 
-            <span class="number">
-                03
-            </span>
-
-            <span class="menu-name">
-                ACTIVITIES
-            </span>
-
-            <span class="menu-description">
-                What is happening?
-            </span>
-
-        </button>
+            </button>
 
 
-        <button data-section="gallery">
+            <!-- 02 -->
 
-            <span class="number">
-                04
-            </span>
+            <button
+                class="lock-item"
+                data-section="lore"
+            >
 
-            <span class="menu-name">
-                GALLERY
-            </span>
+                <span class="number">
+                    02
+                </span>
 
-            <span class="menu-description">
-                Memories from the world.
-            </span>
+                <span class="menu-info">
 
-        </button>
+                    <span class="menu-name">
+                        LORE
+                    </span>
 
+                    <span class="menu-description">
+                        Enter the story.
+                    </span>
 
-        <button data-section="archive">
+                </span>
 
-            <span class="number">
-                05
-            </span>
-
-            <span class="menu-name">
-                ARCHIVE
-            </span>
-
-            <span class="menu-description">
-                Lost memories.
-            </span>
-
-        </button>
+            </button>
 
 
-        <button
-            data-section="secret"
-            class="secret"
-        >
+            <!-- 03 -->
 
-            <span class="number">
-                ??
-            </span>
+            <button
+                class="lock-item"
+                data-section="activities"
+            >
 
-            <span class="menu-name">
-                UNKNOWN
-            </span>
+                <span class="number">
+                    03
+                </span>
 
-            <span class="menu-description">
-                Something is waiting.
-            </span>
+                <span class="menu-info">
 
-        </button>
+                    <span class="menu-name">
+                        ACTIVITIES
+                    </span>
+
+                    <span class="menu-description">
+                        What is happening?
+                    </span>
+
+                </span>
+
+            </button>
 
 
-    </nav>
+            <!-- 04 -->
 
+            <button
+                class="lock-item"
+                data-section="gallery"
+            >
+
+                <span class="number">
+                    04
+                </span>
+
+                <span class="menu-info">
+
+                    <span class="menu-name">
+                        GALLERY
+                    </span>
+
+                    <span class="menu-description">
+                        Memories from the world.
+                    </span>
+
+                </span>
+
+            </button>
+
+
+            <!-- 05 -->
+
+            <button
+                class="lock-item"
+                data-section="archive"
+            >
+
+                <span class="number">
+                    05
+                </span>
+
+                <span class="menu-info">
+
+                    <span class="menu-name">
+                        ARCHIVE
+                    </span>
+
+                    <span class="menu-description">
+                        Lost memories.
+                    </span>
+
+                </span>
+
+            </button>
+
+
+            <!-- UNKNOWN -->
+
+            <button
+                class="lock-item secret"
+                data-section="secret"
+            >
+
+                <span class="number">
+                    ??
+                </span>
+
+                <span class="menu-info">
+
+                    <span class="menu-name">
+                        UNKNOWN
+                    </span>
+
+                    <span class="menu-description">
+                        Something is waiting.
+                    </span>
+
+                </span>
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- LOCK INDICATOR -->
+
+    <div class="lock-indicator">
+
+        <span></span>
+
+        <span></span>
+
+        <span class="current"></span>
+
+        <span></span>
+
+        <span></span>
+
+    </div>
+
+</nav>
 
     <!-- =====================================
          BACK TO MAIN MENU
