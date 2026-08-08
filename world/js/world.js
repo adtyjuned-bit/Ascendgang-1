@@ -209,13 +209,10 @@ let activeIndex = 0;
 
 function getItemHeight() {
 
-    if (window.innerWidth <= 800) {
+    return lockItems[0]
+        ? lockItems[0].offsetHeight
+        : 68;
 
-        return 65;
-
-    }
-
-    return 75;
 }
 
 
@@ -238,60 +235,33 @@ function getItemGap() {
 
 function updateLock() {
 
+    if (!lockItems.length) {
+        return;
+    }
+
     const itemHeight =
-        getItemHeight();
-
-    const gap =
-        getItemGap();
-
-    /*
-       Item aktif harus berada
-       di tengah lock-window.
-
-       Kita ambil tinggi window.
-    */
+        lockItems[0].offsetHeight;
 
     const windowHeight =
         lockWindow.clientHeight;
 
-
-    /*
-       Posisi tengah window.
-    */
-
     const center =
         windowHeight / 2;
-
-
-    /*
-       Posisi tengah item.
-    */
 
     const itemCenter =
         itemHeight / 2;
 
-
-    /*
-       Jarak list dari atas.
-    */
-
     const offset =
         center
         - itemCenter
-        - (activeIndex * (itemHeight + gap));
-
-
-    /*
-       Geser seluruh list.
-    */
+        - (
+            activeIndex *
+            itemHeight
+        );
 
     lockList.style.transform =
         `translateY(${offset}px)`;
 
-
-    /*
-       Update class active.
-    */
 
     lockItems.forEach(
         (item, index) => {
@@ -304,10 +274,6 @@ function updateLock() {
         }
     );
 
-
-    /*
-       Update indicator.
-    */
 
     updateIndicator();
 
