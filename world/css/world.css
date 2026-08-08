@@ -452,8 +452,10 @@ body {
 }
 
 
+
 /* =========================================
    WORLD MENU
+   COMBINATION LOCK
 ========================================= */
 
 .world-menu {
@@ -466,38 +468,95 @@ body {
 
     top: 18vh;
 
-    width: 260px;
+    width: 300px;
+
+    height: 390px;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================
+   LOCK WINDOW
+========================================= */
+
+.lock-window {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    overflow: hidden;
+
+    touch-action: pan-y;
+
+}
+
+
+/* =========================================
+   LOCK LIST
+========================================= */
+
+.lock-list {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
 
     display: flex;
 
     flex-direction: column;
 
-    gap: 4px;
+    align-items: center;
+
+    padding-top: 157px;
+
+    transition:
+        transform .38s
+        cubic-bezier(
+            .22,
+            .8,
+            .22,
+            1
+        );
+
 }
 
 
-.world-menu button {
+/* =========================================
+   LOCK ITEM
+========================================= */
+
+.lock-item {
 
     position: relative;
 
-    display: grid;
+    width: 88%;
 
-    grid-template-columns: 35px 1fr;
+    height: 75px;
 
-    grid-template-rows: auto auto;
+    flex-shrink: 0;
 
-    column-gap: 10px;
+    display: flex;
 
-    width: 100%;
+    align-items: center;
 
-    padding: 13px 15px;
+    gap: 25px;
+
+    padding: 12px 18px;
 
     border: 1px solid transparent;
 
-    background:
-        rgba(0, 0, 0, .12);
+    background: transparent;
 
-    color: #aaa09a;
+    color: var(--text);
 
     text-align: left;
 
@@ -507,72 +566,346 @@ body {
 
     cursor: pointer;
 
+    opacity: .18;
+
+    transform: scale(.86);
+
     transition:
-        .3s ease;
+        opacity .3s ease,
+        transform .3s ease,
+        background .3s ease,
+        border-color .3s ease;
+
+    -webkit-tap-highlight-color:
+        transparent;
+
 }
 
 
-.world-menu button:hover {
+/* =========================================
+   ACTIVE ITEM
+========================================= */
 
-    border-color: var(--line);
+.lock-item.active {
+
+    opacity: 1;
+
+    transform: scale(1);
+
+    border-color:
+        rgba(
+            220,
+            200,
+            190,
+            .12
+        );
 
     background:
-        rgba(155, 56, 51, .08);
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(
+                155,
+                56,
+                51,
+                .10
+            ),
+            transparent
+        );
 
-    transform:
-        translateX(-5px);
 }
 
 
-.number {
+/* =========================================
+   ACTIVE LINE
+========================================= */
 
-    grid-row: 1 / 3;
+.lock-item.active::before {
 
-    color: #625954;
+    content: "";
+
+    position: absolute;
+
+    left: -1px;
+
+    top: 50%;
+
+    width: 2px;
+
+    height: 32px;
+
+    transform:
+        translateY(-50%);
+
+    background:
+        rgba(
+            238,
+            232,
+            223,
+            .75
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(
+            155,
+            56,
+            51,
+            .5
+        );
+
+}
+
+
+/* =========================================
+   NUMBER
+========================================= */
+
+.lock-item .number {
+
+    width: 35px;
+
+    flex-shrink: 0;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            .28
+        );
 
     font-size: 8px;
 
-    letter-spacing: 2px;
-
-    padding-top: 2px;
-}
-
-
-.menu-name {
-
-    font-size: 9px;
-
     letter-spacing: 3px;
 
-    color: #c4b9b3;
 }
 
 
-.menu-description {
+/* =========================================
+   INFO
+========================================= */
 
-    margin-top: 5px;
+.menu-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+}
+
+
+/* =========================================
+   NAME
+========================================= */
+
+.lock-item .menu-name {
+
+    display: block;
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    letter-spacing: 4px;
+
+    color:
+        rgba(
+            238,
+            232,
+            223,
+            .85
+        );
+
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.lock-item .menu-description {
+
+    display: block;
 
     font-size: 7px;
 
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
 
-    color: #665c58;
+    color:
+        rgba(
+            141,
+            129,
+            123,
+            .55
+        );
+
 }
 
 
-/* Secret */
+/* =========================================
+   INACTIVE
+========================================= */
 
-.world-menu .secret {
+.lock-item:not(.active)
+.menu-name {
 
-    margin-top: 15px;
+    color:
+        rgba(
+            238,
+            232,
+            223,
+            .45
+        );
 
-    opacity: .45;
 }
 
 
-.world-menu .secret:hover {
+/* =========================================
+   SECRET
+========================================= */
 
-    opacity: 1;
+.lock-item.secret {
+
+    opacity: .12;
+
+}
+
+
+/* =========================================
+   TOP / BOTTOM FADE
+========================================= */
+
+.lock-window::before,
+.lock-window::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 105px;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+}
+
+
+/* atas */
+
+.lock-window::before {
+
+    top: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #050505 5%,
+            rgba(5,5,5,.8) 35%,
+            transparent 100%
+        );
+
+}
+
+
+/* bawah */
+
+.lock-window::after {
+
+    bottom: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            #050505 5%,
+            rgba(5,5,5,.8) 35%,
+            transparent 100%
+        );
+
+}
+
+
+/* =========================================
+   INDICATOR
+========================================= */
+
+.lock-indicator {
+
+    position: absolute;
+
+    z-index: 15;
+
+    right: 0;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 7px;
+
+    pointer-events: none;
+
+}
+
+
+.lock-indicator span {
+
+    width: 3px;
+
+    height: 3px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            238,
+            232,
+            223,
+            .2
+        );
+
+}
+
+
+.lock-indicator span.current {
+
+    width: 3px;
+
+    height: 18px;
+
+    border-radius: 2px;
+
+    background:
+        rgba(
+            238,
+            232,
+            223,
+            .8
+        );
+
+    box-shadow:
+        0 0 10px
+        rgba(
+            155,
+            56,
+            51,
+            .5
+        );
+
 }
 
 
