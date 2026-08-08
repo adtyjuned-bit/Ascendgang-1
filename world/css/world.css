@@ -1606,3 +1606,396 @@ body {
     }
 
 }
+
+
+/* =========================================
+   PROFILE POPUP
+========================================= */
+
+.profile-popup {
+
+    position: relative;
+
+    width: min(520px, 86vw);
+
+    padding: 42px 45px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(14, 10, 10, .97),
+            rgba(7, 7, 7, .98)
+        );
+
+    border:
+        1px solid
+        rgba(220, 200, 190, .16);
+
+    box-shadow:
+        0 25px 80px
+        rgba(0, 0, 0, .7);
+
+    transform:
+        translateY(25px)
+        scale(.96);
+
+    opacity: 0;
+
+    transition:
+        .55s cubic-bezier(
+            .22,
+            .8,
+            .22,
+            1
+        );
+}
+
+
+/* garis merah halus */
+
+.profile-popup::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 25px;
+
+    width: 2px;
+
+    height: 70px;
+
+    background:
+        rgba(155, 56, 51, .8);
+
+    box-shadow:
+        0 0 15px
+        rgba(155, 56, 51, .35);
+
+}
+
+
+/* popup muncul */
+
+.section-overlay.show
+.profile-popup {
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    opacity: 1;
+
+}
+
+
+/* =========================================
+   PROFILE HEADER
+========================================= */
+
+.profile-header {
+
+    text-align: left;
+
+}
+
+
+.profile-header .section-number {
+
+    display: block;
+
+    color: #786c67;
+
+    font-size: 8px;
+
+    letter-spacing: 5px;
+
+}
+
+
+.profile-header h2 {
+
+    margin-top: 14px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(52px, 8vw, 78px);
+
+    font-weight: 400;
+
+    line-height: .85;
+
+    letter-spacing: 2px;
+
+}
+
+
+.profile-header p {
+
+    margin-top: 18px;
+
+    max-width: 330px;
+
+    color: #817671;
+
+    font-size: 9px;
+
+    line-height: 1.8;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+/* =========================================
+   LINE
+========================================= */
+
+.profile-line {
+
+    width: 100%;
+
+    height: 1px;
+
+    margin:
+        30px 0;
+
+    background:
+        rgba(220, 200, 190, .10);
+
+}
+
+
+/* =========================================
+   DETAILS
+========================================= */
+
+.profile-details {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 17px;
+
+}
+
+
+.profile-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+
+.profile-label {
+
+    color: #655b57;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.profile-value {
+
+    color: #c8beb8;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    text-align: right;
+
+}
+
+
+.profile-value.online {
+
+    color: #9b3833;
+
+}
+
+
+/* =========================================
+   QUOTE
+========================================= */
+
+.profile-quote {
+
+    position: relative;
+
+    margin-top: 35px;
+
+    padding-left: 18px;
+
+    border-left:
+        1px solid
+        rgba(155, 56, 51, .35);
+
+}
+
+
+.profile-quote span {
+
+    display: block;
+
+    height: 12px;
+
+    color: #9b3833;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 28px;
+
+    line-height: .5;
+
+}
+
+
+.profile-quote p {
+
+    margin-top: 8px;
+
+    color: #756b66;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 15px;
+
+    line-height: 1.4;
+
+    letter-spacing: .5px;
+
+}
+
+
+/* =========================================
+   CLOSE
+========================================= */
+
+.profile-popup .close-section {
+
+    top: 18px;
+
+    right: 20px;
+
+    font-size: 25px;
+
+    color: #6e6560;
+
+}
+
+
+.profile-popup .close-section:hover {
+
+    color: #eee8df;
+
+}
+
+
+/* =========================================
+   MOBILE PROFILE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .profile-popup {
+
+        width: 88vw;
+
+        padding:
+            34px 28px;
+
+    }
+
+
+    .profile-popup::before {
+
+        top: 20px;
+
+        height: 55px;
+
+    }
+
+
+    .profile-header h2 {
+
+        font-size: 55px;
+
+    }
+
+
+    .profile-header p {
+
+        font-size: 8px;
+
+        max-width: 270px;
+
+    }
+
+
+    .profile-line {
+
+        margin:
+            25px 0;
+
+    }
+
+
+    .profile-details {
+
+        gap: 15px;
+
+    }
+
+
+    .profile-label {
+
+        font-size: 6px;
+
+        letter-spacing: 2.5px;
+
+    }
+
+
+    .profile-value {
+
+        font-size: 7px;
+
+        letter-spacing: 1.5px;
+
+    }
+
+
+    .profile-quote {
+
+        margin-top: 28px;
+
+    }
+
+
+    .profile-quote p {
+
+        font-size: 14px;
+
+    }
+
+}
