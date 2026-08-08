@@ -1,15 +1,39 @@
 /* =========================================
-   NAINSAN WORLD
-   WORLD.JS
+   NAINSAN — WORLD.JS
+
+   Fungsi:
+   1. Membuat particle
+   2. Mengatur combination lock menu
+   3. Swipe atas / bawah
+   4. Klik menu
+   5. Mengubah item aktif
+   6. Menggerakkan lock-list
+   7. Mengubah indicator
+   8. Membuka section overlay
+   9. Menutup section overlay
 ========================================= */
 
 
 /* =========================================
-   ELEMENT
+   1. AMBIL ELEMENT HTML
 ========================================= */
 
 const particles =
     document.getElementById("particles");
+
+const lockList =
+    document.getElementById("lockList");
+
+const lockWindow =
+    document.querySelector(".lock-window");
+
+const lockItems =
+    document.querySelectorAll(".lock-item");
+
+const indicators =
+    document.querySelectorAll(
+        ".lock-indicator span"
+    );
 
 const sectionOverlay =
     document.getElementById("sectionOverlay");
@@ -28,83 +52,60 @@ const sectionText =
 
 
 /* =========================================
-   PARTICLE SETTINGS
+   2. PARTICLE SETTINGS
 ========================================= */
 
-
-/*
-   Jumlah particle.
-
-   40 = normal
-   70 = lebih ramai
-   20 = lebih minimal
-*/
-
-const particleAmount = 40;
+const particleAmount = 45;
 
 
 /* =========================================
-   CREATE PARTICLES
+   3. MEMBUAT PARTICLE
 ========================================= */
 
-for (
-    let i = 0;
-    i < particleAmount;
-    i++
-) {
+for (let i = 0; i < particleAmount; i++) {
 
     const particle =
-        document.createElement("span");
+        document.createElement("i");
 
-
-    particle.className =
-        "particle";
-
+    particle.className = "particle";
 
     particle.style.left =
         Math.random() * 100 + "%";
 
-
     particle.style.top =
         Math.random() * 100 + "%";
-
 
     particle.style.setProperty(
         "--duration",
         8 + Math.random() * 10 + "s"
     );
 
-
     particle.style.setProperty(
         "--delay",
         -Math.random() * 10 + "s"
     );
 
-
     particle.style.setProperty(
         "--x",
-        (Math.random() - .5) * 150 + "px"
+        (Math.random() - 0.5) * 180 + "px"
     );
-
 
     particles.appendChild(particle);
 }
 
 
 /* =========================================
-   WORLD SECTIONS
+   4. DATA MENU
 ========================================= */
 
-
 /*
-   Semua informasi yang muncul
-   ketika menu diklik.
+   Isi informasi setiap menu.
 
-   Nanti kita bisa ganti ini
-   dengan halaman sebenarnya.
+   Nanti kalau mau mengubah isi overlay,
+   cukup edit bagian ini.
 */
 
-const sections = {
+const sectionData = {
 
     profile: {
 
@@ -113,10 +114,9 @@ const sections = {
         title: "PROFILE",
 
         text:
-            "Discover who I am, beyond the screen."
+            "Discover who I am."
 
     },
-
 
     lore: {
 
@@ -125,10 +125,9 @@ const sections = {
         title: "LORE",
 
         text:
-            "Every world has a story. Mine is only beginning."
+            "Enter the story."
 
     },
-
 
     activities: {
 
@@ -137,10 +136,9 @@ const sections = {
         title: "ACTIVITIES",
 
         text:
-            "See what is happening inside my world."
+            "What is happening?"
 
     },
-
 
     gallery: {
 
@@ -149,10 +147,9 @@ const sections = {
         title: "GALLERY",
 
         text:
-            "A collection of memories, moments and creations."
+            "Memories from the world."
 
     },
-
 
     archive: {
 
@@ -161,10 +158,9 @@ const sections = {
         title: "ARCHIVE",
 
         text:
-            "Old memories never truly disappear."
+            "Lost memories."
 
     },
-
 
     secret: {
 
@@ -173,7 +169,7 @@ const sections = {
         title: "UNKNOWN",
 
         text:
-            "You found something that was not supposed to be here."
+            "Something is waiting."
 
     }
 
@@ -181,117 +177,258 @@ const sections = {
 
 
 /* =========================================
-   WORLD MENU
+   5. LOCK SETTINGS
 ========================================= */
 
-
 /*
-   Ambil semua tombol World Menu.
+   Nomor item yang sedang aktif.
+
+   0 = PROFILE
+   1 = LORE
+   2 = ACTIVITIES
+   dst.
 */
 
-const worldButtons =
-    document.querySelectorAll(
-        ".world-menu button"
-    );
+let activeIndex = 0;
 
 
 /*
-   Berikan event click
-   ke setiap tombol.
+   Tinggi setiap item.
+
+   CSS:
+
+   desktop:
+   75px
+
+   mobile:
+   65px
+
+   Kita akan mendeteksi ukuran
+   layar secara otomatis.
 */
 
-worldButtons.forEach((button) => {
+function getItemHeight() {
 
-    button.addEventListener(
-        "click",
-        () => {
+    if (window.innerWidth <= 800) {
 
+        return 65;
 
-            /*
-               Ambil nama section.
+    }
 
-               Contoh:
-
-               data-section="profile"
-
-               hasil:
-
-               profile
-            */
-
-            const section =
-                button.dataset.section;
+    return 75;
+}
 
 
-            /*
-               Ambil data section
-               dari object di atas.
-            */
+/*
+   Jarak antar item.
 
-            const data =
-                sections[section];
+   Karena CSS .lock-item tidak
+   menggunakan margin, gap dianggap 0.
+*/
 
+function getItemGap() {
 
-            /*
-               Kalau datanya tidak ditemukan,
-               hentikan fungsi.
-            */
-
-            if (!data) {
-
-                return;
-
-            }
+    return 0;
+}
 
 
-            /*
-               Masukkan nomor.
-            */
+/* =========================================
+   6. UPDATE LOCK POSITION
+========================================= */
 
-            sectionNumber.textContent =
-                data.number;
+function updateLock() {
+
+    const itemHeight =
+        getItemHeight();
+
+    const gap =
+        getItemGap();
+
+    /*
+       Item aktif harus berada
+       di tengah lock-window.
+
+       Kita ambil tinggi window.
+    */
+
+    const windowHeight =
+        lockWindow.clientHeight;
 
 
-            /*
-               Masukkan judul.
-            */
+    /*
+       Posisi tengah window.
+    */
 
-            sectionTitle.textContent =
-                data.title;
-
-
-            /*
-               Masukkan deskripsi.
-            */
-
-            sectionText.textContent =
-                data.text;
+    const center =
+        windowHeight / 2;
 
 
-            /*
-               Tampilkan overlay.
-            */
+    /*
+       Posisi tengah item.
+    */
 
-            sectionOverlay.classList.add(
-                "show"
+    const itemCenter =
+        itemHeight / 2;
+
+
+    /*
+       Jarak list dari atas.
+    */
+
+    const offset =
+        center
+        - itemCenter
+        - (activeIndex * (itemHeight + gap));
+
+
+    /*
+       Geser seluruh list.
+    */
+
+    lockList.style.transform =
+        `translateY(${offset}px)`;
+
+
+    /*
+       Update class active.
+    */
+
+    lockItems.forEach(
+        (item, index) => {
+
+            item.classList.toggle(
+                "active",
+                index === activeIndex
             );
 
         }
     );
 
-});
+
+    /*
+       Update indicator.
+    */
+
+    updateIndicator();
+
+}
 
 
 /* =========================================
-   CLOSE SECTION
+   7. UPDATE INDICATOR
 ========================================= */
 
-closeSection.addEventListener(
-    "click",
-    () => {
+function updateIndicator() {
 
-        sectionOverlay.classList.remove(
-            "show"
+    indicators.forEach(
+        (indicator, index) => {
+
+            indicator.classList.toggle(
+                "current",
+                index === activeIndex
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   8. PINDAH MENU
+========================================= */
+
+function moveLock(direction) {
+
+    /*
+       direction:
+
+       +1 = turun ke item berikutnya
+
+       -1 = naik ke item sebelumnya
+    */
+
+    const newIndex =
+        activeIndex + direction;
+
+
+    /*
+       Jangan melewati item pertama.
+    */
+
+    if (newIndex < 0) {
+
+        return;
+
+    }
+
+
+    /*
+       Jangan melewati item terakhir.
+    */
+
+    if (newIndex >= lockItems.length) {
+
+        return;
+
+    }
+
+
+    /*
+       Simpan index baru.
+    */
+
+    activeIndex = newIndex;
+
+
+    /*
+       Jalankan animasi.
+    */
+
+    updateLock();
+
+}
+
+
+/* =========================================
+   9. KLIK MENU
+========================================= */
+
+lockItems.forEach(
+    (item, index) => {
+
+        item.addEventListener(
+            "click",
+            () => {
+
+                /*
+                   Kalau item bukan item aktif,
+                   klik pertama hanya memindahkan
+                   item tersebut ke tengah.
+                */
+
+                if (index !== activeIndex) {
+
+                    activeIndex = index;
+
+                    updateLock();
+
+                    return;
+
+                }
+
+
+                /*
+                   Kalau sudah aktif,
+                   buka section.
+                */
+
+                const section =
+                    item.dataset.section;
+
+                openSection(section);
+
+            }
         );
 
     }
@@ -299,26 +436,325 @@ closeSection.addEventListener(
 
 
 /* =========================================
-   ESC KEY
+   10. SWIPE SYSTEM
 ========================================= */
+
+let touchStartY = 0;
+
+let touchEndY = 0;
 
 
 /*
-   Kalau user menekan tombol ESC,
-   overlay ditutup.
+   Minimal jarak swipe.
+
+   Semakin besar:
+   semakin susah swipe.
+
+   35px cocok untuk HP.
+*/
+
+const swipeThreshold = 35;
+
+
+/* =========================================
+   TOUCH START
+========================================= */
+
+lockWindow.addEventListener(
+    "touchstart",
+    (event) => {
+
+        touchStartY =
+            event.changedTouches[0].screenY;
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+/* =========================================
+   TOUCH END
+========================================= */
+
+lockWindow.addEventListener(
+    "touchend",
+    (event) => {
+
+        touchEndY =
+            event.changedTouches[0].screenY;
+
+        handleSwipe();
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+/* =========================================
+   HANDLE SWIPE
+========================================= */
+
+function handleSwipe() {
+
+    const distance =
+        touchStartY - touchEndY;
+
+
+    /*
+       Swipe UP
+
+       Jari bergerak:
+       bawah → atas
+
+       distance menjadi positif.
+    */
+
+    if (distance > swipeThreshold) {
+
+        moveLock(1);
+
+        return;
+
+    }
+
+
+    /*
+       Swipe DOWN
+
+       Jari bergerak:
+       atas → bawah
+
+       distance menjadi negatif.
+    */
+
+    if (distance < -swipeThreshold) {
+
+        moveLock(-1);
+
+        return;
+
+    }
+
+}
+
+
+/* =========================================
+   11. KEYBOARD
+========================================= */
+
+/*
+   Kalau dibuka lewat PC,
+   keyboard juga bisa digunakan.
+
+   Arrow Down = turun
+
+   Arrow Up = naik
+
+   Enter = buka menu
 */
 
 document.addEventListener(
     "keydown",
     (event) => {
 
+        if (event.key === "ArrowDown") {
+
+            moveLock(1);
+
+        }
+
+
+        if (event.key === "ArrowUp") {
+
+            moveLock(-1);
+
+        }
+
+
+        if (event.key === "Enter") {
+
+            const item =
+                lockItems[activeIndex];
+
+            if (item) {
+
+                openSection(
+                    item.dataset.section
+                );
+
+            }
+
+        }
+
+
         if (event.key === "Escape") {
 
-            sectionOverlay.classList.remove(
-                "show"
-            );
+            closeOverlay();
 
         }
 
     }
 );
+
+
+/* =========================================
+   12. OPEN SECTION
+========================================= */
+
+function openSection(sectionName) {
+
+    const data =
+        sectionData[sectionName];
+
+
+    /*
+       Kalau data tidak ditemukan,
+       hentikan fungsi.
+    */
+
+    if (!data) {
+
+        return;
+
+    }
+
+
+    /*
+       Masukkan nomor.
+    */
+
+    sectionNumber.textContent =
+        data.number;
+
+
+    /*
+       Masukkan judul.
+    */
+
+    sectionTitle.textContent =
+        data.title;
+
+
+    /*
+       Masukkan deskripsi.
+    */
+
+    sectionText.textContent =
+        data.text;
+
+
+    /*
+       Tampilkan overlay.
+    */
+
+    sectionOverlay.classList.add("show");
+
+
+    /*
+       Kunci scroll body ketika overlay
+       sedang terbuka.
+    */
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+/* =========================================
+   13. CLOSE SECTION
+========================================= */
+
+function closeOverlay() {
+
+    sectionOverlay.classList.remove(
+        "show"
+    );
+
+
+    /*
+       Kembalikan scroll body.
+    */
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+/* =========================================
+   14. TOMBOL CLOSE
+========================================= */
+
+closeSection.addEventListener(
+    "click",
+    () => {
+
+        closeOverlay();
+
+    }
+);
+
+
+/* =========================================
+   15. KLIK BACKGROUND OVERLAY
+========================================= */
+
+sectionOverlay.addEventListener(
+    "click",
+    (event) => {
+
+        /*
+           Hanya menutup kalau yang
+           diklik adalah background overlay.
+
+           Kalau klik isi section,
+           tidak ditutup.
+        */
+
+        if (
+            event.target === sectionOverlay
+        ) {
+
+            closeOverlay();
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   16. RESPONSIVE
+========================================= */
+
+/*
+   Ketika HP diputar atau ukuran
+   browser berubah, posisi lock
+   dihitung ulang.
+*/
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        updateLock();
+
+    }
+);
+
+
+/* =========================================
+   17. INITIALIZE
+========================================= */
+
+/*
+   Jalankan pertama kali ketika
+   halaman selesai dimuat.
+*/
+
+updateLock();
