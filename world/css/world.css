@@ -464,13 +464,15 @@ body {
 
     z-index: 12;
 
-    right: 7vw;
+    right: clamp(30px, 7vw, 100px);
 
-    top: 18vh;
+    top: 50%;
 
-    width: 300px;
+    transform: translateY(-50%);
 
-    height: 390px;
+    width: min(360px, 38vw);
+
+    height: min(330px, 52vh);
 
     overflow: hidden;
 
@@ -516,7 +518,7 @@ body {
 
     align-items: center;
 
-    padding-top: 157px;
+    padding-top: 0;
 
     transition:
         transform .38s
@@ -528,7 +530,6 @@ body {
         );
 
 }
-
 
 /* =========================================
    LOCK ITEM
