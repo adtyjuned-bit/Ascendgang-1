@@ -1,0 +1,1261 @@
+/* =========================================
+   NAINSAN — LORE.CSS
+
+   SECTION STYLE ONLY
+
+   File ini dimuat ke dalam:
+   .section-body
+
+   PENTING:
+   Jangan styling:
+   .section-overlay
+   .section-popup
+   .close-section
+
+   Semua itu milik WORLD CORE.
+========================================= */
+
+
+/* =========================================
+   01. LORE CORE
+========================================= */
+
+.lore-page {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100%;
+
+    padding:
+        42px
+        42px
+        30px;
+
+    overflow: hidden;
+
+    color:
+        #eee8df;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(155, 56, 51, .07),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(120, 80, 65, .045),
+            transparent 32%
+        );
+
+}
+
+
+/* =========================================
+   ATMOSPHERIC GLOW
+========================================= */
+
+.lore-page::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -120px;
+
+    right: -100px;
+
+    width: 240px;
+
+    height: 240px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(155, 56, 51, .07);
+
+    filter:
+        blur(70px);
+
+    pointer-events: none;
+
+}
+
+
+.lore-page::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 100%;
+
+    height: 1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(155, 56, 51, .32),
+            transparent
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================
+   02. HEADER
+========================================= */
+
+.lore-header {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        auto;
+
+    gap: 18px;
+
+}
+
+
+/* =========================================
+   INDEX
+========================================= */
+
+.lore-index {
+
+    grid-column:
+        1 / -1;
+
+    font-size: 8px;
+
+    font-weight: 400;
+
+    letter-spacing: 5px;
+
+    color:
+        rgba(238, 232, 223, .40);
+
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.lore-title h1 {
+
+    margin: 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(56px, 10vw, 80px);
+
+    font-weight: 500;
+
+    line-height: .78;
+
+    letter-spacing:
+        3px;
+
+    color:
+        #f1ebe4;
+
+}
+
+
+.lore-title p {
+
+    max-width:
+        260px;
+
+    margin:
+        15px
+        0
+        0;
+
+    font-size:
+        9px;
+
+    font-weight:
+        300;
+
+    line-height:
+        1.7;
+
+    letter-spacing:
+        1px;
+
+    color:
+        rgba(238, 232, 223, .45);
+
+}
+
+
+/* =========================================
+   SYMBOL
+========================================= */
+
+.lore-symbol {
+
+    align-self:
+        end;
+
+    padding-bottom:
+        5px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        25px;
+
+    line-height:
+        1;
+
+    color:
+        rgba(155, 56, 51, .65);
+
+    animation:
+        loreSymbolPulse
+        4s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================
+   03. INTRO
+========================================= */
+
+.lore-intro {
+
+    position: relative;
+
+    margin-top:
+        31px;
+
+    padding-left:
+        18px;
+
+    border-left:
+        1px solid
+        rgba(155, 56, 51, .55);
+
+}
+
+
+/* =========================================
+   SECTION LABEL
+========================================= */
+
+.lore-section-label {
+
+    margin-bottom:
+        16px;
+
+    font-size:
+        7px;
+
+    font-weight:
+        400;
+
+    letter-spacing:
+        4px;
+
+    color:
+        rgba(238, 232, 223, .30);
+
+}
+
+
+/* =========================================
+   LEAD
+========================================= */
+
+.lore-lead {
+
+    max-width:
+        440px;
+
+    margin:
+        0 0 13px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        21px;
+
+    font-weight:
+        500;
+
+    line-height:
+        1.25;
+
+    color:
+        rgba(238, 232, 223, .76);
+
+}
+
+
+/* =========================================
+   BODY COPY
+========================================= */
+
+.lore-intro p:not(.lore-lead) {
+
+    max-width:
+        470px;
+
+    margin:
+        0 0 12px;
+
+    font-size:
+        8px;
+
+    font-weight:
+        300;
+
+    line-height:
+        1.8;
+
+    letter-spacing:
+        .35px;
+
+    color:
+        rgba(238, 232, 223, .40);
+
+}
+
+
+.lore-intro p:last-child {
+
+    margin-bottom:
+        0;
+
+}
+
+
+/* =========================================
+   04. DIVIDER
+========================================= */
+
+.lore-line {
+
+    width: 100%;
+
+    height: 1px;
+
+    margin:
+        30px 0;
+
+    background:
+        rgba(220, 200, 190, .11);
+
+}
+
+
+/* =========================================
+   05. HISTORY
+========================================= */
+
+.lore-history {
+
+    position: relative;
+
+}
+
+
+.lore-history > .lore-section-label {
+
+    margin-bottom:
+        22px;
+
+}
+
+
+/* =========================================
+   06. TIMELINE
+========================================= */
+
+.lore-timeline {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+/* =========================================
+   TIMELINE LINE
+========================================= */
+
+.lore-timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 4px;
+
+    bottom: 4px;
+
+    left: 15px;
+
+    width: 1px;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            rgba(155, 56, 51, .55),
+            rgba(220, 200, 190, .08),
+            rgba(155, 56, 51, .28)
+        );
+
+}
+
+
+/* =========================================
+   07. EVENT
+========================================= */
+
+.lore-event {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        31px
+        1fr;
+
+    column-gap:
+        18px;
+
+    min-height:
+        105px;
+
+}
+
+
+.lore-event:last-child {
+
+    min-height:
+        auto;
+
+}
+
+
+/* =========================================
+   MARKER
+========================================= */
+
+.lore-event-marker {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items:
+        flex-start;
+
+    justify-content:
+        center;
+
+}
+
+
+.lore-event-marker span {
+
+    display: flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        31px;
+
+    height:
+        31px;
+
+    border:
+        1px solid
+        rgba(155, 56, 51, .42);
+
+    border-radius:
+        50%;
+
+    background:
+        #0d0909;
+
+    font-size:
+        6px;
+
+    letter-spacing:
+        1px;
+
+    color:
+        rgba(238, 232, 223, .45);
+
+    transition:
+        .3s ease;
+
+}
+
+
+.lore-event:hover
+.lore-event-marker span {
+
+    border-color:
+        rgba(155, 56, 51, .85);
+
+    color:
+        #d5b3ad;
+
+    box-shadow:
+        0 0 15px
+        rgba(155, 56, 51, .18);
+
+}
+
+
+/* =========================================
+   08. EVENT CONTENT
+========================================= */
+
+.lore-event-content {
+
+    padding-bottom:
+        28px;
+
+}
+
+
+.lore-event-tag {
+
+    display: block;
+
+    margin-bottom:
+        7px;
+
+    font-size:
+        6px;
+
+    letter-spacing:
+        3px;
+
+    color:
+        rgba(155, 56, 51, .72);
+
+}
+
+
+.lore-event-content h2 {
+
+    margin:
+        0 0 8px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        22px;
+
+    font-weight:
+        500;
+
+    line-height:
+        1.05;
+
+    color:
+        rgba(238, 232, 223, .72);
+
+}
+
+
+.lore-event-content p {
+
+    max-width:
+        420px;
+
+    margin:
+        0;
+
+    font-size:
+        8px;
+
+    font-weight:
+        300;
+
+    line-height:
+        1.75;
+
+    letter-spacing:
+        .25px;
+
+    color:
+        rgba(238, 232, 223, .38);
+
+}
+
+
+/* =========================================
+   09. UNFINISHED NOTE
+========================================= */
+
+.lore-note {
+
+    display: flex;
+
+    align-items:
+        center;
+
+    gap:
+        14px;
+
+    margin-top:
+        4px;
+
+    padding:
+        15px 16px;
+
+    border:
+        1px solid
+        rgba(220, 200, 190, .08);
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(155, 56, 51, .055),
+            transparent
+        );
+
+}
+
+
+/* =========================================
+   NOTE MARK
+========================================= */
+
+.lore-note-mark {
+
+    display: flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        25px;
+
+    height:
+        25px;
+
+    flex-shrink: 0;
+
+    border:
+        1px solid
+        rgba(155, 56, 51, .35);
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        16px;
+
+    color:
+        rgba(155, 56, 51, .75);
+
+}
+
+
+/* =========================================
+   NOTE LABEL
+========================================= */
+
+.lore-note-label {
+
+    display: block;
+
+    margin-bottom:
+        4px;
+
+    font-size:
+        6px;
+
+    letter-spacing:
+        3px;
+
+    color:
+        rgba(238, 232, 223, .28);
+
+}
+
+
+.lore-note p {
+
+    margin:
+        0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        15px;
+
+    line-height:
+        1.2;
+
+    color:
+        rgba(238, 232, 223, .48);
+
+}
+
+
+/* =========================================
+   10. FOOTER
+========================================= */
+
+.lore-footer {
+
+    display: flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    padding-top:
+        25px;
+
+    font-size:
+        6px;
+
+    letter-spacing:
+        3px;
+
+    color:
+        rgba(238, 232, 223, .22);
+
+}
+
+
+.lore-footer-line {
+
+    width:
+        30px;
+
+    height:
+        1px;
+
+    background:
+        rgba(238, 232, 223, .13);
+
+}
+
+
+/* =========================================
+   11. ENTRY ANIMATION
+========================================= */
+
+.lore-page .lore-header,
+.lore-page .lore-intro,
+.lore-page .lore-history,
+.lore-page .lore-note,
+.lore-page .lore-footer {
+
+    opacity: 0;
+
+    transform:
+        translateY(12px);
+
+    animation:
+        loreReveal
+        .6s
+        ease
+        forwards;
+
+}
+
+
+.lore-page .lore-header {
+
+    animation-delay:
+        .05s;
+
+}
+
+
+.lore-page .lore-intro {
+
+    animation-delay:
+        .15s;
+
+}
+
+
+.lore-page .lore-history {
+
+    animation-delay:
+        .25s;
+
+}
+
+
+.lore-page .lore-note {
+
+    animation-delay:
+        .35s;
+
+}
+
+
+.lore-page .lore-footer {
+
+    animation-delay:
+        .45s;
+
+}
+
+
+/* =========================================
+   12. ANIMATIONS
+========================================= */
+
+@keyframes loreReveal {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes loreSymbolPulse {
+
+    0%,
+    100% {
+
+        opacity:
+            .45;
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        opacity:
+            .85;
+
+        transform:
+            translateY(-2px);
+
+    }
+
+}
+
+
+/* =========================================
+   13. MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .lore-page {
+
+        padding:
+            34px
+            24px
+            26px;
+
+    }
+
+
+    .lore-index {
+
+        font-size:
+            7px;
+
+        letter-spacing:
+            4px;
+
+    }
+
+
+    .lore-title h1 {
+
+        font-size:
+            clamp(50px, 16vw, 68px);
+
+        letter-spacing:
+            2px;
+
+    }
+
+
+    .lore-title p {
+
+        max-width:
+            210px;
+
+        margin-top:
+            12px;
+
+        font-size:
+            8px;
+
+        line-height:
+            1.6;
+
+    }
+
+
+    .lore-symbol {
+
+        font-size:
+            21px;
+
+    }
+
+
+    .lore-intro {
+
+        margin-top:
+            27px;
+
+        padding-left:
+            15px;
+
+    }
+
+
+    .lore-section-label {
+
+        margin-bottom:
+            13px;
+
+        font-size:
+            6px;
+
+        letter-spacing:
+            3px;
+
+    }
+
+
+    .lore-lead {
+
+        font-size:
+            19px;
+
+        line-height:
+            1.25;
+
+    }
+
+
+    .lore-intro p:not(.lore-lead) {
+
+        font-size:
+            7px;
+
+        line-height:
+            1.75;
+
+    }
+
+
+    .lore-line {
+
+        margin:
+            25px 0;
+
+    }
+
+
+    .lore-history > .lore-section-label {
+
+        margin-bottom:
+            18px;
+
+    }
+
+
+    .lore-timeline::before {
+
+        left:
+            13px;
+
+    }
+
+
+    .lore-event {
+
+        grid-template-columns:
+            27px
+            1fr;
+
+        column-gap:
+            14px;
+
+        min-height:
+            101px;
+
+    }
+
+
+    .lore-event-marker span {
+
+        width:
+            27px;
+
+        height:
+            27px;
+
+        font-size:
+            5px;
+
+    }
+
+
+    .lore-event-content {
+
+        padding-bottom:
+            25px;
+
+    }
+
+
+    .lore-event-tag {
+
+        margin-bottom:
+            6px;
+
+        font-size:
+            5px;
+
+        letter-spacing:
+            2.5px;
+
+    }
+
+
+    .lore-event-content h2 {
+
+        margin-bottom:
+            7px;
+
+        font-size:
+            20px;
+
+    }
+
+
+    .lore-event-content p {
+
+        font-size:
+            7px;
+
+        line-height:
+            1.7;
+
+    }
+
+
+    .lore-note {
+
+        gap:
+            11px;
+
+        padding:
+            13px;
+
+    }
+
+
+    .lore-note-mark {
+
+        width:
+            23px;
+
+        height:
+            23px;
+
+        font-size:
+            14px;
+
+    }
+
+
+    .lore-note-label {
+
+        font-size:
+            5px;
+
+        letter-spacing:
+            2.5px;
+
+    }
+
+
+    .lore-note p {
+
+        font-size:
+            14px;
+
+    }
+
+
+    .lore-footer {
+
+        padding-top:
+            22px;
+
+        font-size:
+            5px;
+
+        letter-spacing:
+            2.5px;
+
+    }
+
+}
+
+
+/* =========================================
+   14. VERY SMALL PHONE
+========================================= */
+
+@media (max-width: 380px) {
+
+    .lore-page {
+
+        padding:
+            30px
+            19px
+            22px;
+
+    }
+
+
+    .lore-title h1 {
+
+        font-size:
+            45px;
+
+    }
+
+
+    .lore-title p {
+
+        font-size:
+            7px;
+
+    }
+
+
+    .lore-lead {
+
+        font-size:
+            18px;
+
+    }
+
+
+    .lore-intro p:not(.lore-lead) {
+
+        font-size:
+            6.5px;
+
+    }
+
+
+    .lore-event {
+
+        column-gap:
+            12px;
+
+        min-height:
+            98px;
+
+    }
+
+
+    .lore-event-content h2 {
+
+        font-size:
+            18px;
+
+    }
+
+
+    .lore-event-content p {
+
+        font-size:
+            6.5px;
+
+    }
+
+
+    .lore-note p {
+
+        font-size:
+            13px;
+
+    }
+
+}
+
+
+/* =========================================
+   END LORE.CSS
+========================================= */
