@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Nainsan — World</title>
+
+
+    <!-- =========================================
+         FONT
+    ========================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =========================================
+         WORLD CORE CSS
+    ========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/world.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     WORLD CORE
+========================================= -->
+
+<main
+    class="world"
+    id="world"
+>
+
+
+    <!-- =====================================
+         BACKGROUND
+    ====================================== -->
+
+    <div class="background"></div>
+
+    <div class="fog fog-one"></div>
+
+    <div class="fog fog-two"></div>
+
+
+    <!-- =====================================
+         PARTICLES
+    ====================================== -->
+
+    <div
+        class="particles"
+        id="particles"
+    ></div>
+
+
+    <!-- =====================================
+         TOP BAR
+    ====================================== -->
+
+    <header class="top-bar">
+
+        <div class="world-name">
+
+            <span>
+                WORLD 01
+            </span>
+
+            <strong>
+                NAINSAN'S WORLD
+            </strong>
+
+        </div>
+
+
+        <div class="world-status">
+
+            ONLINE
+
+            <span class="status-dot"></span>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================
+         CHARACTER
+    ====================================== -->
+
+    <section class="character-area">
+
+        <img
+            src="../nainvance.png"
+            alt="Nainsan"
+            class="character"
+        >
+
+        <div class="character-glow"></div>
+
+    </section>
+
+
+    <!-- =====================================
+         INTRO
+    ====================================== -->
+
+    <section class="intro">
+
+        <div class="intro-small">
+            YOU HAVE ENTERED
+        </div>
+
+        <h1>
+            Nainsan's World
+        </h1>
+
+        <p>
+            Somewhere between reality and imagination.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================
+         WORLD MENU
+    ====================================== -->
+
+    <nav class="world-menu">
+
+        <div class="lock-window">
+
+            <div
+                class="lock-list"
+                id="lockList"
+            >
+
+                <!-- MENU DIAMBIL DARI JS CONFIG -->
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================
+             LOCK INDICATOR
+        ================================== -->
+
+        <div
+            class="lock-indicator"
+            id="lockIndicator"
+        ></div>
+
+    </nav>
+
+
+    <!-- =====================================
+         BACK TO MAIN MENU
+    ====================================== -->
+
+    <a
+        href="../index.html"
+        class="back-button"
+    >
+        ← MAIN MENU
+    </a>
+
+
+    <!-- =====================================
+         SECTION OVERLAY
+         
+         ISI POPUP AKAN DIPANGGIL
+         DARI /assets/
+    ====================================== -->
+
+    <div
+        class="section-overlay"
+        id="sectionOverlay"
+    >
+
+        <div
+            class="section-popup"
+            id="sectionPopup"
+        >
+
+            <button
+                class="close-section"
+                id="closeSection"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+
+            <div
+                class="section-loader"
+                id="sectionLoader"
+            >
+
+                <span></span>
+
+                <p>
+                    LOADING
+                </p>
+
+            </div>
+
+
+            <div
+                class="section-body"
+                id="sectionBody"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+<!-- =========================================
+     WORLD CORE JAVASCRIPT
+========================================= -->
+
+<script
+    src="js/world.js"
+></script>
+
+
+</body>
+
+</html>
