@@ -1,0 +1,1769 @@
+/* =========================================
+   NAINSAN — WORLD.CSS
+
+   STRUKTUR:
+
+   01. CORE
+   02. BACKGROUND
+   03. PARTICLES
+   04. TOP BAR
+   05. CHARACTER
+   06. INTRO
+   07. WORLD MENU
+   08. LOCK
+   09. OVERLAY
+   10. RESPONSIVE
+
+   BAGIAN PALING BAWAH:
+   CUSTOM / CONFIG
+
+   Kalau mau mengubah konsep,
+   tambahkan di bagian bawah.
+========================================= */
+
+
+/* =========================================
+   01. GLOBAL CORE
+========================================= */
+
+:root {
+
+    --background: #050505;
+
+    --text: #eee8df;
+
+    --muted: #8d817b;
+
+    --red: #9b3833;
+
+    --gold: #e6c56f;
+
+    --line:
+        rgba(220, 200, 190, .15);
+
+}
+
+
+* {
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+html,
+body {
+
+    width: 100%;
+
+    min-height: 100%;
+
+    background:
+        var(--background);
+
+    color:
+        var(--text);
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+}
+
+
+body {
+
+    overflow-x: hidden;
+
+}
+
+
+/* =========================================
+   02. WORLD
+========================================= */
+
+.world {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    background:
+        #050505;
+
+}
+
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.background {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 0;
+
+    background:
+
+        radial-gradient(
+            ellipse at 50% 40%,
+            rgba(120, 55, 48, .15),
+            transparent 38%
+        ),
+
+        radial-gradient(
+            ellipse at 70% 80%,
+            rgba(90, 50, 40, .09),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #080707,
+            #110b0a 45%,
+            #040404
+        );
+
+}
+
+
+/* =========================================
+   FOG
+========================================= */
+
+.fog {
+
+    position: absolute;
+
+    z-index: 1;
+
+    width: 70vw;
+
+    height: 40vh;
+
+    border-radius: 50%;
+
+    background:
+        rgba(180, 150, 140, .035);
+
+    filter:
+        blur(70px);
+
+    pointer-events: none;
+
+}
+
+
+.fog-one {
+
+    left: -20%;
+
+    bottom: -10%;
+
+    animation:
+        fogMoveOne
+        12s
+        ease-in-out
+        infinite;
+
+}
+
+
+.fog-two {
+
+    right: -20%;
+
+    top: 20%;
+
+    animation:
+        fogMoveTwo
+        15s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================
+   03. PARTICLES
+========================================= */
+
+.particles {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+}
+
+
+.particle {
+
+    position: absolute;
+
+    width: 2px;
+
+    height: 2px;
+
+    border-radius: 50%;
+
+    background:
+        #cfc1b9;
+
+    opacity: .2;
+
+    animation:
+        particleFloat
+        var(--duration)
+        linear
+        infinite;
+
+    animation-delay:
+        var(--delay);
+
+}
+
+
+/* =========================================
+   04. TOP BAR
+========================================= */
+
+.top-bar {
+
+    position: absolute;
+
+    top: 35px;
+
+    left: 7vw;
+
+    right: 7vw;
+
+    z-index: 10;
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+}
+
+
+.world-name {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+}
+
+
+.world-name span {
+
+    font-size: 7px;
+
+    letter-spacing: 4px;
+
+    color:
+        #766a65;
+
+}
+
+
+.world-name strong {
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    font-weight: 400;
+
+}
+
+
+.world-status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    color:
+        #766a65;
+
+}
+
+
+.status-dot {
+
+    width: 5px;
+
+    height: 5px;
+
+    border-radius: 50%;
+
+    background:
+        var(--red);
+
+    box-shadow:
+        0 0 10px
+        rgba(155, 56, 51, .7);
+
+    animation:
+        statusPulse
+        2s
+        infinite;
+
+}
+
+
+/* =========================================
+   05. CHARACTER
+========================================= */
+
+.character-area {
+
+    position: absolute;
+
+    z-index: 4;
+
+    left: 50%;
+
+    bottom: -5%;
+
+    transform:
+        translateX(-50%);
+
+    width:
+        min(650px, 75vw);
+
+    height: 85vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-end;
+
+}
+
+
+.character {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    object-position:
+        center bottom;
+
+    filter:
+        brightness(.62)
+        contrast(1.08)
+        saturate(.75);
+
+    opacity: 0;
+
+    animation:
+
+        characterAppear
+        1.5s
+        .3s
+        ease
+        forwards,
+
+        characterIdle
+        6s
+        1.8s
+        ease-in-out
+        infinite;
+
+}
+
+
+.character-glow {
+
+    position: absolute;
+
+    z-index: 1;
+
+    bottom: 5%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 80%;
+
+    height: 70%;
+
+    background:
+
+        radial-gradient(
+            ellipse,
+            rgba(155, 56, 51, .2),
+            transparent 65%
+        );
+
+    filter:
+        blur(40px);
+
+    animation:
+        glowPulse
+        5s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================
+   06. INTRO
+========================================= */
+
+.intro {
+
+    position: absolute;
+
+    z-index: 8;
+
+    left: 7vw;
+
+    top: 25vh;
+
+    width: 350px;
+
+    animation:
+        introAppear
+        1.2s
+        .5s
+        ease
+        both;
+
+}
+
+
+.intro-small {
+
+    font-size: 8px;
+
+    letter-spacing: 5px;
+
+    color:
+        #847872;
+
+    margin-bottom: 15px;
+
+}
+
+
+.intro h1 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(48px, 6vw, 76px);
+
+    font-weight: 400;
+
+    line-height: .9;
+
+}
+
+
+.intro p {
+
+    margin-top: 18px;
+
+    font-size: 10px;
+
+    line-height: 1.8;
+
+    color:
+        #817671;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================================
+   07. WORLD MENU
+========================================= */
+
+.world-menu {
+
+    position: absolute;
+
+    z-index: 12;
+
+    right:
+        clamp(30px, 7vw, 100px);
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    width:
+        min(360px, 38vw);
+
+    height:
+        min(330px, 52vh);
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================
+   LOCK WINDOW
+========================================= */
+
+.lock-window {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    overflow: hidden;
+
+    touch-action:
+        pan-y;
+
+}
+
+
+/* =========================================
+   LOCK LIST
+========================================= */
+
+.lock-list {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    transition:
+        transform .38s
+        cubic-bezier(
+            .22,
+            .8,
+            .22,
+            1
+        );
+
+}
+
+
+/* =========================================
+   LOCK ITEM
+========================================= */
+
+.lock-item {
+
+    position: relative;
+
+    width: 92%;
+
+    height: 68px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    padding: 10px 16px;
+
+    border:
+        1px solid transparent;
+
+    background:
+        transparent;
+
+    color:
+        var(--text);
+
+    text-align: left;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    cursor: pointer;
+
+    opacity: .18;
+
+    transform:
+        scale(.86);
+
+    transition:
+
+        opacity .3s ease,
+        transform .3s ease,
+        background .3s ease,
+        border-color .3s ease;
+
+    -webkit-tap-highlight-color:
+        transparent;
+
+}
+
+
+/* =========================================
+   ACTIVE ITEM
+========================================= */
+
+.lock-item.active {
+
+    opacity: 1;
+
+    transform:
+        scale(1);
+
+    border-color:
+        rgba(220, 200, 190, .28);
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(155, 56, 51, .10),
+            transparent
+        );
+
+}
+
+
+/* =========================================
+   ACTIVE LINE
+========================================= */
+
+.lock-item.active::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: -1px;
+
+    top: 50%;
+
+    width: 2px;
+
+    height: 32px;
+
+    transform:
+        translateY(-50%);
+
+    background:
+        rgba(238, 232, 223, .75);
+
+    box-shadow:
+        0 0 12px
+        rgba(155, 56, 51, .45);
+
+}
+
+
+/* =========================================
+   NUMBER
+========================================= */
+
+.lock-item .number {
+
+    width: 35px;
+
+    flex-shrink: 0;
+
+    color:
+        rgba(255,255,255,.38);
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* =========================================
+   INFO
+========================================= */
+
+.menu-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+}
+
+
+/* =========================================
+   NAME
+========================================= */
+
+.lock-item .menu-name {
+
+    display: block;
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    letter-spacing: 4px;
+
+    color:
+        rgba(238,232,223,.95);
+
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.lock-item .menu-description {
+
+    display: block;
+
+    font-size: 7px;
+
+    letter-spacing: 1.5px;
+
+    color:
+        rgba(141,129,123,.70);
+
+}
+
+
+/* =========================================
+   INACTIVE
+========================================= */
+
+.lock-item:not(.active)
+.menu-name {
+
+    color:
+        rgba(238,232,223,.45);
+
+}
+
+
+.lock-item:not(.active)
+.menu-description {
+
+    color:
+        rgba(141,129,123,.35);
+
+}
+
+
+/* =========================================
+   SECRET
+========================================= */
+
+.lock-item.secret {
+
+    opacity: .12;
+
+}
+
+
+/* =========================================
+   UNKNOWN GOLD ACTIVE
+========================================= */
+
+.lock-item.secret.active {
+
+    opacity: 1;
+
+    border-color:
+        rgba(210,170,80,.35);
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(180,140,45,.14),
+            transparent
+        );
+
+}
+
+
+.lock-item.secret.active .menu-name {
+
+    color:
+        var(--gold);
+
+    text-shadow:
+        0 0 12px
+        rgba(210,170,80,.35);
+
+}
+
+
+.lock-item.secret.active .menu-description {
+
+    color:
+        rgba(220,190,120,.72);
+
+}
+
+
+.lock-item.secret.active .number {
+
+    color:
+        rgba(220,190,120,.75);
+
+}
+
+
+.lock-item.secret.active::before {
+
+    background:
+        var(--gold);
+
+    box-shadow:
+        0 0 12px
+        rgba(210,170,80,.55);
+
+}
+
+
+/* =========================================
+   TOP / BOTTOM FADE
+========================================= */
+
+.lock-window::before,
+.lock-window::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 65px;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+}
+
+
+/* TOP */
+
+.lock-window::before {
+
+    top: 0;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            #050505 0%,
+            rgba(5,5,5,.75) 35%,
+            transparent 100%
+        );
+
+}
+
+
+/* BOTTOM */
+
+.lock-window::after {
+
+    bottom: 0;
+
+    background:
+
+        linear-gradient(
+            to top,
+            #050505 0%,
+            rgba(5,5,5,.75) 35%,
+            transparent 100%
+        );
+
+}
+
+
+/* =========================================
+   08. INDICATOR
+========================================= */
+
+.lock-indicator {
+
+    position: absolute;
+
+    z-index: 15;
+
+    right: 0;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 7px;
+
+    pointer-events: none;
+
+}
+
+
+.lock-indicator span {
+
+    width: 3px;
+
+    height: 3px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(238,232,223,.2);
+
+}
+
+
+.lock-indicator span.current {
+
+    width: 3px;
+
+    height: 18px;
+
+    border-radius: 2px;
+
+    background:
+        rgba(238,232,223,.8);
+
+    box-shadow:
+        0 0 10px
+        rgba(155,56,51,.5);
+
+}
+
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+.back-button {
+
+    position: absolute;
+
+    z-index: 15;
+
+    left: 7vw;
+
+    bottom: 35px;
+
+    color:
+        #756a65;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    text-decoration: none;
+
+    transition: .3s ease;
+
+}
+
+
+.back-button:hover {
+
+    color:
+        #eee8df;
+
+    transform:
+        translateX(4px);
+
+}
+
+
+/* =========================================
+   09. SECTION OVERLAY
+========================================= */
+
+.section-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(3,3,3,.94);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        scale(1.03);
+
+    transition:
+        .5s ease;
+
+    overflow-y: auto;
+
+}
+
+
+.section-overlay.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        scale(1);
+
+}
+
+
+/* =========================================
+   SECTION POPUP
+========================================= */
+
+.section-popup {
+
+    position: relative;
+
+    width:
+        min(600px, 92vw);
+
+    max-height:
+        88vh;
+
+    overflow-y: auto;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(14,10,10,.98),
+            rgba(7,7,7,.99)
+        );
+
+    border:
+        1px solid
+        rgba(220,200,190,.18);
+
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,.7);
+
+}
+
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+.close-section {
+
+    position: absolute;
+
+    top: 15px;
+
+    right: 17px;
+
+    z-index: 50;
+
+    width: 34px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color:
+        rgba(238,232,223,.65);
+
+    font-size: 27px;
+
+    font-weight: 200;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+
+}
+
+
+.close-section:hover {
+
+    color:
+        white;
+
+    transform:
+        rotate(90deg);
+
+}
+
+
+/* =========================================
+   LOADER
+========================================= */
+
+.section-loader {
+
+    min-height: 200px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+}
+
+
+.section-loader span {
+
+    width: 18px;
+
+    height: 18px;
+
+    border:
+        1px solid
+        rgba(238,232,223,.2);
+
+    border-top-color:
+        var(--red);
+
+    border-radius: 50%;
+
+    animation:
+        loaderSpin
+        .8s
+        linear
+        infinite;
+
+}
+
+
+.section-loader p {
+
+    font-size: 6px;
+
+    letter-spacing: 4px;
+
+    color:
+        #756a65;
+
+}
+
+
+/* =========================================
+   SECTION BODY
+========================================= */
+
+.section-body {
+
+    width: 100%;
+
+}
+
+
+/* =========================================
+   10. ANIMATIONS
+========================================= */
+
+@keyframes characterAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(40px)
+            scale(1.04);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+@keyframes characterIdle {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-8px);
+
+    }
+
+}
+
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+
+        opacity: .6;
+
+        transform:
+            translateX(-50%)
+            scale(1);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform:
+            translateX(-50%)
+            scale(1.08);
+
+    }
+
+}
+
+
+@keyframes introAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes fogMoveOne {
+
+    50% {
+
+        transform:
+            translateX(8%)
+            scale(1.1);
+
+    }
+
+}
+
+
+@keyframes fogMoveTwo {
+
+    50% {
+
+        transform:
+            translateX(-8%)
+            scale(1.1);
+
+    }
+
+}
+
+
+@keyframes particleFloat {
+
+    0% {
+
+        transform:
+            translateY(20vh);
+
+        opacity: 0;
+
+    }
+
+    15% {
+
+        opacity: .25;
+
+    }
+
+    80% {
+
+        opacity: .1;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(-100vh)
+            translateX(var(--x));
+
+        opacity: 0;
+
+    }
+
+}
+
+
+@keyframes statusPulse {
+
+    50% {
+
+        opacity: .3;
+
+        box-shadow:
+            0 0 3px
+            rgba(155,56,51,.3);
+
+    }
+
+}
+
+
+@keyframes loaderSpin {
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE CORE
+========================================= */
+
+@media (max-width: 800px) {
+
+
+    .top-bar {
+
+        top: 22px;
+
+        left: 6vw;
+
+        right: 6vw;
+
+    }
+
+
+    .world-name span {
+
+        font-size: 6px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    .world-name strong {
+
+        font-size: 9px;
+
+        letter-spacing: 2.5px;
+
+    }
+
+
+    .world-status {
+
+        font-size: 6px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .intro {
+
+        top: 14vh;
+
+        left: 6vw;
+
+        width: 280px;
+
+    }
+
+
+    .intro-small {
+
+        font-size: 7px;
+
+        letter-spacing: 4px;
+
+        margin-bottom: 12px;
+
+    }
+
+
+    .intro h1 {
+
+        font-size: 48px;
+
+        line-height: .9;
+
+    }
+
+
+    .intro p {
+
+        margin-top: 15px;
+
+        font-size: 9px;
+
+        line-height: 1.7;
+
+    }
+
+
+    .character-area {
+
+        width: 110vw;
+
+        height: 70vh;
+
+        bottom: 5%;
+
+    }
+
+
+    .world-menu {
+
+        left: 50%;
+
+        right: auto;
+
+        top: auto;
+
+        bottom: 25vh;
+
+        transform:
+            translateX(-50%);
+
+        width:
+            min(88vw, 380px);
+
+        height: 270px;
+
+    }
+
+
+    .lock-item {
+
+        width: 92%;
+
+        height: 58px;
+
+        gap: 16px;
+
+        padding: 8px 12px;
+
+    }
+
+
+    .lock-item .number {
+
+        width: 28px;
+
+        font-size: 7px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .lock-item .menu-name {
+
+        font-size: 9px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    .lock-item .menu-description {
+
+        font-size: 6px;
+
+        letter-spacing: 1px;
+
+    }
+
+
+    .menu-info {
+
+        gap: 5px;
+
+    }
+
+
+    .lock-item.active::before {
+
+        width: 2px;
+
+        height: 28px;
+
+    }
+
+
+    .lock-window::before,
+    .lock-window::after {
+
+        height: 55px;
+
+    }
+
+
+    .lock-indicator {
+
+        right: 2px;
+
+        gap: 6px;
+
+    }
+
+
+    .lock-indicator span.current {
+
+        height: 16px;
+
+    }
+
+
+    .back-button {
+
+        left: 6vw;
+
+        bottom: 25px;
+
+        font-size: 6px;
+
+        letter-spacing: 2.5px;
+
+    }
+
+
+    .section-overlay {
+
+        padding: 14px;
+
+        align-items: center;
+
+    }
+
+
+    .section-popup {
+
+        width: 100%;
+
+        max-width: 430px;
+
+        max-height: 84vh;
+
+    }
+
+
+    .close-section {
+
+        top: 10px;
+
+        right: 10px;
+
+    }
+
+}
+
+
+/* =========================================
+   VERY SMALL PHONE
+========================================= */
+
+@media (max-width: 380px) {
+
+    .section-overlay {
+
+        padding: 10px;
+
+    }
+
+
+    .section-popup {
+
+        max-height: 86vh;
+
+    }
+
+}
+
+
+/* =================================================
+   =================================================
+   CUSTOM / CONFIG AREA
+   =================================================
+
+   MULAI DARI SINI.
+
+   CORE DI ATAS TIDAK PERLU DIGANTI.
+
+   Kalau nanti ada perubahan konsep:
+   tambahkan CSS baru DI BAWAH sini.
+
+   =================================================
+================================================= */
+
+
+/*
+   Contoh:
+
+   .lock-item[data-section="lore"].active {
+       ...
+   }
+
+*/
+
+
+/* =========================================
+   CUSTOM PROFILE
+========================================= */
+
+/*
+   CSS Profile nantinya berada di:
+
+   assets/profile/profile.css
+
+*/
+
+
+/* =========================================
+   CUSTOM LORE
+========================================= */
+
+/*
+   CSS Lore nantinya berada di:
+
+   assets/lore/lore.css
+
+*/
+
+
+/* =========================================
+   CUSTOM UNKNOWN
+========================================= */
+
+/*
+   CSS Unknown nantinya berada di:
+
+   assets/unknown/unknown.css
+
+*/
