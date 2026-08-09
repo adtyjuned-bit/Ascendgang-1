@@ -999,3 +999,72 @@
     }
 
 }
+
+/* =================================================
+   CUSTOM / IMAGE CONFIG
+   ================================================= */
+
+
+/* =========================================
+   FEATURE IMAGE
+========================================= */
+
+.gallery-main-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    background:
+        #050505;
+
+    filter:
+        brightness(.72)
+        contrast(1.05)
+        saturate(.78);
+
+}
+
+
+/* =========================================
+   MOBILE FEATURE IMAGE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .gallery-main-image {
+
+        object-fit: contain;
+
+        object-position: center;
+
+    }
+
+}
+
+
+/* =========================================
+   VERY SMALL PHONE
+========================================= */
+
+@media (max-width: 380px) {
+
+    .gallery-main-image {
+
+        object-fit: contain;
+
+        object-position: center;
+
+    }
+
+}
