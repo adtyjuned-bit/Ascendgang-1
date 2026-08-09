@@ -1,0 +1,904 @@
+/* =========================================
+   NAINSAN — ACTIVITIES.CSS
+
+   SECTION 03 — ACTIVITIES
+
+   Konsep:
+   - Dark / minimal
+   - Activity monitoring
+   - Compact layout
+   - Red accent
+   - Mobile friendly
+========================================= */
+
+
+/* =========================================
+   01. CORE
+========================================= */
+
+.activities-page {
+
+    position: relative;
+
+    width: 100%;
+
+    padding:
+        42px
+        42px
+        38px;
+
+    color: #eee8df;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+}
+
+
+/* =========================================
+   02. HEADER
+========================================= */
+
+.activities-header {
+
+    padding-right: 35px;
+
+}
+
+
+.activities-number {
+
+    display: block;
+
+    margin-bottom: 16px;
+
+    font-size: 9px;
+
+    font-weight: 400;
+
+    letter-spacing: 5px;
+
+    color:
+        rgba(255,255,255,.42);
+
+}
+
+
+.activities-header h2 {
+
+    margin: 0;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        clamp(36px, 8vw, 62px);
+
+    font-weight: 500;
+
+    line-height: .95;
+
+    letter-spacing: 2px;
+
+    color:
+        #f3eee8;
+
+}
+
+
+.activities-header p {
+
+    margin:
+        12px
+        0
+        0;
+
+    font-size: 11px;
+
+    font-weight: 300;
+
+    line-height: 1.6;
+
+    color:
+        rgba(255,255,255,.55);
+
+}
+
+
+/* =========================================
+   03. STATUS
+========================================= */
+
+.activities-status {
+
+    margin-top: 28px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 11px;
+
+}
+
+
+.activity-status-line {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+}
+
+
+.status-label {
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(255,255,255,.32);
+
+}
+
+
+.status-value {
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(255,255,255,.65);
+
+}
+
+
+.activity-status-line:first-child
+.status-value {
+
+    color:
+        #b95750;
+
+}
+
+
+/* =========================================
+   04. DIVIDER
+========================================= */
+
+.activities-line {
+
+    width: 100%;
+
+    height: 1px;
+
+    margin:
+        25px
+        0
+        28px;
+
+    background:
+        rgba(255,255,255,.11);
+
+}
+
+
+/* =========================================
+   05. FEATURE
+========================================= */
+
+.activity-feature {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        90px
+        1fr;
+
+    gap: 20px;
+
+    padding:
+        20px
+        18px;
+
+    border:
+        1px solid
+        rgba(155,56,51,.25);
+
+    background:
+
+        linear-gradient(
+            120deg,
+            rgba(155,56,51,.08),
+            transparent 70%
+        );
+
+    overflow: hidden;
+
+}
+
+
+.activity-feature::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 2px;
+
+    height: 100%;
+
+    background:
+        #9b3833;
+
+    box-shadow:
+        0 0 14px
+        rgba(155,56,51,.45);
+
+}
+
+
+.feature-label {
+
+    padding-top: 3px;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(255,255,255,.35);
+
+}
+
+
+.feature-content {
+
+    min-width: 0;
+
+}
+
+
+.feature-status {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    color:
+        #b95750;
+
+}
+
+
+.feature-content h3 {
+
+    margin: 0;
+
+    font-size: 13px;
+
+    font-weight: 400;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(238,232,223,.92);
+
+}
+
+
+.feature-content p {
+
+    margin:
+        10px
+        0
+        0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 16px;
+
+    line-height: 1.45;
+
+    color:
+        rgba(255,255,255,.50);
+
+}
+
+
+/* =========================================
+   06. ACTIVITY LIST
+========================================= */
+
+.activity-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    margin-top: 22px;
+
+}
+
+
+.activity-item {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        34px
+        1fr
+        auto;
+
+    align-items: start;
+
+    gap: 16px;
+
+    padding:
+        18px
+        4px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
+
+    transition:
+        background .3s ease,
+        padding-left .3s ease;
+
+}
+
+
+.activity-item:first-child {
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+}
+
+
+.activity-item:hover {
+
+    padding-left: 9px;
+
+    background:
+        rgba(155,56,51,.035);
+
+}
+
+
+/* =========================================
+   07. INDEX
+========================================= */
+
+.activity-index {
+
+    padding-top: 2px;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(255,255,255,.25);
+
+}
+
+
+/* =========================================
+   08. INFO
+========================================= */
+
+.activity-info {
+
+    min-width: 0;
+
+}
+
+
+.activity-type {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 6px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(255,255,255,.30);
+
+}
+
+
+.activity-info h3 {
+
+    margin: 0;
+
+    font-size: 10px;
+
+    font-weight: 400;
+
+    line-height: 1.4;
+
+    letter-spacing: 2.5px;
+
+    color:
+        rgba(238,232,223,.86);
+
+}
+
+
+.activity-info p {
+
+    margin:
+        7px
+        0
+        0;
+
+    font-size: 8px;
+
+    line-height: 1.6;
+
+    color:
+        rgba(255,255,255,.38);
+
+}
+
+
+/* =========================================
+   09. STATE
+========================================= */
+
+.activity-state {
+
+    padding-top: 2px;
+
+    font-size: 6px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(255,255,255,.30);
+
+    white-space: nowrap;
+
+}
+
+
+.activity-item:nth-child(1)
+.activity-state {
+
+    color:
+        #9b3833;
+
+}
+
+
+.activity-item:nth-child(2)
+.activity-state {
+
+    color:
+        rgba(185,87,80,.75);
+
+}
+
+
+/* =========================================
+   10. NOTE
+========================================= */
+
+.activities-note {
+
+    margin-top: 25px;
+
+    padding-top: 18px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+}
+
+
+.activities-note > span {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(255,255,255,.28);
+
+}
+
+
+.activities-note p {
+
+    margin: 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 15px;
+
+    line-height: 1.4;
+
+    color:
+        rgba(255,255,255,.40);
+
+}
+
+
+/* =========================================
+   11. REVEAL
+========================================= */
+
+[data-reveal] {
+
+    opacity: 0;
+
+    transform:
+        translateY(14px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+
+}
+
+
+[data-reveal].revealed {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================================
+   12. CURRENT
+========================================= */
+
+.activity-feature.current {
+
+    box-shadow:
+        inset 0 0 35px
+        rgba(155,56,51,.025);
+
+}
+
+
+.activity-item.current {
+
+    background:
+        rgba(155,56,51,.04);
+
+}
+
+
+/* =========================================
+   13. HOVER
+========================================= */
+
+.activity-item.hovered {
+
+    background:
+        rgba(155,56,51,.04);
+
+}
+
+
+/* =========================================
+   14. PROGRESS
+========================================= */
+
+.lore-progress {
+
+    display: none;
+
+}
+
+
+/* =========================================
+   15. REDUCED MOTION
+========================================= */
+
+.reduced-motion *,
+.reduced-motion *::before,
+.reduced-motion *::after {
+
+    animation-duration:
+        0.01ms !important;
+
+    animation-iteration-count:
+        1 !important;
+
+    transition-duration:
+        0.01ms !important;
+
+}
+
+
+/* =========================================
+   16. MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .activities-page {
+
+        padding:
+            30px
+            25px
+            28px;
+
+    }
+
+
+    .activities-header {
+
+        padding-right: 28px;
+
+    }
+
+
+    .activities-number {
+
+        margin-bottom: 13px;
+
+        font-size: 8px;
+
+        letter-spacing: 4px;
+
+    }
+
+
+    .activities-header h2 {
+
+        font-size: 42px;
+
+        letter-spacing: 1px;
+
+    }
+
+
+    .activities-header p {
+
+        margin-top: 9px;
+
+        font-size: 10px;
+
+    }
+
+
+    .activities-status {
+
+        margin-top: 22px;
+
+        gap: 9px;
+
+    }
+
+
+    .status-label,
+    .status-value {
+
+        font-size: 7px;
+
+    }
+
+
+    .activities-line {
+
+        margin:
+            20px
+            0
+            22px;
+
+    }
+
+
+    .activity-feature {
+
+        grid-template-columns:
+            70px
+            1fr;
+
+        gap: 14px;
+
+        padding:
+            17px
+            14px;
+
+    }
+
+
+    .feature-label {
+
+        font-size: 6px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .feature-status {
+
+        font-size: 6px;
+
+    }
+
+
+    .feature-content h3 {
+
+        font-size: 10px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .feature-content p {
+
+        font-size: 15px;
+
+    }
+
+
+    .activity-item {
+
+        grid-template-columns:
+            27px
+            1fr;
+
+        gap: 12px;
+
+        padding:
+            16px
+            2px;
+
+    }
+
+
+    .activity-state {
+
+        grid-column: 2;
+
+        padding-top: 0;
+
+        margin-top: -5px;
+
+        font-size: 6px;
+
+    }
+
+
+    .activity-info h3 {
+
+        font-size: 9px;
+
+        letter-spacing: 2px;
+
+    }
+
+
+    .activity-info p {
+
+        font-size: 7px;
+
+        line-height: 1.55;
+
+    }
+
+
+    .activities-note {
+
+        margin-top: 21px;
+
+        padding-top: 16px;
+
+    }
+
+
+    .activities-note p {
+
+        font-size: 14px;
+
+    }
+
+}
+
+
+/* =========================================
+   17. SMALL PHONE
+========================================= */
+
+@media (max-width: 380px) {
+
+    .activities-page {
+
+        padding:
+            26px
+            20px
+            24px;
+
+    }
+
+
+    .activities-header h2 {
+
+        font-size: 36px;
+
+    }
+
+
+    .activity-feature {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 8px;
+
+    }
+
+
+    .feature-label {
+
+        padding: 0;
+
+    }
+
+
+    .activity-item {
+
+        gap: 9px;
+
+    }
+
+
+    .activity-info h3 {
+
+        font-size: 8px;
+
+    }
+
+
+    .activity-info p {
+
+        font-size: 7px;
+
+    }
+
+  }
