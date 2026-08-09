@@ -672,12 +672,22 @@ body {
 
     background:
 
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(155, 56, 51, .10),
-            transparent
-        );
+    linear-gradient(
+        90deg,
+        rgba(8, 6, 6, .82),
+        rgba(18, 11, 11, .76),
+        rgba(8, 6, 6, .82)
+    );
+
+backdrop-filter:
+    blur(7px);
+
+-webkit-backdrop-filter:
+    blur(7px);
+
+box-shadow:
+    0 10px 30px
+    rgba(0, 0, 0, .30);
 
 }
 
