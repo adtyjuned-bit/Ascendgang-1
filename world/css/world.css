@@ -598,7 +598,7 @@ body {
             220,
             200,
             190,
-            .12
+            .55
         );
 
     background:
@@ -609,7 +609,7 @@ body {
                 155,
                 56,
                 51,
-                .95
+                .100
             ),
             transparent
         );
@@ -810,7 +810,7 @@ body {
             to bottom,
             #050505 5%,
             rgba(5,5,5,.8) 35%,
-            transparent 100%
+            transparent 10%
         );
 
 }
@@ -827,7 +827,7 @@ body {
             to top,
             #050505 5%,
             rgba(5,5,5,.8) 35%,
-            transparent 100%
+            transparent 10%
         );
 
 }
