@@ -1,0 +1,967 @@
+/* =========================================
+   NAINSAN — PROFILE.CSS
+
+   SECTION STYLE ONLY
+
+   File ini dimuat ke dalam:
+   .section-body
+
+   PENTING:
+   Jangan styling:
+   .section-overlay
+   .section-popup
+   .close-section
+
+   Semua itu milik WORLD CORE.
+========================================= */
+
+
+/* =========================================
+   01. PROFILE CORE
+========================================= */
+
+.profile-page {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100%;
+
+    padding:
+        42px
+        42px
+        30px;
+
+    overflow: hidden;
+
+    color: #eee8df;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(155, 56, 51, .08),
+            transparent 30%
+        );
+
+}
+
+
+/* =========================================
+   02. SUBTLE GLOW
+========================================= */
+
+.profile-page::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    top: -100px;
+
+    right: -80px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(155, 56, 51, .10);
+
+    filter:
+        blur(60px);
+
+    pointer-events: none;
+
+}
+
+
+.profile-page::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 100%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(155, 56, 51, .35),
+            transparent
+        );
+
+}
+
+
+/* =========================================
+   03. HEADER
+========================================= */
+
+.profile-header {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        auto;
+
+    gap: 18px;
+
+}
+
+
+/* =========================================
+   INDEX
+========================================= */
+
+.profile-index {
+
+    grid-column:
+        1 / -1;
+
+    font-size: 8px;
+
+    font-weight: 400;
+
+    letter-spacing: 5px;
+
+    color:
+        rgba(238, 232, 223, .42);
+
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.profile-title-wrap h1 {
+
+    margin: 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(54px, 9vw, 76px);
+
+    font-weight: 500;
+
+    line-height: .78;
+
+    letter-spacing:
+        2px;
+
+    color:
+        #f1ebe4;
+
+}
+
+
+.profile-title-wrap p {
+
+    max-width: 280px;
+
+    margin:
+        15px
+        0
+        0;
+
+    font-size: 9px;
+
+    font-weight: 300;
+
+    line-height: 1.7;
+
+    letter-spacing:
+        1px;
+
+    color:
+        rgba(238, 232, 223, .48);
+
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.profile-status {
+
+    align-self:
+        end;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding-bottom: 4px;
+
+    font-size: 7px;
+
+    letter-spacing:
+        3px;
+
+    color:
+        rgba(238, 232, 223, .38);
+
+}
+
+
+.profile-status-dot {
+
+    width: 5px;
+
+    height: 5px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        #9b3833;
+
+    box-shadow:
+        0 0 10px
+        rgba(155, 56, 51, .65);
+
+    animation:
+        profileStatusPulse
+        2s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================
+   04. DIVIDER
+========================================= */
+
+.profile-line {
+
+    width: 100%;
+
+    height: 1px;
+
+    margin:
+        28px
+        0;
+
+    background:
+        rgba(220, 200, 190, .12);
+
+}
+
+
+/* =========================================
+   05. SECTION
+========================================= */
+
+.profile-section {
+
+    position: relative;
+
+    margin-bottom:
+        28px;
+
+}
+
+
+/* =========================================
+   SECTION LABEL
+========================================= */
+
+.profile-section-label {
+
+    margin-bottom:
+        17px;
+
+    font-size: 7px;
+
+    font-weight: 400;
+
+    letter-spacing:
+        4px;
+
+    color:
+        rgba(238, 232, 223, .32);
+
+}
+
+
+/* =========================================
+   06. DETAILS
+========================================= */
+
+.profile-details {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+
+}
+
+
+.profile-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    min-height:
+        22px;
+
+}
+
+
+.profile-label {
+
+    flex-shrink: 0;
+
+    font-size: 7px;
+
+    letter-spacing:
+        3px;
+
+    color:
+        rgba(238, 232, 223, .30);
+
+}
+
+
+.profile-value {
+
+    max-width: 65%;
+
+    font-size: 9px;
+
+    font-weight: 300;
+
+    line-height: 1.4;
+
+    letter-spacing:
+        1.5px;
+
+    text-align: right;
+
+    color:
+        rgba(238, 232, 223, .72);
+
+}
+
+
+.profile-online {
+
+    color:
+        #b95750;
+
+}
+
+
+/* =========================================
+   07. ABOUT
+========================================= */
+
+.profile-copy {
+
+    padding-left:
+        17px;
+
+    border-left:
+        1px solid
+        rgba(155, 56, 51, .55);
+
+}
+
+
+.profile-copy p {
+
+    margin:
+        0 0 12px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        17px;
+
+    font-weight: 400;
+
+    line-height: 1.4;
+
+    color:
+        rgba(238, 232, 223, .62);
+
+}
+
+
+.profile-copy p:last-child {
+
+    margin-bottom:
+        0;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        8px;
+
+    line-height: 1.7;
+
+    letter-spacing:
+        .5px;
+
+    color:
+        rgba(238, 232, 223, .38);
+
+}
+
+
+/* =========================================
+   08. PHILOSOPHY
+========================================= */
+
+.profile-philosophy {
+
+    margin-top:
+        4px;
+
+    padding:
+        20px
+        18px;
+
+    border:
+        1px solid
+        rgba(220, 200, 190, .10);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(155, 56, 51, .07),
+            transparent
+        );
+
+}
+
+
+.profile-philosophy-content {
+
+    position: relative;
+
+    padding-left:
+        20px;
+
+    border-left:
+        1px solid
+        rgba(155, 56, 51, .65);
+
+}
+
+
+.profile-quote-mark {
+
+    position: absolute;
+
+    left:
+        -3px;
+
+    top:
+        -11px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        27px;
+
+    line-height:
+        1;
+
+    color:
+        #9b3833;
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+.profile-philosophy-content p {
+
+    margin: 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        19px;
+
+    font-weight: 400;
+
+    line-height:
+        1.3;
+
+    color:
+        rgba(238, 232, 223, .62);
+
+}
+
+
+/* =========================================
+   09. FOOTER
+========================================= */
+
+.profile-footer {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding-top:
+        2px;
+
+    font-size: 6px;
+
+    letter-spacing:
+        3px;
+
+    color:
+        rgba(238, 232, 223, .24);
+
+}
+
+
+.profile-footer-line {
+
+    width: 30px;
+
+    height: 1px;
+
+    background:
+        rgba(238, 232, 223, .14);
+
+}
+
+
+/* =========================================
+   10. ENTRY ANIMATION
+========================================= */
+
+.profile-page .profile-header,
+.profile-page .profile-section,
+.profile-page .profile-footer {
+
+    opacity: 0;
+
+    transform:
+        translateY(12px);
+
+    animation:
+        profileReveal
+        .6s
+        ease
+        forwards;
+
+}
+
+
+.profile-page .profile-header {
+
+    animation-delay:
+        .05s;
+
+}
+
+
+.profile-page .profile-section:nth-of-type(1) {
+
+    animation-delay:
+        .15s;
+
+}
+
+
+.profile-page .profile-section:nth-of-type(2) {
+
+    animation-delay:
+        .25s;
+
+}
+
+
+.profile-page .profile-section:nth-of-type(3) {
+
+    animation-delay:
+        .35s;
+
+}
+
+
+.profile-page .profile-footer {
+
+    animation-delay:
+        .45s;
+
+}
+
+
+/* =========================================
+   11. ANIMATIONS
+========================================= */
+
+@keyframes profileReveal {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes profileStatusPulse {
+
+    0%,
+    100% {
+
+        opacity: 1;
+
+        box-shadow:
+            0 0 10px
+            rgba(155, 56, 51, .65);
+
+    }
+
+    50% {
+
+        opacity: .35;
+
+        box-shadow:
+            0 0 3px
+            rgba(155, 56, 51, .25);
+
+    }
+
+}
+
+
+/* =========================================
+   12. MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .profile-page {
+
+        padding:
+            34px
+            24px
+            26px;
+
+    }
+
+
+    .profile-index {
+
+        font-size: 7px;
+
+        letter-spacing:
+            4px;
+
+    }
+
+
+    .profile-title-wrap h1 {
+
+        font-size:
+            clamp(48px, 16vw, 65px);
+
+        letter-spacing:
+            1px;
+
+    }
+
+
+    .profile-title-wrap p {
+
+        max-width:
+            220px;
+
+        margin-top:
+            12px;
+
+        font-size:
+            8px;
+
+        line-height:
+            1.6;
+
+    }
+
+
+    .profile-status {
+
+        font-size:
+            6px;
+
+        letter-spacing:
+            2px;
+
+    }
+
+
+    .profile-line {
+
+        margin:
+            24px
+            0;
+
+    }
+
+
+    .profile-section {
+
+        margin-bottom:
+            24px;
+
+    }
+
+
+    .profile-section-label {
+
+        margin-bottom:
+            14px;
+
+        font-size:
+            6px;
+
+        letter-spacing:
+            3px;
+
+    }
+
+
+    .profile-details {
+
+        gap:
+            11px;
+
+    }
+
+
+    .profile-row {
+
+        gap:
+            12px;
+
+    }
+
+
+    .profile-label {
+
+        font-size:
+            6px;
+
+        letter-spacing:
+            2.5px;
+
+    }
+
+
+    .profile-value {
+
+        max-width:
+            62%;
+
+        font-size:
+            8px;
+
+        letter-spacing:
+            1px;
+
+    }
+
+
+    .profile-copy {
+
+        padding-left:
+            14px;
+
+    }
+
+
+    .profile-copy p {
+
+        font-size:
+            16px;
+
+        line-height:
+            1.35;
+
+    }
+
+
+    .profile-copy p:last-child {
+
+        font-size:
+            7px;
+
+        line-height:
+            1.65;
+
+    }
+
+
+    .profile-philosophy {
+
+        padding:
+            17px
+            15px;
+
+    }
+
+
+    .profile-philosophy-content {
+
+        padding-left:
+            17px;
+
+    }
+
+
+    .profile-philosophy-content p {
+
+        font-size:
+            17px;
+
+    }
+
+
+    .profile-footer {
+
+        font-size:
+            5px;
+
+        letter-spacing:
+            2.5px;
+
+    }
+
+}
+
+
+/* =========================================
+   13. VERY SMALL PHONE
+========================================= */
+
+@media (max-width: 380px) {
+
+    .profile-page {
+
+        padding:
+            30px
+            19px
+            22px;
+
+    }
+
+
+    .profile-title-wrap h1 {
+
+        font-size:
+            44px;
+
+    }
+
+
+    .profile-title-wrap p {
+
+        font-size:
+            7px;
+
+    }
+
+
+    .profile-status {
+
+        font-size:
+            5px;
+
+    }
+
+
+    .profile-line {
+
+        margin:
+            20px
+            0;
+
+    }
+
+
+    .profile-section {
+
+        margin-bottom:
+            20px;
+
+    }
+
+
+    .profile-copy p {
+
+        font-size:
+            15px;
+
+    }
+
+
+    .profile-philosophy-content p {
+
+        font-size:
+            16px;
+
+    }
+
+}
+
+
+/* =========================================
+   END PROFILE.CSS
+========================================= */
