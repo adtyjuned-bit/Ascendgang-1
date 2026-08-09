@@ -598,7 +598,7 @@ body {
             220,
             200,
             190,
-            .55
+            .15
         );
 
     background:
@@ -652,7 +652,7 @@ body {
             155,
             56,
             51,
-            .5
+            .45
         );
 
 }
@@ -809,8 +809,8 @@ body {
         linear-gradient(
             to bottom,
             #050505 5%,
-            rgba(5,5,5,.8) 35%,
-            transparent 10%
+            rgba(5,5,5,.8) 70%,
+            transparent 50%
         );
 
 }
@@ -826,8 +826,8 @@ body {
         linear-gradient(
             to top,
             #050505 5%,
-            rgba(5,5,5,.8) 35%,
-            transparent 10%
+            rgba(5,5,5,.8) 70%,
+            transparent 50%
         );
 
 }
