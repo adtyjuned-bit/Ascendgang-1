@@ -1848,7 +1848,7 @@ box-shadow:
 
     .lock-item:not(.active) {
 
-        opacity: .38;
+        opacity: .50;
 
     }
 
