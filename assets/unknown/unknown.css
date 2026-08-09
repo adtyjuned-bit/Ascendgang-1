@@ -1,0 +1,1228 @@
+/* =========================================
+   NAINSAN — UNKNOWN.CSS
+
+   SECTION 06 — UNKNOWN
+
+   Konsep:
+   Hidden room / corrupted signal /
+   unidentified space
+
+   Struktur:
+   01. CORE
+   02. BACKGROUND
+   03. HEADER
+   04. CONTENT
+   05. SIGNAL
+   06. TITLE
+   07. SYSTEM
+   08. BUTTON
+   09. FOOTER
+   10. REVEAL
+   11. ANIMATION
+   12. RESPONSIVE
+========================================= */
+
+
+/* =========================================
+   01. CORE
+========================================= */
+
+.unknown-page {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100%;
+
+    min-height: 560px;
+
+    padding:
+        38px
+        42px
+        32px;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            ellipse at 50% 45%,
+            rgba(155, 56, 51, .11),
+            transparent 38%
+        ),
+
+        radial-gradient(
+            ellipse at 20% 85%,
+            rgba(100, 60, 50, .045),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            145deg,
+            #100b0b,
+            #070707 55%,
+            #040404
+        );
+
+    color:
+        #eee8df;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+}
+
+
+/* =========================================
+   02. BACKGROUND
+========================================= */
+
+.unknown-page::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    opacity: .16;
+
+    background:
+
+        repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 3px,
+            rgba(255,255,255,.014) 4px
+        );
+
+}
+
+
+.unknown-page::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    opacity: .08;
+
+    background:
+
+        repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 80px,
+            rgba(155,56,51,.08) 81px,
+            transparent 82px
+        );
+
+}
+
+
+/* =========================================
+   UNKNOWN NOISE
+========================================= */
+
+.unknown-noise {
+
+    position: absolute;
+
+    inset: -30%;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    opacity: .035;
+
+    background:
+
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.7) 0,
+            rgba(255,255,255,.7) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+
+    animation:
+        unknownNoise
+        .18s
+        steps(2)
+        infinite;
+
+}
+
+
+/* =========================================
+   UNKNOWN GLOW
+========================================= */
+
+.unknown-glow {
+
+    position: absolute;
+
+    z-index: 1;
+
+    left: 50%;
+
+    top: 48%;
+
+    width: 260px;
+
+    height: 260px;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(155,56,51,.16),
+            rgba(155,56,51,.035) 42%,
+            transparent 70%
+        );
+
+    filter:
+        blur(20px);
+
+    pointer-events: none;
+
+    animation:
+        unknownPulse
+        5s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================
+   03. HEADER
+========================================= */
+
+.unknown-header {
+
+    position: relative;
+
+    z-index: 5;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+        space-between;
+
+    padding-bottom: 18px;
+
+    border-bottom:
+        1px solid
+        rgba(220,200,190,.09);
+
+}
+
+
+.unknown-index {
+
+    display: flex;
+
+    gap: 10px;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(238,232,223,.38);
+
+}
+
+
+.unknown-index span:last-child {
+
+    color:
+        rgba(155,56,51,.82);
+
+}
+
+
+.unknown-status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    font-size: 6px;
+
+    letter-spacing: 2.5px;
+
+    color:
+        rgba(155,56,51,.65);
+
+}
+
+
+.unknown-status i {
+
+    width: 5px;
+
+    height: 5px;
+
+    border-radius: 50%;
+
+    background:
+        #9b3833;
+
+    box-shadow:
+        0 0 12px
+        rgba(155,56,51,.75);
+
+    animation:
+        unknownStatus
+        1.8s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================
+   04. MAIN CONTENT
+========================================= */
+
+.unknown-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    min-height: 420px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding:
+        40px
+        20px
+        30px;
+
+}
+
+
+/* =========================================
+   05. SIGNAL
+========================================= */
+
+.unknown-signal {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    gap: 4px;
+
+    height: 24px;
+
+    margin-bottom: 22px;
+
+    opacity: .7;
+
+}
+
+
+.unknown-signal span {
+
+    display: block;
+
+    width: 2px;
+
+    height: 8px;
+
+    background:
+        rgba(155,56,51,.65);
+
+    animation:
+        signalPulse
+        1.2s
+        ease-in-out
+        infinite;
+
+}
+
+
+.unknown-signal span:nth-child(1) {
+
+    height: 6px;
+
+    animation-delay:
+        -.9s;
+
+}
+
+
+.unknown-signal span:nth-child(2) {
+
+    height: 14px;
+
+    animation-delay:
+        -.6s;
+
+}
+
+
+.unknown-signal span:nth-child(3) {
+
+    height: 22px;
+
+    animation-delay:
+        -.3s;
+
+}
+
+
+.unknown-signal span:nth-child(4) {
+
+    height: 11px;
+
+    animation-delay:
+        -.7s;
+
+}
+
+
+.unknown-signal span:nth-child(5) {
+
+    height: 17px;
+
+    animation-delay:
+        -.45s;
+
+}
+
+
+/* =========================================
+   LABEL
+========================================= */
+
+.unknown-label {
+
+    font-size: 6px;
+
+    letter-spacing: 4px;
+
+    color:
+        rgba(155,56,51,.72);
+
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.unknown-content h1 {
+
+    position: relative;
+
+    margin-top: 14px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(58px, 11vw, 92px);
+
+    font-weight: 400;
+
+    line-height: .78;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(238,232,223,.92);
+
+    text-shadow:
+        0 0 35px
+        rgba(155,56,51,.12);
+
+}
+
+
+.unknown-content h1 span {
+
+    display: inline-block;
+
+    margin-left: 5px;
+
+    color:
+        #9b3833;
+
+    animation:
+        questionGlitch
+        3s
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.unknown-message {
+
+    max-width: 300px;
+
+    margin-top: 20px;
+
+    font-size: 8px;
+
+    line-height: 1.8;
+
+    letter-spacing: 1px;
+
+    color:
+        rgba(141,129,123,.65);
+
+}
+
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.unknown-divider {
+
+    width: 110px;
+
+    height: 1px;
+
+    margin-top: 25px;
+
+    background:
+        rgba(220,200,190,.10);
+
+    position: relative;
+
+}
+
+
+.unknown-divider span {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: 20px;
+
+    height: 1px;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    background:
+        rgba(155,56,51,.75);
+
+    box-shadow:
+        0 0 10px
+        rgba(155,56,51,.45);
+
+}
+
+
+/* =========================================
+   07. SYSTEM
+========================================= */
+
+.unknown-system {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    margin-top: 23px;
+
+}
+
+
+.unknown-system > span {
+
+    font-size: 5px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(141,129,123,.35);
+
+}
+
+
+.unknown-system p {
+
+    min-height: 12px;
+
+    margin: 0;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(238,232,223,.55);
+
+}
+
+
+/* =========================================
+   08. BUTTON
+========================================= */
+
+.unknown-button {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+        space-between;
+
+    gap: 25px;
+
+    min-width: 155px;
+
+    margin-top: 24px;
+
+    padding:
+        11px
+        15px;
+
+    border:
+        1px solid
+        rgba(155,56,51,.30);
+
+    background:
+        rgba(155,56,51,.035);
+
+    color:
+        rgba(238,232,223,.70);
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 6px;
+
+    letter-spacing: 2.5px;
+
+    cursor: pointer;
+
+    transition:
+        .35s ease;
+
+}
+
+
+.unknown-button b {
+
+    font-size: 12px;
+
+    font-weight: 300;
+
+    color:
+        rgba(155,56,51,.75);
+
+    transition:
+        .35s ease;
+
+}
+
+
+.unknown-button:hover {
+
+    border-color:
+        rgba(155,56,51,.65);
+
+    background:
+        rgba(155,56,51,.09);
+
+    color:
+        #eee8df;
+
+    box-shadow:
+        0 0 25px
+        rgba(155,56,51,.08);
+
+}
+
+
+.unknown-button:hover b {
+
+    transform:
+        translateX(4px);
+
+}
+
+
+/* =========================================
+   09. FOOTER
+========================================= */
+
+.unknown-footer {
+
+    position: relative;
+
+    z-index: 5;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+        space-between;
+
+    padding-top: 16px;
+
+    border-top:
+        1px solid
+        rgba(220,200,190,.08);
+
+}
+
+
+.unknown-footer span {
+
+    font-size: 5px;
+
+    letter-spacing: 2.5px;
+
+    color:
+        rgba(141,129,123,.32);
+
+}
+
+
+.unknown-footer strong {
+
+    font-size: 6px;
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(155,56,51,.65);
+
+}
+
+
+/* =========================================
+   10. SECRET REVEAL
+========================================= */
+
+.unknown-reveal {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 50;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        rgba(3,3,3,.96);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        scale(1.04);
+
+    transition:
+        .4s ease;
+
+}
+
+
+.unknown-reveal.show {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        scale(1);
+
+}
+
+
+.unknown-reveal-inner {
+
+    width: 100%;
+
+    max-width: 330px;
+
+    padding:
+        35px
+        25px;
+
+    border:
+        1px solid
+        rgba(155,56,51,.25);
+
+    background:
+        rgba(10,7,7,.96);
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.65);
+
+}
+
+
+.unknown-reveal-inner > span {
+
+    font-size: 5px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(155,56,51,.65);
+
+}
+
+
+.unknown-reveal-inner h2 {
+
+    margin-top: 15px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 34px;
+
+    font-weight: 400;
+
+    color:
+        #eee8df;
+
+}
+
+
+.unknown-reveal-inner p {
+
+    margin-top: 12px;
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+
+    color:
+        rgba(141,129,123,.62);
+
+}
+
+
+.unknown-reveal-inner small {
+
+    display: block;
+
+    margin-top: 12px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 18px;
+
+    font-style: italic;
+
+    color:
+        rgba(155,56,51,.72);
+
+}
+
+
+.unknown-reveal-inner button {
+
+    margin-top: 25px;
+
+    padding:
+        8px
+        15px;
+
+    border:
+        1px solid
+        rgba(220,200,190,.15);
+
+    background:
+        transparent;
+
+    color:
+        rgba(238,232,223,.55);
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size: 5px;
+
+    letter-spacing: 2.5px;
+
+    cursor: pointer;
+
+    transition:
+        .3s ease;
+
+}
+
+
+.unknown-reveal-inner button:hover {
+
+    border-color:
+        rgba(155,56,51,.55);
+
+    color:
+        #eee8df;
+
+}
+
+
+/* =========================================
+   11. REVEAL ANIMATION
+========================================= */
+
+[data-reveal] {
+
+    opacity: 0;
+
+    transform:
+        translateY(14px);
+
+    transition:
+        opacity .65s ease,
+        transform .65s ease;
+
+}
+
+
+[data-reveal].revealed {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================================
+   12. ANIMATIONS
+========================================= */
+
+@keyframes unknownNoise {
+
+    0% {
+
+        transform:
+            translate(0, 0);
+
+    }
+
+    25% {
+
+        transform:
+            translate(-2%, 1%);
+
+    }
+
+    50% {
+
+        transform:
+            translate(1%, -2%);
+
+    }
+
+    75% {
+
+        transform:
+            translate(2%, 1%);
+
+    }
+
+    100% {
+
+        transform:
+            translate(0, 0);
+
+    }
+
+}
+
+
+@keyframes unknownPulse {
+
+    0%,
+    100% {
+
+        opacity: .45;
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            )
+            scale(1);
+
+    }
+
+    50% {
+
+        opacity: .8;
+
+        transform:
+            translate(
+                -50%,
+                -50%
+            )
+            scale(1.12);
+
+    }
+
+}
+
+
+@keyframes unknownStatus {
+
+    0%,
+    100% {
+
+        opacity: 1;
+
+    }
+
+    50% {
+
+        opacity: .25;
+
+    }
+
+}
+
+
+@keyframes signalPulse {
+
+    0%,
+    100% {
+
+        opacity: .25;
+
+        transform:
+            scaleY(.55);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform:
+            scaleY(1);
+
+    }
+
+}
+
+
+@keyframes questionGlitch {
+
+    0%,
+    90%,
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateX(0);
+
+    }
+
+    92% {
+
+        opacity: .35;
+
+        transform:
+            translateX(-3px);
+
+    }
+
+    94% {
+
+        opacity: 1;
+
+        transform:
+            translateX(2px);
+
+    }
+
+    96% {
+
+        opacity: .5;
+
+        transform:
+            translateX(-1px);
+
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .unknown-page {
+
+        min-height: 520px;
+
+        padding:
+            30px
+            25px
+            28px;
+
+    }
+
+
+    .unknown-content {
+
+        min-height: 390px;
+
+        padding:
+            30px
+            10px
+            25px;
+
+    }
+
+
+    .unknown-content h1 {
+
+        font-size: 62px;
+
+    }
+
+
+    .unknown-message {
+
+        max-width: 250px;
+
+        font-size: 7px;
+
+    }
+
+
+    .unknown-button {
+
+        min-width: 145px;
+
+    }
+
+}
+
+
+@media (max-width: 380px) {
+
+    .unknown-page {
+
+        min-height: 500px;
+
+        padding:
+            26px
+            20px
+            24px;
+
+    }
+
+
+    .unknown-content {
+
+        min-height: 370px;
+
+    }
+
+
+    .unknown-content h1 {
+
+        font-size: 54px;
+
+    }
+
+
+    .unknown-label {
+
+        font-size: 5px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    .unknown-message {
+
+        font-size: 6.5px;
+
+    }
+
+  }
