@@ -508,3 +508,35 @@ menuButtons.forEach((button) => {
     });
 
 });
+
+/* =========================================
+   10. SPONSOR CREDIT
+========================================= */
+
+
+/*
+   Mengambil element sponsor.
+*/
+
+const sponsorCredit =
+    document.getElementById("sponsorCredit");
+
+
+/*
+   Cek apakah sponsor tersedia.
+*/
+
+if (sponsorCredit) {
+
+    /*
+       Sponsor muncul setelah 2 detik.
+       Loading masih berjalan pada saat ini.
+    */
+
+    setTimeout(() => {
+
+        sponsorCredit.classList.add("show");
+
+    }, 2000);
+
+}
