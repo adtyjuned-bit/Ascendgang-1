@@ -239,7 +239,7 @@ function showWelcome() {
 
         showSponsors();
 
-    }, 3000);
+    }, 6000);
 
 }
 
