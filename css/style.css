@@ -492,6 +492,55 @@ body {
 
 
 /* =========================================
+   SPONSOR - LOADING SCREEN
+========================================= */
+
+.sponsor-credit {
+
+    margin-top: 18px;
+
+    text-align: left;
+
+    opacity: 0;
+
+    animation:
+        sponsorAppear
+        1s
+        ease
+        4s
+        forwards;
+}
+
+
+/* Tulisan SPONSORED BY */
+
+.sponsor-label {
+
+    color: #635b57;
+
+    font-size: 6px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 6px;
+}
+
+
+/* Nama sponsor */
+
+.sponsor-name {
+
+    color: #9c918b;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================
    TOP TEXT
 ========================================= */
 
@@ -870,6 +919,31 @@ body {
 }
 
 
+/* Sponsor */
+
+@keyframes sponsorAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(5px);
+
+    }
+
+    to {
+
+        opacity: .9;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
 /* =========================================
    MOBILE
 ========================================= */
@@ -910,7 +984,31 @@ body {
 
         top: 22px;
     }
+
+
+    .sponsor-credit {
+
+        margin-top: 15px;
+
+    }
+
+    .sponsor-label {
+
+        font-size: 5px;
+
+        letter-spacing: 2.5px;
+
+    }
+
+    .sponsor-name {
+
+        font-size: 7px;
+
+        letter-spacing: 1.5px;
+
+    }
 }
+
 
 /* =========================================
    MAIN MENU
@@ -1397,78 +1495,4 @@ body {
         transform:
             translateY(0);
     }
-}
-
-/* =========================
-   SPONSOR CREDIT
-========================= */
-
-.sponsor-credit {
-    position: absolute;
-    left: 50%;
-    bottom: 110px;
-    transform: translateX(-50%);
-
-    text-align: center;
-
-    opacity: 0;
-    visibility: hidden;
-
-    pointer-events: none;
-
-    transition:
-        opacity 1s ease,
-        transform 1s ease;
-
-    z-index: 20;
-}
-
-.sponsor-credit.show {
-    opacity: 1;
-    visibility: visible;
-
-    transform: translateX(-50%) translateY(0);
-}
-
-.sponsor-label {
-    font-family: inherit;
-
-    font-size: 9px;
-    letter-spacing: 4px;
-
-    opacity: 0.55;
-
-    margin-bottom: 8px;
-}
-
-.sponsor-name {
-    font-size: 13px;
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
-
-    opacity: 0.9;
-
-    white-space: nowrap;
-}
-
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-
-    .sponsor-credit {
-        bottom: 100px;
-    }
-
-    .sponsor-label {
-        font-size: 8px;
-        letter-spacing: 3px;
-    }
-
-    .sponsor-name {
-        font-size: 11px;
-        letter-spacing: 2px;
-    }
-
 }
