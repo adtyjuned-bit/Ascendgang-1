@@ -7,8 +7,9 @@
    2. Menjalankan loading
    3. Mengubah text loading
    4. Menampilkan Welcome Screen
-   5. Menjalankan efek kilat
-   6. Membuka Main Menu
+   5. Menampilkan Sponsor Screen
+   6. Menjalankan efek kilat
+   7. Membuka Main Menu
 ========================================= */
 
 
@@ -16,45 +17,61 @@
    1. MENGAMBIL ELEMENT HTML
 ========================================= */
 
+const dust =
+    document.getElementById("dust");
 
-/*
-   Mengambil element berdasarkan ID.
+const fill =
+    document.getElementById("fill");
 
-   Contoh:
+const pct =
+    document.getElementById("pct");
 
-   HTML:
-   <div id="dust"></div>
+const status =
+    document.getElementById("status");
 
-   JavaScript:
-   document.getElementById("dust")
-*/
+const next =
+    document.getElementById("next");
 
-const dust = document.getElementById("dust");
+const sponsorScreen =
+    document.getElementById("sponsorScreen");
 
-const fill = document.getElementById("fill");
+const sponsorList =
+    document.getElementById("sponsorList");
 
-const pct = document.getElementById("pct");
+const lightning =
+    document.getElementById("lightning");
 
-const status = document.getElementById("status");
-
-const next = document.getElementById("next");
-
-const lightning = document.getElementById("lightning");
-
-const mainMenu = document.getElementById("mainMenu");
+const mainMenu =
+    document.getElementById("mainMenu");
 
 
 /* =========================================
-   2. SETTING LOADING
+   2. DATA SPONSOR
 ========================================= */
 
 
 /*
-   Semua tulisan yang muncul
-   ketika loading berjalan.
+   TAMBAHKAN SPONSOR DI SINI.
 
-   Kamu bisa bebas mengubahnya.
+   Contoh:
+
+   "Sponsor A",
+   "Sponsor B",
+   "Sponsor C"
+
+   Tidak perlu mengubah HTML.
 */
+
+const sponsors = [
+
+    "YOUR SPONSOR"
+
+];
+
+
+/* =========================================
+   3. SETTING LOADING
+========================================= */
 
 const loadingTexts = [
 
@@ -71,293 +88,140 @@ const loadingTexts = [
 ];
 
 
-/*
-   Jumlah particle.
-
-   42 = normal
-
-   Kalau mau lebih banyak:
-   42 → 70
-
-   Kalau mau lebih sedikit:
-   42 → 20
-*/
-
 const particleAmount = 42;
 
 
 /* =========================================
-   3. MEMBUAT PARTICLE
+   4. MEMBUAT PARTICLE
 ========================================= */
 
-
-/*
-   Loop sebanyak particleAmount.
-
-   Kalau particleAmount = 42,
-   maka akan dibuat 42 particle.
-*/
-
-for (let i = 0; i < particleAmount; i++) {
-
-
-    /*
-       Membuat element <i> baru.
-    */
+for (
+    let i = 0;
+    i < particleAmount;
+    i++
+) {
 
     const particle =
         document.createElement("i");
 
-
-    /*
-       Memberikan class "dot".
-
-       CSS .dot yang menentukan
-       bentuk dan animasinya.
-    */
-
-    particle.className = "dot";
-
-
-    /*
-       Posisi horizontal random.
-
-       Contoh:
-       10%
-       50%
-       92%
-    */
+    particle.className =
+        "dot";
 
     particle.style.left =
         (Math.random() * 100) + "%";
 
-
-    /*
-       Posisi vertikal random.
-    */
-
     particle.style.top =
         (60 + Math.random() * 45) + "%";
-
-
-    /*
-       Kecepatan particle.
-
-       Semakin besar angka,
-       semakin lambat particle.
-    */
 
     particle.style.setProperty(
         "--duration",
         (7 + Math.random() * 8) + "s"
     );
 
-
-    /*
-       Membuat setiap particle
-       mulai dari waktu berbeda.
-    */
-
     particle.style.setProperty(
         "--delay",
         (-Math.random() * 12) + "s"
     );
-
-
-    /*
-       Arah pergerakan particle.
-    */
 
     particle.style.setProperty(
         "--x",
         ((Math.random() - 0.5) * 160) + "px"
     );
 
-
-    /*
-       Masukkan particle ke
-       dalam <div id="dust">
-    */
-
     dust.appendChild(particle);
 }
 
 
 /* =========================================
-   4. NILAI LOADING
+   5. NILAI LOADING
 ========================================= */
-
-
-/*
-   Nilai awal loading.
-
-   0 = belum mulai.
-*/
 
 let progress = 0;
 
 
 /* =========================================
-   5. MENJALANKAN LOADING
+   6. MENJALANKAN LOADING
 ========================================= */
 
+const loadingTimer =
+    setInterval(() => {
 
-/*
-   setInterval menjalankan kode
-   berulang kali.
-
-   170 = setiap 170 milidetik.
-*/
-
-const loadingTimer = setInterval(() => {
+        progress +=
+            Math.floor(Math.random() * 5) + 2;
 
 
-    /*
-       Menambah progress.
+        /* =====================================
+           LOADING SELESAI
+        ====================================== */
 
-       Angkanya random antara
-       +2 sampai +6.
+        if (progress >= 100) {
 
-       Jadi loading tidak terasa
-       terlalu kaku.
-    */
+            progress = 100;
 
-    progress +=
-        Math.floor(Math.random() * 5) + 2;
+            clearInterval(
+                loadingTimer
+            );
 
+            fill.style.width =
+                "100%";
 
-    /* =====================================
-       CEK APAKAH SUDAH 100%
-    ====================================== */
+            pct.textContent =
+                "100";
 
-    if (progress >= 100) {
-
-
-        /*
-           Pastikan tidak lebih dari 100.
-        */
-
-        progress = 100;
+            status.textContent =
+                loadingTexts[4];
 
 
-        /*
-           Hentikan timer loading.
-        */
+            /*
+               Tunggu 900ms
+               lalu Welcome.
+            */
 
-        clearInterval(loadingTimer);
+            setTimeout(() => {
 
+                showWelcome();
 
-        /*
-           Isi progress bar sampai penuh.
-        */
+            }, 900);
 
-        fill.style.width = "100%";
-
-
-        /*
-           Tampilkan angka 100.
-        */
-
-        pct.textContent = "100";
+            return;
+        }
 
 
-        /*
-           Text terakhir.
-        */
+        /* =====================================
+           UPDATE LOADING BAR
+        ====================================== */
+
+        fill.style.width =
+            progress + "%";
+
+
+        pct.textContent =
+            String(progress)
+                .padStart(2, "0");
+
+
+        const textIndex =
+            Math.min(
+                3,
+                Math.floor(progress / 25)
+            );
+
 
         status.textContent =
-            loadingTexts[4];
+            loadingTexts[textIndex];
 
 
-        /*
-           Tunggu 900ms.
-
-           Setelah itu Welcome Screen
-           akan muncul.
-        */
-
-        setTimeout(() => {
-
-            showWelcome();
-
-        }, 900);
-
-
-        return;
-    }
-
-
-    /* =====================================
-       UPDATE PROGRESS BAR
-    ====================================== */
-
-
-    /*
-       Mengubah panjang progress bar.
-    */
-
-    fill.style.width =
-        progress + "%";
-
-
-    /*
-       Mengubah angka progress.
-
-       5  → 05
-       25 → 25
-       80 → 80
-    */
-
-    pct.textContent =
-        String(progress).padStart(2, "0");
-
-
-    /* =====================================
-       MENGUBAH TEXT LOADING
-    ====================================== */
-
-
-    /*
-       Menentukan text berdasarkan
-       persentase loading.
-    */
-
-    const textIndex =
-        Math.min(
-            3,
-            Math.floor(progress / 25)
-        );
-
-
-    /*
-       Masukkan text ke HTML.
-    */
-
-    status.textContent =
-        loadingTexts[textIndex];
-
-
-}, 170);
+    }, 170);
 
 
 /* =========================================
-   6. WELCOME SCREEN
+   7. WELCOME SCREEN
 ========================================= */
-
-
-/*
-   Fungsi ini dipanggil ketika
-   loading sudah selesai.
-*/
 
 function showWelcome() {
 
-
     /*
-       Menampilkan Welcome Screen.
-
-       CSS .next.show akan
-       menjalankan animasinya.
+       Tampilkan Welcome.
     */
 
     next.classList.add("show");
@@ -365,106 +229,228 @@ function showWelcome() {
 
     /*
        Tunggu 3 detik.
-
-       Setelah Welcome tampil,
-       kita masuk ke efek kilat.
     */
 
     setTimeout(() => {
+
+        showSponsors();
+
+    }, 3000);
+
+}
+
+
+/* =========================================
+   8. SPONSOR SCREEN
+========================================= */
+
+function showSponsors() {
+
+    /*
+       Kalau tidak ada sponsor,
+       langsung ke lightning.
+    */
+
+    if (
+        !sponsors ||
+        sponsors.length === 0
+    ) {
 
         startLightning();
 
-    }, 3000);
-}
-
-
-/* =========================================
-   7. EFEK KILAT
-========================================= */
-
-
-/*
-   Fungsi untuk memulai
-   transisi dari Welcome
-   menuju Main Menu.
-*/
-
-function startLightning() {
+        return;
+    }
 
 
     /*
-       Menambahkan class "active".
-
-       CSS akan menjalankan
-       animasi flash.
+       Bersihkan daftar sponsor.
     */
 
-    lightning.classList.add("active");
+    sponsorList.innerHTML = "";
 
 
     /*
-       Tunggu sampai efek kilat
-       selesai.
+       Buat setiap sponsor.
+    */
+
+    sponsors.forEach((sponsor) => {
+
+        const sponsorElement =
+            document.createElement("div");
+
+        sponsorElement.className =
+            "sponsor-item";
+
+        sponsorElement.textContent =
+            sponsor;
+
+        sponsorList.appendChild(
+            sponsorElement
+        );
+
+    });
+
+
+    /*
+       Tampilkan Sponsor Screen.
+    */
+
+    sponsorScreen.classList.add(
+        "show"
+    );
+
+
+    /*
+       Ambil semua sponsor.
+    */
+
+    const sponsorItems =
+        document.querySelectorAll(
+            ".sponsor-item"
+        );
+
+
+    /*
+       Tampilkan sponsor satu per satu.
+    */
+
+    let currentSponsor = 0;
+
+
+    function showNextSponsor() {
+
+        /*
+           Semua sponsor sudah selesai.
+        */
+
+        if (
+            currentSponsor >=
+            sponsorItems.length
+        ) {
+
+            setTimeout(() => {
+
+                sponsorScreen.classList.add(
+                    "hide"
+                );
+
+
+                setTimeout(() => {
+
+                    startLightning();
+
+                }, 1000);
+
+            }, 800);
+
+            return;
+        }
+
+
+        /*
+           Tampilkan sponsor sekarang.
+        */
+
+        const current =
+            sponsorItems[currentSponsor];
+
+
+        current.classList.add(
+            "active"
+        );
+
+
+        /*
+           Setelah 2 detik,
+           tampilkan sponsor berikutnya.
+        */
+
+        currentSponsor++;
+
+
+        setTimeout(() => {
+
+            current.classList.remove(
+                "active"
+            );
+
+            current.style.opacity =
+                "0";
+
+            showNextSponsor();
+
+        }, 2000);
+
+    }
+
+
+    /*
+       Mulai sponsor setelah
+       screen muncul.
     */
 
     setTimeout(() => {
 
+        showNextSponsor();
 
-        /*
-           Sembunyikan Welcome Screen.
-        */
+    }, 700);
 
-        next.style.display = "none";
-
-
-        /*
-           Tampilkan Main Menu.
-
-           Sponsor tidak ikut ditampilkan
-           di Welcome Screen karena sponsor
-           sekarang hanya berada di Loading.
-        */
-
-        showMainMenu();
-
-
-    }, 450);
 }
 
 
 /* =========================================
-   8. MAIN MENU
+   9. EFEK KILAT
 ========================================= */
 
+function startLightning() {
 
-/*
-   Fungsi untuk membuka
-   Main Menu.
-*/
+    /*
+       Hilangkan Welcome.
+    */
 
-function showMainMenu() {
+    next.style.display =
+        "none";
 
 
     /*
-       Tambahkan class "show".
-
-       CSS .main-menu.show
-       akan menjalankan animasi.
+       Jalankan lightning.
     */
 
-    mainMenu.classList.add("show");
+    lightning.classList.add(
+        "active"
+    );
+
+
+    /*
+       Setelah efek selesai,
+       masuk Main Menu.
+    */
+
+    setTimeout(() => {
+
+        showMainMenu();
+
+    }, 450);
+
 }
 
 
 /* =========================================
-   9. MAIN MENU NAVIGATION
+   10. MAIN MENU
 ========================================= */
 
+function showMainMenu() {
 
-/*
-   Mengambil semua tombol Main Menu
-   yang mempunyai atribut data-page.
-*/
+    mainMenu.classList.add(
+        "show"
+    );
+
+}
+
+
+/* =========================================
+   11. MAIN MENU NAVIGATION
+========================================= */
 
 const menuButtons =
     document.querySelectorAll(
@@ -472,71 +458,19 @@ const menuButtons =
     );
 
 
-/*
-   Memberikan fungsi klik
-   kepada setiap tombol.
-*/
-
 menuButtons.forEach((button) => {
 
-    button.addEventListener("click", () => {
+    button.addEventListener(
+        "click",
+        () => {
 
+            const page =
+                button.dataset.page;
 
-        /*
-           Mengambil alamat halaman
-           dari data-page.
+            window.location.href =
+                page;
 
-           Contoh:
-
-           data-page="world/world.html"
-
-           akan menghasilkan:
-
-           world/world.html
-        */
-
-        const page =
-            button.dataset.page;
-
-
-        /*
-           Pindah ke halaman tersebut.
-        */
-
-        window.location.href = page;
-
-    });
+        }
+    );
 
 });
-
-/* =========================================
-   10. SPONSOR CREDIT
-========================================= */
-
-
-/*
-   Mengambil element sponsor.
-*/
-
-const sponsorCredit =
-    document.getElementById("sponsorCredit");
-
-
-/*
-   Cek apakah sponsor tersedia.
-*/
-
-if (sponsorCredit) {
-
-    /*
-       Sponsor muncul setelah 2 detik.
-       Loading masih berjalan pada saat ini.
-    */
-
-    setTimeout(() => {
-
-        sponsorCredit.classList.add("show");
-
-    }, 2000);
-
-}
