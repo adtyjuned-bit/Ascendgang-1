@@ -64,7 +64,25 @@ const mainMenu =
 
 const sponsors = [
 
-    "YOUR SPONSOR"
+    {
+        image: "assets/sponsors/sponsor1.png",
+        name: "SPONSOR ONE"
+    },
+
+    {
+        image: "assets/sponsors/sponsor2.png",
+        name: "SPONSOR TWO"
+    },
+
+    {
+        image: "assets/sponsors/sponsor3.png",
+        name: "SPONSOR THREE"
+    },
+
+    {
+        image: "assets/sponsors/sponsor4.png",
+        name: "SPONSOR FOUR"
+    }
 
 ];
 
@@ -275,21 +293,50 @@ function showSponsors() {
 
     sponsors.forEach((sponsor) => {
 
-        const sponsorElement =
-            document.createElement("div");
+    const sponsorElement =
+        document.createElement("div");
 
-        sponsorElement.className =
-            "sponsor-item";
+    sponsorElement.className =
+        "sponsor-item";
 
-        sponsorElement.textContent =
-            sponsor;
 
-        sponsorList.appendChild(
-            sponsorElement
-        );
+    const sponsorImage =
+        document.createElement("img");
 
-    });
+    sponsorImage.src =
+        sponsor.image;
 
+    sponsorImage.alt =
+        sponsor.name;
+
+    sponsorImage.className =
+        "sponsor-image";
+
+
+    const sponsorName =
+        document.createElement("div");
+
+    sponsorName.className =
+        "sponsor-item-name";
+
+    sponsorName.textContent =
+        sponsor.name;
+
+
+    sponsorElement.appendChild(
+        sponsorImage
+    );
+
+    sponsorElement.appendChild(
+        sponsorName
+    );
+
+
+    sponsorList.appendChild(
+        sponsorElement
+    );
+
+});
 
     /*
        Tampilkan Sponsor Screen.
