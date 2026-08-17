@@ -419,6 +419,10 @@ function startLightning() {
 
         /*
            Tampilkan Main Menu.
+
+           Sponsor tidak ikut ditampilkan
+           di Welcome Screen karena sponsor
+           sekarang hanya berada di Loading.
         */
 
         showMainMenu();
@@ -502,23 +506,5 @@ menuButtons.forEach((button) => {
         window.location.href = page;
 
     });
-
-});
-
-// =========================
-// SPONSOR CREDIT
-// =========================
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const sponsorCredit =
-        document.getElementById("sponsorCredit");
-
-    if (!sponsorCredit) return;
-
-    // Waktu muncul sponsor
-    setTimeout(() => {
-        sponsorCredit.classList.add("show");
-    }, 8500);
 
 });
