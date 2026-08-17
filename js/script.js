@@ -69,7 +69,7 @@ const sponsors = [
         name: "ASCEND SERVER DISCORD"
     },
    {
-        image: "file_0000000068108211ab8f774a892c211c.png",
+        image: "file_000000007ae071faa25a4345e4f7873f_1.png",
         name: "SHINE FAMILY"
     },
 
