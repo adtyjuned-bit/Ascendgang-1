@@ -505,3 +505,20 @@ menuButtons.forEach((button) => {
 
 });
 
+// =========================
+// SPONSOR CREDIT
+// =========================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const sponsorCredit =
+        document.getElementById("sponsorCredit");
+
+    if (!sponsorCredit) return;
+
+    // Waktu muncul sponsor
+    setTimeout(() => {
+        sponsorCredit.classList.add("show");
+    }, 8500);
+
+});
