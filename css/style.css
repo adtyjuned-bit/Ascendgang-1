@@ -1546,3 +1546,263 @@ body {
     }
 
 }
+
+/* =========================================
+   SPONSOR SCREEN
+========================================= */
+
+.sponsor-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 45;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #050505;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* Sponsor screen aktif */
+
+.sponsor-screen.show {
+
+    visibility: visible;
+
+    animation:
+        sponsorScreenAppear
+        1.3s
+        ease
+        forwards;
+}
+
+
+/* Isi sponsor */
+
+.sponsor-content {
+
+    text-align: center;
+
+    width: min(600px, 85vw);
+
+    transform: translateY(20px);
+
+    opacity: 0;
+}
+
+
+/* Animasi isi */
+
+.sponsor-screen.show .sponsor-content {
+
+    animation:
+        sponsorContentAppear
+        1s
+        .25s
+        ease
+        forwards;
+}
+
+
+/* Tulisan SPONSORED BY */
+
+.sponsor-label {
+
+    font-size: 8px;
+
+    letter-spacing: 6px;
+
+    color: #81746e;
+
+    margin-bottom: 30px;
+}
+
+
+/* Tempat daftar sponsor */
+
+.sponsor-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+/* Nama sponsor */
+
+.sponsor-item {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(25px, 5vw, 42px);
+
+    font-weight: 400;
+
+    letter-spacing: 3px;
+
+    color: #eee8df;
+
+    opacity: 0;
+
+    transform: translateY(15px);
+}
+
+
+/* Sponsor yang sedang tampil */
+
+.sponsor-item.active {
+
+    animation:
+        sponsorItemAppear
+        1s
+        ease
+        forwards;
+}
+
+
+/* Sponsor screen keluar */
+
+.sponsor-screen.hide {
+
+    animation:
+        sponsorScreenHide
+        1s
+        ease
+        forwards;
+}
+
+
+/* =========================================
+   SPONSOR ANIMATION
+========================================= */
+
+@keyframes sponsorScreenAppear {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+@keyframes sponsorContentAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes sponsorItemAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes sponsorScreenHide {
+
+    from {
+
+        opacity: 1;
+
+    }
+
+    to {
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .sponsor-label {
+
+        font-size: 7px;
+
+        letter-spacing: 4px;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .sponsor-list {
+
+        gap: 14px;
+
+    }
+
+
+    .sponsor-item {
+
+        letter-spacing: 2px;
+
+    }
+
+}
