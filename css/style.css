@@ -1398,3 +1398,77 @@ body {
             translateY(0);
     }
 }
+
+/* =========================
+   SPONSOR CREDIT
+========================= */
+
+.sponsor-credit {
+    position: absolute;
+    left: 50%;
+    bottom: 110px;
+    transform: translateX(-50%);
+
+    text-align: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+
+    z-index: 20;
+}
+
+.sponsor-credit.show {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateX(-50%) translateY(0);
+}
+
+.sponsor-label {
+    font-family: inherit;
+
+    font-size: 9px;
+    letter-spacing: 4px;
+
+    opacity: 0.55;
+
+    margin-bottom: 8px;
+}
+
+.sponsor-name {
+    font-size: 13px;
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    opacity: 0.9;
+
+    white-space: nowrap;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .sponsor-credit {
+        bottom: 100px;
+    }
+
+    .sponsor-label {
+        font-size: 8px;
+        letter-spacing: 3px;
+    }
+
+    .sponsor-name {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+}
