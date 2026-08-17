@@ -1496,3 +1496,53 @@ body {
             translateY(0);
     }
 }
+
+.sponsor-credit {
+    display: block !important;
+
+    margin-top: 18px;
+
+    opacity: 1 !important;
+
+    visibility: visible !important;
+
+    position: relative;
+
+    z-index: 30;
+}
+
+.sponsor-label {
+    color: #635b57;
+
+    font-size: 6px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 6px;
+}
+
+.sponsor-name {
+    color: #9c918b;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+
+    .sponsor-credit {
+        margin-top: 15px;
+    }
+
+    .sponsor-label {
+        font-size: 5px;
+    }
+
+    .sponsor-name {
+        font-size: 7px;
+    }
+
+}
