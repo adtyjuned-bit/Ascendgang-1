@@ -65,7 +65,7 @@ const mainMenu =
 const sponsors = [
 
     {
-        image: "assets/sponsors/sponsor1.png",
+        image: "file_0000000068108211ab8f774a892c211c.png",
         name: "ASCEND SERVER DISCORD"
     },
 
