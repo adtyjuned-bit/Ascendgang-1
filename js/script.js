@@ -66,23 +66,9 @@ const sponsors = [
 
     {
         image: "assets/sponsors/sponsor1.png",
-        name: "SPONSOR ONE"
+        name: "ASCEND SERVER DISCORD"
     },
 
-    {
-        image: "assets/sponsors/sponsor2.png",
-        name: "SPONSOR TWO"
-    },
-
-    {
-        image: "assets/sponsors/sponsor3.png",
-        name: "SPONSOR THREE"
-    },
-
-    {
-        image: "assets/sponsors/sponsor4.png",
-        name: "SPONSOR FOUR"
-    }
 
 ];
 
